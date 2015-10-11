@@ -3,5 +3,24 @@
 .headBannerImage {
 	height: 400px;
 	width:100%;
-	background-color: gray;
+	/*background-color: gray;*/
+	background-image: url("../img/salad-club.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bannerTextContainer {
+	background-color: teal;
+	width: 150%;
+	position: absolute;
+	top:3em;
+	left: -130px;
+	text-align: center;
+	transform: rotate(-20deg);
+}
+
+.bannerText {
+	
+	font-weight: 500;
+	color:#fff;
 }
