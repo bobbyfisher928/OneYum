@@ -1,2 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
+.headBannerImage {
+	height: 400px;
+	width:100%;
+	background-color: gray;
+}
