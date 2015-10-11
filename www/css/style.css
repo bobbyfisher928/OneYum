@@ -3,10 +3,13 @@
 .headBannerImage {
 	height: 400px;
 	width:100%;
+	position: absolute;
+	overflow: hidden;
 	/*background-color: gray;*/
 	background-image: url("../img/salad-club.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+    box-shadow: inset 0px 0px 30px 0px black;
 }
 
 .mheadBannerImage {
@@ -20,15 +23,22 @@
 
 .bannerTextContainer {
 	background-color: teal;
-	width: 150%;
+	border-radius: 0 50% 0 0;
+	height:	270px;
+	width: 270px;
 	position: absolute;
-	top:3em;
-	left: -130px;
-	text-align: center;
-	transform: rotate(-20deg);
+	top:50%;
+	box-shadow: 5px -5px 30px -4px rgba(0, 0, 0, 0.7);
 }
 
 .bannerText {
-	font-weight: 500;
+	font-weight: 700;
+	font-size: 22px;
 	color:#fff;
+}
+
+.bannerText.focus {
+	padding-top: 20px;
+	font-size: 3.5em;
+	font-weight: 700;
 }
