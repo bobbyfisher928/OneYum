@@ -49,11 +49,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('welcome.playlists', {
-      url: '/playlists',
+    .state('welcome.home', {
+      url: '/home',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
+        'homeContent': {
+          templateUrl: 'templates/home.html',
           controller: 'PlaylistsCtrl'
         }
       }
@@ -69,5 +69,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/welcome/playlists');
+  $urlRouterProvider.otherwise('/welcome/home');
 });
