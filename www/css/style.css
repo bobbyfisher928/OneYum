@@ -9,6 +9,15 @@
 	background-size: cover;
 }
 
+.mheadBannerImage {
+	height: 400px;
+	width:100%;
+	/*background-color: gray;*/
+	background-image: url("../img/salad-club.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 .bannerTextContainer {
 	background-color: teal;
 	width: 150%;
@@ -20,7 +29,6 @@
 }
 
 .bannerText {
-	
 	font-weight: 500;
 	color:#fff;
 }
