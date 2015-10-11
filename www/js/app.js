@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
+  .state('welcome.search', {
     url: '/search',
     views: {
       'menuContent': {
@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.browse', {
+  .state('welcome.browse', {
       url: '/browse',
       views: {
         'menuContent': {
@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
+    .state('welcome.playlists', {
       url: '/playlists',
       views: {
         'menuContent': {
@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.single', {
+  .state('welcome.single', {
     url: '/playlists/:playlistId',
     views: {
       'menuContent': {
@@ -69,5 +69,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/welcome/playlists');
 });
