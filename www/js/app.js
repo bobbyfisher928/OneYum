@@ -52,9 +52,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('welcome.home', {
       url: '/home',
       views: {
-        'homeContent': {
+        'menuContent': {
           templateUrl: 'templates/home.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'HomeCtrl'
         }
       }
     })
