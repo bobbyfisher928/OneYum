@@ -210,3 +210,103 @@
 	text-align: center;	
 	padding-top: 40px;
 }
+
+.pieChart {
+	height: 300px;
+	width: 100%;
+	
+}
+
+.nourishText {
+	background-color: rgba(24,72,80,0.8) ;
+	/*#184850*/
+	position: absolute;
+	z-index: 1;
+	font-size: 32px !important;
+	white-space: initial !important;
+	color:#fff;
+}
+
+.nT1 {
+	top: 20px;
+	left:0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nT2 {
+	top:120px;
+	right:0;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nT3 {
+	bottom: 10px;
+	width:100%;
+}
+
+.svg1{
+	position: absolute;
+	left:0;
+  	transform: rotate(-90deg);
+  	background: rgba(0,0,0,0);
+  	border-radius: 50%;
+}
+
+.svg2 {
+	position: absolute;
+	left:0;
+  	transform: rotate(215deg);
+  	background: rgba(0,0,0,0);
+  	border-radius: 50%;
+}
+
+.svg3 {
+	position: absolute;
+	left:0;
+  	transform: rotate(173deg);
+  	background: rgba(0,0,0,0);
+  	border-radius: 50%;
+}
+
+.svg4 {
+	position: absolute;
+	left:0;
+  	transform: rotate(85deg);
+  	background: rgba(0,0,0,0);
+  	border-radius: 50%;
+}
+
+circle.pie1 {
+  	fill: rgba(0,0,0,0);
+  	stroke: #3CA688;
+  	stroke-width: 40;
+  	stroke-dasharray: 70 300; /* for 38% */
+}
+
+circle.pie2 {
+  	fill: rgba(0,0,0,0);
+  	stroke: #F26E50;
+  	/*#F26E50*/
+  	stroke-width: 40;
+  	stroke-dasharray: 20 300; /* for 38% */
+}
+
+circle.pie3 {
+  	fill: rgba(0,0,0,0);
+  	stroke: #F2E7AE;
+  	stroke-width: 40;
+  	stroke-dasharray: 15 300; /* for 38% */
+}
+
+circle.pie4 {
+  	fill: rgba(0,0,0,0);
+  	stroke: #6C5D4A;
+  	stroke-width: 40;
+  	stroke-dasharray: 34 300; /* for 38% */
+}
