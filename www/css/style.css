@@ -229,7 +229,7 @@
 }
 
 .nT1 {
-	top: 20px;
+	top: 50px;
 	left:0;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -238,7 +238,7 @@
 }
 
 .nT2 {
-	top:120px;
+	top:153px;
 	right:0;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -247,7 +247,7 @@
 }
 
 .nT3 {
-	bottom: 10px;
+	bottom: 40px;
 	width:100%;
 }
 
