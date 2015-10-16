@@ -1,9 +1,34 @@
 /* Empty. Add your own CSS if you like */
+.text {
+	font-family:'Bitter', serif;
+}
+
+.bar.bar-stable .title {
+	color:#3CA688;
+	font-weight: 700;
+	text-align: center;
+}
+
+.highlight {
+	color:#3CA688 !important;
+}
+
+.logo {
+	font-size:1.5em;
+}
+
+.stableheader{
+	color: #184850 !important;
+}
+
+.steadybackground {
+	/*background-color: #F2E7AE !important;*/
+}
 
 .headBannerImage {
 	height: 400px;
 	width:100%;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
 	/*background-color: gray;*/
 	background-image: url("../img/salad-club.jpg");
@@ -22,7 +47,7 @@
 }
 
 .bannerTextContainer {
-	background-color: teal;
+	background-color: #3CA688;
 	border-radius: 0 50% 0 0;
 	height:	270px;
 	width: 270px;
@@ -41,4 +66,35 @@
 	padding-top: 20px;
 	font-size: 3.5em;
 	font-weight: 700;
+}
+
+.sectionHeader {
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	margin-top: 20px !important;
+	border-top: 3px solid #F26E50;
+	border-bottom: 3px solid #F26E50;
+}
+
+.stepRow {
+	width:80%;
+	margin-left:10%;
+	padding-top:2em !important;
+	vertical-align: middle;
+}
+
+.stepIcon {
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	background-color: #F2E7AE;
+	border: 10px solid #3CA688;
+}
+
+.stepDesc {
+	text-align: center;	
+	width: 170px;
+	padding-left: 10px;
+	padding-top: 35px;
 }
