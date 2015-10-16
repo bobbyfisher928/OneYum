@@ -25,25 +25,46 @@
 	/*background-color: #F2E7AE !important;*/
 }
 
-.headBannerImage {
+.headBannerImageCtn {
 	height: 400px;
 	width:100%;
 	position: relative;
 	overflow: hidden;
 	/*background-color: gray;*/
-	background-image: url("../img/salad-club.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+	
     box-shadow: inset 0px 0px 30px 0px black;
 }
 
-.mheadBannerImage {
+.img1BannerSlider {
 	height: 400px;
 	width:100%;
-	/*background-color: gray;*/
 	background-image: url("../img/salad-club.jpg");
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
+}
+
+.img2BannerSlider {
+	height: 400px;
+	width:100%;
+	background-image: url("../img/CSA-share.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.img3BannerSlider {
+	height: 400px;
+	width:100%;
+	background-image: url("../img/Clagett_Farm_CSA_Week_11.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.img4BannerSlider {
+	height: 400px;
+	width:100%;
+	background-image: url("../img/378x280xsitemgr_photo_2000320372.png.pagespeed.ic.kIu5MK48l7.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .bannerTextContainer {
@@ -52,7 +73,7 @@
 	height:	270px;
 	width: 270px;
 	position: absolute;
-	top:50%;
+	top:170px;
 	box-shadow: 5px -5px 30px -4px rgba(0, 0, 0, 0.7);
 }
 

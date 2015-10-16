@@ -4,7 +4,22 @@
 		OneYum
 	</ion-nav-title>
   <ion-content class="steadybackground">
-  	<div class="headBannerImage">
+	  	
+  	<div class='headBannerImageCtn'>
+  		<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="3000" does-continue="true" class="headBannerImageCtn">
+			  <ion-slide>
+			    <div class="img1BannerSlider"></div>
+			  </ion-slide>
+			  <ion-slide>
+			    <div class="img2BannerSlider"></div>
+			  </ion-slide>
+			  <ion-slide>
+			    <div class="img3BannerSlider"></div>
+			  </ion-slide>
+			  <ion-slide>
+			    <div class="img4BannerSlider"></div>
+			  </ion-slide>
+			</ion-slide-box>
   		<div class="bannerTextContainer padding">
   			<h1 class="bannerText text focus center-text">Helping <br> the Planet</h1>
 	  		<h4 class="bannerText text center-text">One Meal At A Time</h4>
@@ -12,7 +27,7 @@
   	</div>
 
   	<div>
-  		<h3 class="text sectionHeader stableheader padding">SIMPLE</h3>
+  		<h3 class="text sectionHeader stableheader padding"><strong>SIMPLE</strong></h3>
   		<div class="stepRow row">
 	  		<div class="col col-50">
 	  			<div class="stepIcon1">
@@ -70,7 +85,9 @@
   				<h4 class="text stepDesc">Enjoy</h4>
   			</div>
   		</div>
-  		<h3 class="text sectionHeader stableheader padding">SUSTAINABLE</h3>
+  		<h3 class="text sectionHeader stableheader padding"><strong>Nourishing</strong></h3>
+  		<h3 class="text sectionHeader stableheader padding"><strong>Sustainable</strong></h3>
+  		<h3 class="text sectionHeader stableheader padding"><strong>Committed</strong></h3>
   	</div>
   </ion-content>
 </ion-view>
