@@ -80,11 +80,13 @@
 .stepRow {
 	width:80%;
 	margin-left:10%;
-	padding-top:2em !important;
+	padding-top:1em !important;
 	vertical-align: middle;
 }
 
-.stepIcon {
+.stepIcon1 {
+	padding-top: 15px;
+	padding-left: 10px;
 	height: 120px;
 	width: 120px;
 	border-radius: 100%;
@@ -92,10 +94,54 @@
 	border: 10px solid #3CA688;
 }
 
+.stepIcon2 {
+	padding-top: 15px;
+	padding-left: 20px;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	background-color: #F2E7AE;
+	border: 10px solid #3CA688;
+}
+
+.stepIcon3 {
+	padding-top: 15px;
+	padding-left: 25px;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	background-color: #F2E7AE;
+	border: 10px solid #3CA688;
+}
+.stepIcon4 {
+	padding-top: 15px;
+	padding-left: 25px;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+	background-color: #F2E7AE;
+	border: 10px solid #3CA688;
+}
+
+.registerIcons1 {
+	color: #184850;
+	font-size: 5em;
+    width: 25%;
+}
+
+.registerIconsSmall1 {
+	color: #184850;
+	font-size: 2.2em;
+    width: 25%;
+}
+
+.registerIcons2 {
+	color: #184850;
+	font-size: 5em;
+    width: 25%;
+}
+
 .stepDesc {
 	text-align: center;	
-	width: 170px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 35px;
+	padding-top: 40px;
 }
