@@ -2,14 +2,16 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-  var screen = window.innerWidth;
+  var screen = window.innerWidth < 641;
   console.log(screen);
-
-  if (screen < 641) {
-    console.log('mobile');
-  } else {
-    console.log('larger');
-  };
+  var setClass = function() {
+    if (screen < 641) {
+      return 'mobile';
+      // console.log('mobile');
+    } else {
+      // console.log('larger');
+    };
+  }; 
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

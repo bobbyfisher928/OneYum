@@ -1,6 +1,8 @@
 /* Empty. Add your own CSS if you like */
 .text {
 	font-family:'Bitter', serif;
+	margin: 0!important;
+	padding-top: 10px;
 }
 
 .text-left {
@@ -25,6 +27,10 @@
 	color:#3CA688 !important;
 }
 
+.white {
+	color: #fff !important;
+}
+
 .logo {
 	font-size:1.5em;
 }
@@ -37,107 +43,96 @@
 	/*background-color: #F2E7AE !important;*/
 }
 
+.italic-text {
+	padding-top: 10px;
+	font-style: italic;
+}
+
+.button1 {
+	width: 60%;
+	border-radius: 8px;
+	border:none;
+	color: #fff !important;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	background-color: #3CA688;
+	box-shadow: 0 4px 8px -4px rgba(0,0,0,1);
+	margin-left:20% !important;
+}
+
 .headBannerImageCtn {
-	height: 400px;
+	height: 600px;
 	width:100%;
 	position: relative;
 	overflow: hidden;
-	/*background-color: gray;*/
-    box-shadow: inset 0px 0px 30px 0px black;
 }
 
 .img1BannerSlider {
-	height: 400px;
+	height: 250px;
 	width:100%;
 	background-image: url("../img/salad-club.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-.img2BannerSlider {
-	height: 400px;
-	width:100%;
-	background-image: url("../img/CSA-share.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+.BannerTextCtn {
+	padding: 20px;
+	position: relative;
 }
 
-.img3BannerSlider {
-	height: 400px;
-	width:100%;
-	background-image: url("../img/Clagett_Farm_CSA_Week_11.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
 
-.img4BannerSlider {
-	height: 400px;
-	width:100%;
-	background-image: url("../img/378x280xsitemgr_photo_2000320372.png.pagespeed.ic.kIu5MK48l7.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.bannerTextContainerL {
-	background-color: #3CA688;
-	border-radius: 0 50% 0 0;
-	height:	270px;
-	width: 270px;
+.mobileClass1 {
 	position: absolute;
-	top:170px;
-	box-shadow: 5px -5px 30px -4px rgba(0, 0, 0, 0.7);
 }
 
-.bannerTextContainerL_2 {
-	background-color: #6C5D4A!important;
-	border-radius: 0 50% 0 0;
-	height:	270px;
-	width: 270px;
+
+
+.separator {
+
+}
+
+.separator:before, .separator:after {
+	content: ' ';
+	height: 0;
 	position: absolute;
-	top:170px;
-	box-shadow: 5px -5px 30px -4px rgba(0, 0, 0, 0.7);
+	width: 0;
+	border: 30px solid transparent; /* arrow size */
 }
 
-.bannerTextContainerR {
-	background-color: #3CA688;
-	border-radius: 50% 0 0 0;
-	height:	270px;
-	width: 270px;
+.separator:before {
+	border-top-color: #184850;  /* arrow color */
+
+	/* positioning */
 	position: absolute;
-	top:170px;
-	right:0;
-	box-shadow: -5px -5px 30px -4px rgba(0, 0, 0, 0.7);
+	/*top: -19px;*/
+	left: 40%;
+	z-index: 2;
 }
 
-.bannerTextContainerR_2 {
-	background-color: #6C5D4A!important;
-	border-radius: 50% 0 0 0;
-	height:	270px;
-	width: 270px;
+.separator:after {
+
+	/* positioning */
 	position: absolute;
-	top:170px;
-	right:0;
-	box-shadow: -5px -5px 30px -4px rgba(0, 0, 0, 0.7);
+	/*top: -24px;*/
+	left: 50%;
+	z-index: 1;
 }
 
-.bannerText {
-	/*text-align: center;*/
-	font-weight: 700;
-	font-size: 20px;
-	color:#fff;
-}
-
-.bannerText.focus {
-	padding-top: 20px;
-	font-size: 3.2em;
-	font-weight: 700;
+.backgroundSection1 {
+	border-top:5px solid #184850;
+	/*border-bottom:5px solid #184850;*/
+	padding-top:40px;
+	padding-bottom:20px;
+	/*background-color: #F2E7AE;*/
+	background-color: rgba(242,231,174,0.2);
 }
 
 .sectionHeader {
 	width: 80%;
-	margin-left: 10%;
+	margin-left: 10% !important;
 	text-align: center;
-	margin-top: 20px !important;
+	/*margin-top: 20px !important;*/
 	border-top: 3px solid #F26E50;
 	border-bottom: 3px solid #F26E50;
 }
@@ -206,16 +201,31 @@
     width: 25%;
 }
 
+.stepCtn {
+	/*background-color: rgba(255,255,255,0.75);*/
+    border-radius: 10px;
+}
+
 .stepDesc {
 	text-align: center;	
 	padding-top: 40px;
 }
 
+.backgroundSection2 {
+	border-top:5px solid #184850;
+	/*border-bottom:5px solid #184850;*/
+	padding-top:40px;
+	padding-bottom:20px;
+	/*background-color: #F2E7AE;*/
+	/*background-color: rgba(242,231,174,0.2);*/
+}
+
 .pieChart {
-	background-image: url('../img/cuttingboard.jpeg');
+	background-image: url('../img/Clagett_Farm_CSA_Week_11.jpg');
 	height: 375px;
 	width: 100%;
-	
+	background-size: cover;
+	background-position: center;
 }
 
 .nourishText {
@@ -285,7 +295,8 @@
 
 circle.pie1 {
   	fill: rgba(0,0,0,0.0);
-  	stroke: #3CA688;
+  	stroke: rgba(60,166,136,0.85);
+  	/*stroke: #3CA688;*/
   	stroke-width: 40;
   	stroke-dasharray: 70 300; /* for 38% */
   	box-shadow: 0 0 2px 1px gray;
@@ -293,7 +304,8 @@ circle.pie1 {
 
 circle.pie2 {
   	fill: rgba(0,0,0,0.0);
-  	stroke: #F26E50;
+  	/*stroke: #F26E50;*/
+  	stroke:rgba(242,110,80,0.85);
   	/*#F26E50*/
   	stroke-width: 40;
   	stroke-dasharray: 20 300; /* for 38% */
@@ -301,14 +313,16 @@ circle.pie2 {
 
 circle.pie3 {
   	fill: rgba(0,0,0,0.0);
-  	stroke: #F2E7AE;
+  	/*stroke: #F2E7AE;*/
+  	stroke: rgba(242,231,174,0.9);
   	stroke-width: 40;
   	stroke-dasharray: 15 300; /* for 38% */
 }
 
 circle.pie4 {
   	fill: rgba(0,0,0,0.0);
-  	stroke: #6C5D4A;
+  	/*stroke: #6C5D4A;*/
+  	stroke:rgba(108,93,74,0.90);
   	stroke-width: 40;
   	stroke-dasharray: 34 300; /* for 38% */
 }
@@ -320,7 +334,7 @@ circle.pie4 {
 }
 
 .woodGrain a.item-content {
-	background-image: url('../img/cuttingboard.jpeg') !important;
+	/*background-image: url('../img/cuttingboard.jpeg') !important;*/
 	width: 100%;
 	height:100%;
 }

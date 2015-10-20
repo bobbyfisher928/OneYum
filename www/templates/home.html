@@ -3,44 +3,21 @@
 	<ion-nav-title class="text highlight logo">
 		OneYum
 	</ion-nav-title>
-  <ion-content class="steadybackground">
+  <ion-content class="steadybackground" ng-controller="AppCtrl">
 	  	
   	<div class='headBannerImageCtn'>
-  		<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="4000" does-continue="true" class="headBannerImageCtn">
-			  <ion-slide>
-			    <div class="img1BannerSlider"></div>
-			    <div class="bannerTextContainerR padding">
-		  			<h1 class="bannerText text focus text-right">Locally<br>Produced</h1>
-			  		<h4 class="bannerText text text-right">By Farms and Grocers</h4>
-		  		</div>
-			  </ion-slide>
-			  <ion-slide>
-			    <div class="img2BannerSlider"></div>
-			    <div class="bannerTextContainerL padding">
-		  			<h1 class="bannerText text focus text-left">Locally<br>Prepared</h1>
-			  		<h4 class="bannerText text text-left">To Grow Local Talent</h4>
-		  		</div>
-			  </ion-slide>
-			  <ion-slide>
-			    <div class="img3BannerSlider"></div>
-			    <div class="bannerTextContainerR_2 padding">
-		  			<h1 class="bannerText text focus text-right">Locally<br>Delivered</h1>
-			  		<h4 class="bannerText text text-right">To Minimize Footprint</h4>
-		  		</div>
-			  </ion-slide>
-			  <ion-slide>
-			    <div class="img4BannerSlider"></div>
-			    <div class="bannerTextContainerL_2 padding">
-		  			<h1 class="bannerText text focus text-left">Locally<br>Focused</h1>
-			  		<h4 class="bannerText text text-left">To Drive Communities</h4>
-		  		</div>
-			  </ion-slide>
-			</ion-slide-box>
-		  		
+		  <div class="img1BannerSlider"></div>
+		  <h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong></h1>
+		  <h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
+		  <button class="button button1 centered">
+		  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
+		  	<span class="text centered-text white">Become part of our story.</span>
+		  </button>	
   	</div>
+  	<div class="separator"></div>
 
-  	<div>
-  		<h3 class="text sectionHeader stableheader padding"><strong>SIMPLE</strong></h3>
+  	<div class='backgroundSection1'>
+  		<h3 class="text sectionHeader stableheader padding"><strong>OneYum is SIMPLE</strong></h3>
   		<div class="stepRow row">
 	  		<div class="col col-50">
 	  			<div class="stepIcon1">
@@ -50,20 +27,21 @@
 	  				<i class="icon ion-woman registerIconsSmall1"></i>
 	  			</div>
 	  		</div>
-	  		<div class="col col-50">
-	  			<h4 class="text stepDesc">Register</h4>
+	  		<div class="col col-50 stepCtn">
+	  			<h4 class="text stableheader stepDesc">Register</h4>
   			</div>
   		</div>
 
   		<div class="stepRow row">
   			<div class="col col-50">
-	  			<h4 class="text stepDesc">Select Ingredients</h4>
-  			</div>
-  			<div class="col col-50">
 	  			<div class="stepIcon2">
 	  				<i class="icon ion-bag registerIcons2"></i>
 	  			</div>
   			</div>
+  			<div class="col col-50 stepCtn">
+	  			<h4 class="text stableheader stepDesc">Select Ingredients</h4>
+  			</div>
+  			
   		</div>
 
   		<div class="stepRow row">
@@ -72,20 +50,21 @@
   					<i class="icon ion-clipboard registerIcons2"></i>
   				</div>
   			</div>
-  			<div class="col col-50">
-	  			<h4 class="text stepDesc">Select Recipes</h4>
+  			<div class="col col-50 stepCtn">
+	  			<h4 class="text stableheader stepDesc">Select Recipes</h4>
   			</div>
   		</div>
 
   		<div class="stepRow row">
-  			<div class="col col-50">
-  				<h4 class="text stepDesc">Cooked or Prepared</h4>
-  			</div>
-  			<div class="col col-50">
+	  		<div class="col col-50">
   				<div class="stepIcon4">
   					<i class="icon ion-bonfire registerIcons2"></i>
   				</div>
   			</div>
+  			<div class="col col-50 stepCtn">
+  				<h4 class="text stableheader stepDesc">Cooked or Prepared</h4>
+  			</div>
+  			
   		</div>
 
   		<div class="stepRow row">
@@ -94,15 +73,18 @@
 	  				<i class="icon ion-happy-outline registerIcons2"></i>
 	  			</div>
   			</div>
-  			<div class="col col-50">
-  				<h4 class="text stepDesc">Enjoy</h4>
+  			<div class="col col-50 stepCtn">
+  				<h4 class="text stableheader stepDesc">Enjoy</h4>
   			</div>
   		</div>
-  		<h3 class="text sectionHeader stableheader padding"><strong>Nourishing</strong></h3>
+		</div>
+		<div class="separator"></div>
+		<div class="backgroundSection2 woodGrain">
+  		<h3 class="text sectionHeader stableheader padding"><strong>OneYum NOURISHES</strong></h3>
   		
   		<div class="card">
 	  		<ion-list class="list">
-	  			<div class="item item-icon-left woodGrain">
+	  			<div class="item item-icon-left">
 	  				<i class="icon ion-arrow-graph-up-right stableheader"></i>
 	  				<h2 class="text stableheader center-text"><b>Increase Your Internal Potential</b></h4>
 	  			</div>
@@ -125,29 +107,28 @@
 							</svg>
 						</div>
 	  			</div>
-	  			<ion-item class="item item-icon-right woodGrain" href="#">
+	  			<ion-item class="item item-icon-right" href="#">
 	  				<p class="text stableheader">Learn more about balanced eating habits...</p>
 	  				<i class="icon ion-chevron-right stableheader"></i>
 	  			</ion-item>
 	  		</ion-list>
   		</div>
-
   		<div class="card">
 	  		<ion-list class="list">
-	  			<div class="item item-icon-left woodGrain">
+	  			<div class="item item-icon-left">
 	  				<i class="icon"><img class="iconHeart" src="img/iconmonstr-favorite-9-icon-32.png"></i>
 	  				<h2 class="text stableheader center-text"><b>Engage Your Heart And Soul</b></h4>
 	  			</div>
 	  			<div class="item item-image">
 	  				<img src="img/grouphandsin.png">
 	  			</div>
-	  			<ion-item class="item item-icon-right woodGrain" href="#">
+	  			<ion-item class="item item-icon-right" href="#">
 	  				<p class="text stableheader">Each meal solves more than hunger...</p>
 	  				<i class="icon ion-chevron-right stableheader"></i>
 	  			</ion-item>
 	  		</ion-list>
   		</div>
-
+  	</div>
 
   		<h3 class="text sectionHeader stableheader padding"><strong>Sustainable</strong></h3>
   		<h3 class="text sectionHeader stableheader padding"><strong>Committed</strong></h3>
