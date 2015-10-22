@@ -51,6 +51,10 @@
 	font-style: italic;
 }
 
+.mobile {
+
+}
+
 .button1 {
 	width: 60%;
 	border-radius: 8px;
@@ -64,7 +68,8 @@
 }
 
 .headBannerImageCtn {
-	height: 575px;
+	/*height: 575px;*/
+	padding-bottom: 20px;
 	width:100%;
 	position: relative;
 	overflow: hidden;

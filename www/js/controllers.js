@@ -9,10 +9,17 @@ angular.module('starter.controllers', [])
       return 'mobile';
       // console.log('mobile');
     } else {
+      return 'full';
       // console.log('larger');
     };
   }; 
-
+  $scope.class = function() {
+    if (screen < 641) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
