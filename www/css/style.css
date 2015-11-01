@@ -95,6 +95,7 @@
 }
 
 .img1BannerSlider {
+	position: relative;
 	height: 250px;
 	width:100%;
 	background-image: url("../img/salad-club.jpg");
