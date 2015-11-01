@@ -2,12 +2,12 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
 
-  console.log(window.innerWidth < 800);
+  console.log(window.innerWidth < 650);
   // console.log(screen);
   $scope.setClass = function() {
     var screen = window.innerWidth;
     console.log(screen);
-    if (screen < 800) {
+    if (screen < 650) {
       return true;
       // console.log('mobile');
     } else {
