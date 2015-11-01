@@ -486,6 +486,13 @@ circle.pie4 {
   	stroke-dasharray: 34 300; /* for 38% */
 }
 
+.handsin {
+	background-image: url('../img/grouphandsin.png') !important;
+	height: 375px;
+	background-position: 56%;
+	background-size:cover;
+}
+
 .woodGrain {
 	background-image: url('../img/cuttingboard.jpeg') !important;
 
