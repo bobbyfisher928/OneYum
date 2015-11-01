@@ -100,18 +100,20 @@
 .img2BannerSlider {
 	position: relative;
 	height: 375px;
-	width:50%;
-	background-image: url("../img/salad-club.jpg");
+	width:100%;
+	background-image: url("../img/LeadMay_FoodtoMarket-09c0a506.jpeg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .actionContainer {
-	width: 50%;
-	position: absolute !important;
-	left: 50%;
-	top:50px;
-	background-color: rgba(255,255,255, 0.87);
+    border-radius: 20px;
+    height: 80%;
+    width: 50%;
+    position: absolute !important;
+    left: 48%;
+    top: 10%;
+    background-color: rgba(255,255,255, 0.87);
 }
 
 .BannerTextCtn {
