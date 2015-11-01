@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
 .text {
-	font-family:'Bitter', serif;
+	font-family:'Bitter', serif !important;
 	margin: 0!important;
 }
 
@@ -37,6 +37,10 @@
 
 .white {
 	color: #fff !important;
+}
+.listicon {
+	font-size: 25px !important;
+	vertical-align: middle;
 }
 
 .logo {
