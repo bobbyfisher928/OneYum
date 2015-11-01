@@ -4,6 +4,11 @@
 	margin: 0!important;
 }
 
+.errortext {
+	font-size: 12px;
+	color: #909090;
+}
+
 .standardTextSize {
 	font-size: 14px;
 }
@@ -53,6 +58,11 @@
 
 .mobile {
 
+}
+
+.btn {
+	color: #fff !important;
+	background-color: #3CA688 !important;
 }
 
 .button1 {

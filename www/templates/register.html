@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar align-title="center">
+    <h1 class="title text highlight text-center">Register</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeRegister()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="registerform" ng-submit="doRegister()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="registerData.username" ng-blur="checkUsername(registerData.username)">
+        </label>
+        <span class="item item-text-wrap text-center errortext" ng-show="isTaken">This Username has already been taken. Please choose another.</span>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="registerData.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required ng-focus="active=true" ng-blur="active=false">
+        </label>
+        <span class="item item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
+        <label class="item item-input">
+          <span class="input-label">Verify Password</span>
+          <input type="password" ng-model="registerData.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+        </label>
+        <label class="item">
+          <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>
+          <button class="button button-block btn" type="submit" ng-disabled="registerform.$invalid">Submit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

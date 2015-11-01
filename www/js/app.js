@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('welcome', {
+  .state('welcome', {
     url: '/welcome',
     abstract: true,
     templateUrl: 'templates/menu.html',
