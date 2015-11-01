@@ -6,8 +6,8 @@
   <ion-content class="steadybackground" ng-controller="AppCtrl">
 	  	
   	<div class='headBannerImageCtn'>
-		  <div class="img1BannerSlider"></div>
-		  <div class="actionContainer" ng-class="{actionContainer:!setClass()}">
+		  <div ng-class="{img1BannerSlider:setClass(), img2BannerSlider:!setClass()}"></div>
+		  <div ng-class="{actionContainer:!setClass()}">
 			  <h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
 			  <h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
 			  <button class="button button1 centered">
