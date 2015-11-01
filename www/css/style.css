@@ -84,7 +84,6 @@
 
 .headBannerImageCtn {
 	/*height: 575px;*/
-	padding-bottom: 20px;
 	width:100%;
 	position: relative;
 	overflow: hidden;
@@ -100,7 +99,7 @@
 }
 .img2BannerSlider {
 	position: relative;
-	height: 250px;
+	height: 375px;
 	width:100%;
 	background-image: url("../img/salad-club.jpg");
 	background-repeat: no-repeat;
