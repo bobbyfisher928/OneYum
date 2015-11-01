@@ -272,6 +272,10 @@
 	border-top: 3px solid #F26E50;
 	border-bottom: 3px solid #F26E50;
 }
+.shdesktop{
+	width:60% !important;
+	margin-left: 20% !important;
+}
 
 .stepRow {
 	width:80%;
