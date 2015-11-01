@@ -4,6 +4,11 @@
 	margin: 0!important;
 }
 
+.desktop{
+	width:80%;
+	margin-left:10%;
+}
+
 .errortext {
 	font-size: 12px;
 	color: #909090;
