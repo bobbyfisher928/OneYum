@@ -32,39 +32,57 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('welcome.search', {
-    url: '/search',
+  .state('welcome.home', {
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
 
-  .state('welcome.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('welcome.home', {
-      url: '/home',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/home.html',
-          controller: 'HomeCtrl'
-        }
-      }
-    })
-
-  .state('welcome.single', {
-    url: '/playlists/:playlistId',
+  .state('welcome.meals', {
+    url: '/meals',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/meals.html'
+      }
+    }
+  })
+
+  .state('welcome.partners', {
+    url: '/partners',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/partners.html'
+      }
+    }
+  })
+
+  .state('welcome.careers', {
+    url: '/careers',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/careers.html'
+      }
+    }
+  })
+
+  .state('welcome.about', {
+    url: '/about',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about.html'
+      }
+    }
+  })
+
+  .state('welcome.contact', {
+    url: '/contact',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/contact.html'
       }
     }
   });
