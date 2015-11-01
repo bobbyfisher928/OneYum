@@ -2,24 +2,18 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
 
-  var screen = window.innerWidth < 641;
-  console.log(screen);
+  
+  // console.log(screen);
   var setClass = function() {
+    var screen = window.innerWidth;
     if (screen < 641) {
-      return 'mobile';
+      return true;
       // console.log('mobile');
     } else {
-      return 'full';
+      return false;
       // console.log('larger');
     };
   }; 
-  $scope.class = function() {
-    if (screen < 641) {
-      return true;
-    } else {
-      return false;
-    }
-  };
 
   $scope.goHome = function() {
     // $state.go('welcome.home',{},{relative:'^'});
