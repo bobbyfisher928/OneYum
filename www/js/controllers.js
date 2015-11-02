@@ -16,6 +16,18 @@ angular.module('starter.controllers', [])
     };
   }; 
 
+  $scope.tablet = function() {
+    var screen = window.innerWidth;
+    console.log(screen);
+    if (screen < 900 && screen > 649) {
+      return true;
+      // console.log('mobile');
+    } else {
+      return false;
+      console.log('larger');
+    };
+  }
+
   $scope.goHome = function() {
     // $state.go('welcome.home',{},{relative:'^'});
     // window.location('')
