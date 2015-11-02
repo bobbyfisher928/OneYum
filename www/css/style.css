@@ -86,7 +86,7 @@
 }
 
 .button1 {
-	width: 60%;
+	width: 70%;
 	border-radius: 8px;
 	border:none;
 	color: #fff !important;
@@ -95,7 +95,7 @@
 	margin-bottom: 20px;
 	background-color: #3CA688;
 	box-shadow: 0 4px 8px -4px rgba(0,0,0,1);
-	margin-left:20% !important;
+	margin-left:15% !important;
 }
 
 .headBannerImageCtn {
