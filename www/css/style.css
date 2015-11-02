@@ -9,6 +9,11 @@
 	margin-left:10% !important;
 }
 
+.tablet { 
+	width:90% !important;
+	margin-left:5% !important;
+}
+
 .errortext {
 	font-size: 12px;
 	color: #909090;
