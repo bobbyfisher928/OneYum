@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
   $scope.setClass = function() {
     var screen = window.innerWidth;
     console.log(screen);
-    if (screen < 650) {
+    if (screen < 650 || screen > 899) {
       return true;
       // console.log('mobile');
     } else {
