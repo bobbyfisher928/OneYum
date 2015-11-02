@@ -199,14 +199,151 @@
   		</div>
   	</div>
   	<div class="separator3" ng-hide="!setClass()"></div>
-			<div class="backgroundSection3">
-  			<h3 class="text sectionHeader stableheader padding"><strong>Sustainable</strong></h3>
-			</div>
+	<div class="backgroundSection3">
+		<h3 class="text sectionHeader stableheader padding"><strong> OneYum is Sustainable</strong></h3>
+		<div ng-class="{row:!setClass(), desktop:!setClass(),tablet:tablet()}">
+			<div class="card" ng-class="{col:!setClass()}">
+		  		<ion-list class="list">
+		  			<div class="item item-icon-left">
+		  				<i class="icon ion-ios-pricetag stableheader"></i>
+		  				<span class="text stableheader center-text"><b>Locally Sourced Ingredients</b></span>
+		  			</div>
+		  			<ion-slide-box 
+						deligate-handle="login-register-slider" 
+						does-continue="true"
+						auto-play="false"
+						show-pager="false"
+						class="backgroundSlider"
+					>
+						<ion-slide>
+							<div class="card list">
+					  			<div class="item item-avatar">
+					  				<img src="../img/iconmonstr-user-14-icon-256.png" class="avatarCard">
+						  			<span class="text stableheader standardTextSize"><b>Local Farm</b></span>
+						  			<p>Location of Farm</p>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="farmers"></div>
+				  				</div>
+				  				<div class="item">
+						  			<p>Local Farm's Focus and Description</p>
+						  			<span></span>
+					  			</div>
+				  			</div>
+						</ion-slide>
+
+						<ion-slide>
+							<div class="card list">
+					  			<div class="item item-avatar">
+					  				<img src="../img/iconmonstr-user-14-icon-256.png" class="avatarCard">
+						  			<span class="text stableheader standardTextSize"><b>Local CSA</b></span>
+						  			<p>Location of CSA</p>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="city"></div>
+				  				</div>
+				  				<div class="item">
+						  			<p>Local CSA's focus and description</p>
+					  			</div>
+				  			</div>
+						</ion-slide>
+						<!-- <ion-slide>
+							<div class="card list">
+					  			<div class="item center-text">
+						  			<span class="text stableheader standardTextSize"><b>Each Branch is Locally Focused</b></span>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="farmers"></div>
+				  				</div>
+				  				<div class="item center-text">
+						  			<p>Local Independant Farms and CSAs</p>
+					  			</div>
+				  			</div>
+						</ion-slide> -->
+				    </ion-slide-box>
+				  			
+		  			<!-- <ion-item class="item item-icon-right" href="#">
+		  				<span class="text stableheader standardTextSize"></span>
+		  				<i class="icon ion-chevron-right stableheader"></i>
+		  			</ion-item> -->
+		  		</ion-list>
+	  		</div>
+	  		<div class="card" ng-class="{col:!setClass()}">
+		  		<ion-list class="list">
+		  			<div class="item item-icon-left">
+		  				<i class="icon ion-ios-pricetag stableheader"></i>
+		  				<span class="text stableheader center-text"><b>Locally Sourced Talent</b></span>
+		  			</div>
+		  			<ion-slide-box 
+						deligate-handle="login-register-slider" 
+						does-continue="true"
+						auto-play="false"
+						show-pager="false"
+						class="backgroundSlider"
+					>
+						<ion-slide>
+							<div class="card list">
+					  			<div class="item item-avatar">
+					  				<img src="../img/iconmonstr-user-14-icon-256.png" class="avatarCard">
+						  			<span class="text stableheader standardTextSize"><b>Local Chef</b></span>
+						  			<p>Place of work, Location</p>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="chef2"></div>
+				  				</div>
+				  				<div class="item">
+						  			<p>Local Chef's Focus and Recipes</p>
+						  			<span></span>
+					  			</div>
+				  			</div>
+						</ion-slide>
+
+						<ion-slide>
+							<div class="card list">
+					  			<div class="item item-avatar">
+					  				<img src="../img/iconmonstr-user-14-icon-256.png" class="avatarCard">
+						  			<span class="text stableheader standardTextSize"><b>Local Talent</b></span>
+						  			<p>Place of work, Location</p>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="chef1"></div>
+				  				</div>
+				  				<div class="item">
+						  			<p>Local Individual's focus and description</p>
+					  			</div>
+				  			</div>
+						</ion-slide>
+						<!-- <ion-slide>
+							<div class="card list">
+					  			<div class="item center-text">
+						  			<span class="text stableheader standardTextSize"><b>Each Branch is Locally Focused</b></span>
+					  			</div>
+					  			<div class="item item-image">
+					  				<div class="farmers"></div>
+				  				</div>
+				  				<div class="item center-text">
+						  			<p>Local Independant Farms and CSAs</p>
+					  			</div>
+				  			</div>
+						</ion-slide> -->
+				    </ion-slide-box>
+				  			
+		  			<!-- <ion-item class="item item-icon-right" href="#">
+		  				<span class="text stableheader standardTextSize"></span>
+		  				<i class="icon ion-chevron-right stableheader"></i>
+		  			</ion-item> -->
+		  		</ion-list>
+	  		</div>
 		</div>
-		<div class="separator4" ng-hide="!setClass()"></div>
-			<div class="backgroundSection4">
-	  		<h3 class="text sectionHeader stableheader padding"><strong>Committed</strong></h3>
-  		</div>
+	</div>
+	</div>
+	<div class="separator4" ng-hide="!setClass()"></div>
+	<div class="backgroundSection4">
+		<h3 class="text sectionHeader stableheader padding"><strong>OneYum is Committed</strong></h3>
+		<div ng-class="{row:!setClass(), desktop:!setClass(),tablet:tablet()}">
+			
+		</div>
+	</div>
   	</div>
   </ion-content>
 </ion-view>

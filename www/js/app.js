@@ -51,6 +51,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('welcome.suppliers', {
+    url: '/suppliers',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/suppliers.html'
+      }
+    }
+  })
+
   .state('welcome.partners', {
     url: '/partners',
     views: {
