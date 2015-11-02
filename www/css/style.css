@@ -191,7 +191,7 @@
 }
 
 .separator2:before {
-	border-top-color: rgba(242,231,174,0.2);  /* arrow color */
+	border-top-color: rgba(242,231,174,0.5);  /* arrow color */
 
 	/* positioning */
 	position: absolute;
