@@ -1,31 +1,38 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
-
-  console.log(window.innerWidth < 650);
+  $scope.screenset1 = false;
+  $scope.screenset2 = false;
+  // console.log(window.innerWidth < 650);
   // console.log(screen);
   $scope.setClass = function() {
-    var screen = window.innerWidth;
-    console.log(screen);
-    if (screen < 650 ) {
-      return true;
-      // console.log('mobile');
-    } else {
-      return false;
-      console.log('larger');
+    if (!$scope.screenset1) {
+      var screen = window.innerWidth;
+      // console.log(screen);
+      if (screen < 650 ) {
+        return true;
+        // console.log('mobile');
+      } else {
+        return false;
+        console.log('larger');
+      };
+      $scope.screenset1 = true;
     };
   }; 
 
   $scope.tablet = function() {
-    var screen = window.innerWidth;
-    console.log(screen);
-    if (screen < 900 && screen > 649) {
-      return true;
-      // console.log('mobile');
-    } else {
-      return false;
-      console.log('larger');
-    };
+    if (!$scope.screenset2) {
+      var screen = window.innerWidth;
+      // console.log(screen);
+      if (screen < 900 && screen > 649) {
+        return true;
+        // console.log('mobile');
+      } else {
+        return false;
+        console.log('larger');
+      };
+      $scope.screenset2 = true;
+    };     
   }
 
   $scope.goHome = function() {
