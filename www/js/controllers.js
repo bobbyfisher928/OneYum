@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('OneYum.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
   $scope.screenset1 = false;
@@ -110,18 +110,40 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('ContactCtrl', ['$scope', function($scope){
+  $scope.openEmail = false;
+  $scope.openPhone = false;
+  $scope.openMail = false;
+  $scope.engageEmail = function() {
+    $scope.openEmail = !$scope.openEmail;
+  }
+  $scope.engagePhone = function() {
+    $scope.openPhone = !$scope.openPhone;
+  }
+  $scope.engageMail = function() {
+    $scope.openMail = !$scope.openMail;
+  }
+}])
 
+.controller('ContactFormCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService){
+  console.log(ContactService.get($stateParams.target));
+  $scope.Target = ContactService.get($stateParams.target);
+  $scope.submit = function(data) {
+    console.log(data);
+  }
+}])
+
+.controller('ContactCallCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService){
+  console.log(ContactService.get($stateParams.target));
+  $scope.Target = ContactService.get($stateParams.target);
+  $scope.submit = function(data) {
+    console.log(data);
+  }
+}])
 
 
 .controller('HomeCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

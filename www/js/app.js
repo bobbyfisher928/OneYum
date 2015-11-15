@@ -1,10 +1,10 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'OneYum' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+// 'OneYum.controllers' is found in controllers.js
+angular.module('OneYum', ['ionic', 'OneYum.controllers', 'OneYum.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -94,7 +94,27 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/contact.html'
       }
     }
-  });
+  })
+
+  .state('welcome.contactform', {
+    url: '/contactform/:target',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/contactform.html'
+      }
+    }
+  })
+
+  .state('welcome.contactcall', {
+    url: '/contactcall/:target',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/contactcall.html'
+      }
+    }
+  })
+
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/welcome/home');
 });

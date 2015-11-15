@@ -1,0 +1,18 @@
+<ion-view view-title="Contact Form">
+	<ion-content>
+		<form name="messageBobby" class="list" ng-controller="ContactFormCtrl">
+			<div class="item item-header">Email to: <strong class="highlight">{{Target.name}}</strong></div>
+			<div class="item">{{Target.title}}</div>
+			<label class="item item-input">
+				<input type="text" name="messageSubject" placeholder="Message Subject">
+			</label>
+			<label class="item item-input">
+				<textarea name="messageBody" placeholder="Message Content" rows="4"></textarea>
+			</label>
+			<label class="item item-input">
+				<input type="email" name="messageSender" placeholder="Your Email">
+			</label>
+			<button class="item text button btn button-block stableheader" type="submit"><strong>Send Message</strong></button>
+		</form>
+	</ion-content>
+</ion-view>

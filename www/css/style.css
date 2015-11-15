@@ -75,6 +75,10 @@
 	/*background-color: #F2E7AE !important;*/
 }
 
+.greyBackground {
+	background-color: #d6d6d6;
+}
+
 .italic-text {
 	padding-top: 10px;
 	font-style: italic;
