@@ -1,5 +1,9 @@
 {
     "require": {
-        "slim/slim": "^2.6"
+        "slim/slim": "^2.6",
+        "firebase/php-jwt": "^2.2",
+        "phpmailer/phpmailer": "^5.2",
+        "league/oauth2-client": "^1.1",
+        "league/oauth2-google": "^1.0"
     }
 }

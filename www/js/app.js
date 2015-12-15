@@ -4,7 +4,7 @@
 // 'OneYum' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'OneYum.controllers' is found in controllers.js
-angular.module('OneYum', ['ionic', 'OneYum.controllers', 'OneYum.services'])
+angular.module('OneYum', ['ionic', 'ngCookies', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

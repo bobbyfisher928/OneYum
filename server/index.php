@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 date_default_timezone_set('America/New_York');
 
-require 'slim/slim/Slim/Slim.php';
-require 'autoload.php';
-
-
+require '../vendor/slim/slim/Slim/Slim.php';
+\Slim\Slim::registerAutoloader();
+require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+require '../vendor/firebase/php-jwt/Authentication/JWT.php';
+require 'control.php';
+require 'class.php';
 
 $app = new Slim\Slim();
 
@@ -31,7 +33,6 @@ $app->map('/:x+', function($x) {
     http_response_code(200);
 })->via('OPTIONS');
 
-// APP CODE GOES HERE
 
 $app->error( function ( Exception $exc ) use ( $app ) {
    if ( $exc->getCode() !== 0 ) {
@@ -45,3 +46,5 @@ $app->error( function ( Exception $exc ) use ( $app ) {
 // $app->post('LINK/LOCATION/URL/:values', 'FUNCTION_NAME')
 
 $app->run();
+
+?>

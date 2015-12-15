@@ -45,6 +45,9 @@ angular.module('OneYum.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+  //
+  $scope.isTakenUsername = false;
+  $scope.isTakenEmail = false;
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -65,6 +68,12 @@ angular.module('OneYum.controllers', [])
     $scope.registermodal = modal;
   });
 
+  $ionicModal.fromTemplateUrl('templates/supRegister.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.supRegistermodal = modal;
+  });
+
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.loginmodal.hide();
@@ -73,6 +82,10 @@ angular.module('OneYum.controllers', [])
   $scope.closeRegister = function() {
     $scope.registermodal.hide();
   };
+
+  $scope.closeSupRegister = function() {
+    $scope.supRegistermodal.hide();
+  }
 
   // Open the login modal
   $scope.login = function() {
@@ -83,6 +96,11 @@ angular.module('OneYum.controllers', [])
     $scope.closeLogin();
     $scope.registermodal.show();
   };
+
+  $scope.supRegister = function() {
+    $scope.closeRegister();
+    $scope.supRegistermodal.show();
+  }
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
