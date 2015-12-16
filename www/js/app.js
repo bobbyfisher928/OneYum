@@ -127,7 +127,7 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
   })
 
   .state('welcome.support-detail', {
-    url: 'support/detail/:template',
+    url: '/support/detail/:template',
     views: {
       'menuContent': {
         templateUrl: 'templates/support-detail.html'
