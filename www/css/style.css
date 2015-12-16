@@ -591,3 +591,8 @@ circle.pie4 {
 	background-position: center;
 	background-size: cover;
 }
+
+iframe	{ 
+	overflow-x: hidden !important; 
+	overflow-y: scroll !important;
+}
