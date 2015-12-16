@@ -6,5 +6,4 @@ platforms/
 plugins/
 .phpintel/
 vendor/
-www/lib/
 npm-debug.log
