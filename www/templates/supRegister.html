@@ -28,28 +28,36 @@
     <form name="supRegisterform" ng-submit="dosupRegister(supplierregister)" ng-show="validated" novalidate>
       <div class="list">
         <p class="item item-inset item-text-wrap">
-          Please correct any of the information below if it is not accurate, create your username and password then submit your information to register your supplier account.
+          Please verify that the following information for your company is accurate. Next step will be creating your own contact account. 
         </p>
+        <h3 class="item text text-center highlight"><strong>Verify Company Info</strong></h3>
         <label class="item item-input">
-          <span class="input-label">Company:</span>
+          <span class="input-label">Name:</span>
           <input type="text" ng-model="supplierregister.name">
         </label>
         <label class="item item-input">
-          <span class="input-label">Username:</span>
-          <input type="text" ng-model="supplierregister.username" ng-minlength=8 ng-maxlength=30 required>
+          <span class="input-label">Website:</span>
+          <input type="url" ng-model="supplierregister.website" ng-minlength=8 ng-maxlength=30 required>
         </label>
         <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="email" ng-model="supplierregister.email">
+          <span class="input-label">Phone:</span>
+          <input type="tel" ng-model="supplierregister.phone">
         </label>
         <label class="item item-input">
-          <span class="input-label">Password:</span>
-          <input type="password" ng-model="supplierregister.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required >
+          <span class="input-label">Address:</span>
+          <input type="text" ng-model="supplierregister.street" required>
         </label>
-        <span class="item item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
         <label class="item item-input">
-          <span class="input-label">Verify Password:</span>
-          <input type="password" ng-model="supplierregister.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+          <span class="input-label">City:</span>
+          <input type="text" ng-model="supplierregister.city" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">State:</span>
+          <input type="text" ng-model="supplierregister.state" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Zip Code:</span>
+          <input type="text" ng-model="supplierregister.zip" required>
         </label>
         <label class="item">
           <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>

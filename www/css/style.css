@@ -581,3 +581,13 @@ circle.pie4 {
 	width:32px !important;
 
 }
+
+/*Support Page CSS*/
+
+.primaryBannerImage {
+	width: 100%;
+	height:250px;
+	background-image: url('../img/hands-together-tree.jpg');
+	background-position: center;
+	background-size: cover;
+}

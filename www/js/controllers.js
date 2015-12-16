@@ -1,6 +1,6 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService) {
+.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
   // console.log(window.innerWidth < 650);
@@ -164,6 +164,16 @@ angular.module('OneYum.controllers', [])
   $scope.dosupRegister = function(data) {
     console.log(data);
   }
+
+  $scope.supportOptions = SupportOptionList;
+
+  // console.log($scope.supportOptions);
+
+  $scope.goToSupportTemplate = function(data) {
+    $scope.TemplateTitle = data;
+    $state.go('welcome.support-detail');
+    // console.log(data);
+  }
 }])
 
 .controller('ContactCtrl', ['$scope', function($scope){
@@ -179,6 +189,7 @@ angular.module('OneYum.controllers', [])
   $scope.engageMail = function() {
     $scope.openMail = !$scope.openMail;
   }
+
 }])
 
 .controller('ContactFormCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService){

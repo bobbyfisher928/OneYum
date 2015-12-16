@@ -1,0 +1,42 @@
+<ion-modal-view>
+  <ion-header-bar align-title="center">
+    <h1 class="title text highlight text-center">Supplier Registration</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSupRegister()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="supRegisterform" ng-submit="dosupRegister(supplierregister)" ng-show="validated" novalidate>
+      <div class="list">
+        <p class="item item-inset item-text-wrap">
+          Please correct any of the information below if it is not accurate, create your username and password then submit your information to register your supplier account.
+        </p>
+        <label class="item item-input">
+          <span class="input-label">First Name</span>
+          <input type="text" ng-model="supplierregister.fname" ng-minlength=8 ng-maxlength=30 required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last Name:</span>
+          <input type="text" ng-model="supplierregister.lname" ng-minlength=8 ng-maxlength=30 required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="supplierregister.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password:</span>
+          <input type="password" ng-model="supplierregister.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required >
+        </label>
+        <span class="item item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
+        <label class="item item-input">
+          <span class="input-label">Verify Password:</span>
+          <input type="password" ng-model="supplierregister.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+        </label>
+        <label class="item">
+          <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>
+          <button class="button button-block btn" ng-disabled="supRegisterform.$invalid">Submit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

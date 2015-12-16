@@ -4,7 +4,7 @@
 // 'OneYum' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'OneYum.controllers' is found in controllers.js
-angular.module('OneYum', ['ionic', 'ngCookies', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
+angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -113,6 +113,24 @@ angular.module('OneYum', ['ionic', 'ngCookies', 'OneYum.controllers', 'OneYum.se
     views: {
       'menuContent': {
         templateUrl: 'templates/contactcall.html'
+      }
+    }
+  })
+
+  .state('welcome.support', {
+    url: '/support',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/support.html'
+      }
+    }
+  })
+
+  .state('welcome.support-detail', {
+    url: '/detail/:template',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/support-detail.html'
       }
     }
   })
