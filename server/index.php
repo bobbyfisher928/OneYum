@@ -33,6 +33,36 @@ $app->map('/:x+', function($x) {
     http_response_code(200);
 })->via('OPTIONS');
 
+// throw new Exception("Invalid Credentials.", 401);
+
+
+$app->post('/login', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  $response = $request;
+  echo json_encode( $response );
+});
+
+$app->post('/register', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  $response = $request;
+  echo json_encode( $response );
+});
+
+$app->post('/checkemail', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  $response = $request;
+  echo json_encode( $response );
+});
+
+$app->post('/validatesupkey', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  echo json_encode( $response );
+});
+
+$app->post('/supregister', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  echo json_encode( $response );
+});
 
 $app->error( function ( Exception $exc ) use ( $app ) {
    if ( $exc->getCode() !== 0 ) {

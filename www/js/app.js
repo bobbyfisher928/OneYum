@@ -22,7 +22,10 @@ angular.module('OneYum', ['ionic', 'ngCookies', 'OneYum.controllers', 'OneYum.se
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  
+  $httpProvider.defaults.withCredentials = true;
+
   $stateProvider
 
   .state('welcome', {

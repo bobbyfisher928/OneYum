@@ -6,32 +6,56 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form name="registerform" ng-submit="doRegister()">
+    <form name="supRegistersubmit" ng-show="!validated" ng-submit="dosupRegisterkey(supReg)" novalidate>
       <div class="list">
+        <p class="item item-inset item-text-wrap">
+          Please enter your supplier key in the space below. If you don't have one, please visit our Supplier Page to request your business's key.
+        </p>
+        <button class="item button button-full button-clear item-icon-right" ng-click="goToSupplierPage()">
+          Visit Supplier's Page to get key.
+          <i class="icon ion-chevron-right"></i>
+        </button>
+        <label class="item item-input">
+          <span class="item-label">Key:</span>
+          <input type="text" ng-model="supReg.validationkey" ng-minlength=10 ng-maxlength=10 required>
+        </label>
+        <label class="item">
+          <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>
+          <button class="button button-block btn" ng-disabled="supRegistersubmit.$invalid" ng-click="validated = !validated">Submit</button>
+        </label>
+      </div>
+    </form>
+    <form name="supRegisterform" ng-submit="dosupRegister(supplierregister)" ng-show="validated" novalidate>
+      <div class="list">
+        <p class="item item-inset item-text-wrap">
+          Please correct any of the information below if it is not accurate, create your username and password then submit your information to register your supplier account.
+        </p>
+        <label class="item item-input">
+          <span class="input-label">Company:</span>
+          <input type="text" ng-model="supplierregister.name">
+        </label>
         <label class="item item-input">
           <span class="input-label">Username:</span>
-          <input type="text" ng-model="registerData.username" ng-blur="checkUsername(registerData.username)">
+          <input type="text" ng-model="supplierregister.username" ng-minlength=8 ng-maxlength=30 required>
         </label>
-        <span class="item item-text-wrap text-center errortext" ng-show="isTakenUsername">This Username has already been taken. Please choose another.</span>
         <label class="item item-input">
-          <span class="input-label">Email:</span>
-          <input type="email" ng-model="registerData.username" ng-blur="checkUsername(registerData.email)">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="supplierregister.email">
         </label>
-        <span class="item item-text-wrap text-center errortext" ng-show="isTakenEmail">This Email has already been taken. Please choose another.</span>
         <label class="item item-input">
           <span class="input-label">Password:</span>
-          <input type="password" ng-model="registerData.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required ng-focus="active=true" ng-blur="active=false">
+          <input type="password" ng-model="supplierregister.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required >
         </label>
         <span class="item item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
         <label class="item item-input">
           <span class="input-label">Verify Password:</span>
-          <input type="password" ng-model="registerData.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+          <input type="password" ng-model="supplierregister.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
         </label>
         <label class="item">
           <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>
-          <button class="button button-block btn" type="submit" ng-disabled="registerform.$invalid">Submit</button>
+          <button class="button button-block btn" ng-disabled="supRegisterform.$invalid">Submit</button>
         </label>
       </div>
-    </form>:
+    </form>
   </ion-content>
 </ion-modal-view>

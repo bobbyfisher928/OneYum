@@ -6,19 +6,18 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form name="loginform" ng-submit="doLogin()">
+    <form name="loginform" ng-submit="doLogin(loginData)" novalidate>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username:</span>
-          <input type="text" ng-model="loginData.username">
+          <span class="input-label">Email:</span>
+          <input type="email" ng-model="loginData.email" >
         </label>
         <label class="item item-input">
           <span class="input-label">Password:</span>
-          <input type="password" ng-model="loginData.password" name="password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+          <input type="password" ng-model="loginData.secret" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
         </label>
         <label class="item item-text-wrap text-center">
-          
-          <button class="button button-block btn" type="submit" ng-disabled="loginform.$invalid">Log in</button>
+          <button class="button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
         </label>
       </div>
     </form>

@@ -1,6 +1,6 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
+.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
   // console.log(window.innerWidth < 650);
@@ -52,8 +52,17 @@ angular.module('OneYum.controllers', [])
   // Form data for the login modal
   $scope.loginData = {};
 
-  // Form data for the login modal
+  // Form data for the register modal
   $scope.registerData = {};
+
+  // Form data for the supplier key validation
+  $scope.supReg = {};
+
+  // Form data for the supplier register modal
+  $scope.supplierregister = {
+    name: 'This Company',
+    email: 'this@email.test'
+  };
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -87,6 +96,12 @@ angular.module('OneYum.controllers', [])
     $scope.supRegistermodal.hide();
   }
 
+  $scope.goToSupplierPage = function() {
+    $scope.closeSupRegister();
+    $state.go('welcome.suppliers');
+  }
+
+
   // Open the login modal
   $scope.login = function() {
     $scope.loginmodal.show();
@@ -103,8 +118,10 @@ angular.module('OneYum.controllers', [])
   }
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  $scope.doLogin = function(data) {
+    // console.log('Doing login', $scope.loginData);
+    // 
+    LoginService.login(data);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -114,19 +131,40 @@ angular.module('OneYum.controllers', [])
   };
 
   $scope.checkUsername = function(data) {
+    RegisterService.check(data);
+    // console.log(data);
+  }
+
+  $scope.doRegister = function(data) {
+    // console.log('Doing register', $scope.registerData);
+    if(data.password !== data.verpassword) {
+      Popup.alert({
+        title: PopupFill.register.passwordmismatch.title,
+        title: PopupFill.register.passwordmismatch.message
+      })
+      return;
+    }
+    RegisterService.register(data)
+    .then(function(response) {
+      console.log(response);
+      $scope.registerData = {};
+      $scope.closeRegister();
+    })
+    // // Simulate a register delay. Remove this and replace with your register
+    // // code if using a register system
+    // $timeout(function() {
+      
+    // }, 1000);
+  };
+
+  $scope.dosupRegisterkey = function(data) {
     console.log(data);
   }
 
-  $scope.doRegister = function() {
-    console.log('Doing register', $scope.loginData);
-
-    // Simulate a register delay. Remove this and replace with your register
-    // code if using a register system
-    $timeout(function() {
-      $scope.closeRegister();
-    }, 1000);
-  };
-})
+  $scope.dosupRegister = function(data) {
+    console.log(data);
+  }
+}])
 
 .controller('ContactCtrl', ['$scope', function($scope){
   $scope.openEmail = false;
