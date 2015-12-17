@@ -135,6 +135,53 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
     }
   })
 
+  .state('account', {
+    url: '/account',
+    abstract: true,
+    templateUrl: 'templates/account.html',
+    controller: 'AccountCtrl'
+  })
+
+  .state('account.stream', {
+    url: '/stream',
+    views: {
+      'account-stream': {
+        templateUrl: 'templates/account-stream.html',
+        controller: 'StreamCtrl'
+      }
+    }
+  })
+
+  .state('account.plans', {
+    url: '/plans',
+    views: {
+      'account-plans': {
+        templateUrl: 'templates/account-plans.html',
+        controller: 'MealCtrl'
+      }
+    }
+  })
+
+  .state('account.messages', {
+    url: '/messages',
+    views: {
+      'account-messages': {
+        templateUrl: 'templates/account-messages.html',
+        controller: 'MessageCtrl'
+      }
+    }
+  })
+
+  .state('account.calendar', {
+    url: '/calendar',
+    views: {
+      'account-calendar': {
+        templateUrl: 'templates/account-calendar.html',
+        controller: 'CalendarCtrl'
+      }
+    }
+  })
+
   ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/welcome/home');

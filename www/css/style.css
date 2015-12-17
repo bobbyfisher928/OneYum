@@ -151,8 +151,11 @@
 	position: absolute;
 }
 
-.separator {
-
+.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: #fff;
+  fill: #fff;
 }
 
 .separator:before, .separator:after {

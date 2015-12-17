@@ -1,6 +1,6 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList) {
+.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
   // console.log(window.innerWidth < 650);
@@ -83,6 +83,15 @@ angular.module('OneYum.controllers', [])
     $scope.supRegistermodal = modal;
   });
 
+  $scope.show = function() {
+    $ionicLoading.show({
+      templateUrl: '../templates/ripple.html'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.loginmodal.hide();
@@ -123,7 +132,16 @@ angular.module('OneYum.controllers', [])
     // 
     LoginService.login(data)
     .then(function(resp) {
-      console.log(resp)
+      console.log(resp);
+      
+      $scope.show();
+      $timeout(function() {
+        $state.go('account.stream');
+        $scope.closeLogin();
+        $scope.hide();
+        console.log('click');
+        
+      }, 1000);
     },function(err) {
       if (err) {
         Popup.alert(PopupFill.login.invalidCred);
@@ -220,6 +238,26 @@ angular.module('OneYum.controllers', [])
 .controller('HomeCtrl', function($scope) {
   
 })
+
+.controller('AccountCtrl', ['$scope', function($scope){
+  
+}])
+
+.controller('MessageCtrl', ['$scope', function($scope){
+  
+}])
+
+.controller('MealCtrl', ['$scope', function($scope){
+  
+}])
+
+.controller('CalendarCtrl', ['$scope', function($scope){
+  
+}])
+
+.controller('StreamCtrl', ['$scope', function($scope){
+  
+}])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
