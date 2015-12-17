@@ -1,12 +1,12 @@
 angular.module('OneYum.constants', [])
 
 .constant('API', {
-	login: 'http://localhost/OneYum/server/index.php/login',
-	username: 'http://localhost/OneYum/server/index.php/checkusername',
-	email: 'http://localhost/OneYum/server/index.php/checkemail',
-	register: 'http://localhost/OneYum/server/index.php/register',
-	validateSupKey: 'http://localhost/OneYum/server/index.php/validatesupkey',
-	supregister: 'http://localhost/OneYum/server/index.php/supregister',
+	login: 'http://oneyum.org/server/index.php/login',
+	username: 'http://oneyum.org/server/index.php/checkusername',
+	email: 'http://oneyum.org/server/index.php/checkemail',
+	register: 'http://oneyum.org/server/index.php/register',
+	validateSupKey: 'http://oneyum.org/server/index.php/validatesupkey',
+	supregister: 'http://oneyum.org/server/index.php/supregister',
 })
 
 .constant('PopupFill', {
