@@ -6,8 +6,6 @@ angular.module('OneYum.factories', [])
 		// email:
 		// firstname:
 		// lastname:
-		// salt:
-		// secret:
 		// start:
 		// verified:
 		// authorize:
@@ -21,6 +19,23 @@ angular.module('OneYum.factories', [])
 	return {
 		
 	};
+})
+
+.factory('Identification', function(){
+  var ident = {};
+  var auth = {
+    authorization: '',
+    roles: ''
+  }
+  return {
+    set: function(data) {
+      ident = data;
+      // auth.authorization = 
+    },
+    name: function() {
+      return ident.fname + ' ' + ident.lname;
+    }
+  }
 })
 
 .factory('ContactService', function(){
