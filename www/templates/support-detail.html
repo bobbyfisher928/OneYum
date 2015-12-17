@@ -1,4 +1,9 @@
 <ion-view>
+	<ion-nav-title class="text highlight logo" width="100%">
+		<!-- <img class="padding-top" src="../img/OneYumPie.png" style="height:1.2em;background-size:contain;margin-right:-5px;" ng-click="goHome()">
+		neYum -->
+		<h4 class="highlight" style="padding-top:2px;">{{TemplateTitle}}</h4>
+	</ion-nav-title>
 	<ion-content scroll="true" overflow-scroll="true">
 		<div ng-if="TemplateTitle === 'Business Concept Survey'" style="height:3858px;width:100%">
 			<iframe src="https://docs.google.com/forms/d/1k4nE3QdKUZLsIKnNiIYoQ6SsMWU_cfL9QpjIKzvkJcQ/viewform?embedded=true" width="100%" height="3858" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
@@ -6,6 +11,5 @@
 		<div ng-if="TemplateTitle === 'Product/Service Survey'" style="height:1443px;width:100%">
 			<iframe src="https://docs.google.com/forms/d/1G9LLcFH408yow5TU6eIFnJdn79dZxoo4LaQT6SlzyzU/viewform?embedded=true" width="100%" height="1443" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 		</div>	
-			
 	</ion-content>
 </ion-view>
