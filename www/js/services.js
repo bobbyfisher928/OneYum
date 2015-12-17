@@ -69,7 +69,7 @@ angular.module('OneYum.services', [])
 		})
 		.error(function(error) {
 			d.reject(error);
-			console.log(error);
+			// console.log(error);
 		})
 		return d.promise;
 	}

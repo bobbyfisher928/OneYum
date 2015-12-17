@@ -4,6 +4,49 @@
 		neYum
 	</ion-nav-title>
   <ion-content>
-    <h1>Meals</h1>
+  	<div class="primaryBannerImageMeals">
+  	</div>
+	<h1 class="text text-center highlight BannerTextCtn"><strong>Smart and Flexible</strong></h1>
+	<h5 class="italic-text text stableheader BannerTextCtn text-center">Design your meals based on scientific or dietary guidelines.</h5>
+	<h5 class="italic-text text stableheader BannerTextCtn text-center">Choose your own ingredients or select from OneYum’s Featured Menu options.</h5>
+
+	<h3 class="text text-center highlight BannerTextCtn">Step One: How Many?</h3>
+	<h5 class="italic-text text stableheader text-center">(Try it out. See how easy it is.)</h5>
+	<div class="card list">
+		<div class="item item-divider">Your Weekly Plan</div>
+		<div class="item item-input item-select">
+			<h5 class="Text">Adults</h5>
+			<select ng-model="adultCountSelection">
+		      <option>1</option>
+		      <option selected>2</option>
+		      <option>3</option>
+		      <option>4</option>
+		      <option>5</option>
+		      <option>6</option>
+		      <option>7</option>
+		      <option>8</option>
+		    </select>
+		</div>
+		<div class="item item-input item-select">
+			<h5 class="Text">Children</h5>
+			<select ng-model="childCountSelection" >
+		      <option>1</option>
+		      <option selected>2</option>
+		      <option>3</option>
+		      <option>4</option>
+		      <option>5</option>
+		      <option>6</option>
+		      <option>7</option>
+		      <option>8</option>
+		      <option>9</option>
+		      <option>10</option>
+		    </select>
+		</div>
+		<div class="item row">
+			<h5 class="Text col left">Pets</h5>
+			<h5 class="Text col text-right">(Coming Soon)</h5>
+		</div>
+	</div>
+    
   </ion-content>
 </ion-view>

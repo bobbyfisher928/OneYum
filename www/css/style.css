@@ -584,11 +584,27 @@ circle.pie4 {
 
 /*Support Page CSS*/
 
-.primaryBannerImage {
+.primaryBannerImageSupport {
 	width: 100%;
 	height:250px;
 	background-image: url('../img/hands-together-tree.jpg');
 	background-position: center;
 	background-size: cover;
+}
+
+/*Meals Page CSS*/
+
+.primaryBannerImageMeals {
+	width: 100%;
+	height:250px;
+	background-image: url('../img/CSA-share.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.BannerTitleCtn {
+	opacity: 0.6;
+	border-radius: 50%;
+
 }
 

@@ -36,15 +36,51 @@ $app->map('/:x+', function($x) {
 // throw new Exception("Invalid Credentials.", 401);
 
 
+// Login
+
 $app->post('/login', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  $response = $request;
+  $action = new Identity;
+  $action->loginStart( $request );
+  $query = new Request;
+  $query->query( $action->sql );
+  if (!$query) {
+    throw new Exception("Email Does not exist.", 400);
+    end( $app );
+  }
+  $query = $query->response;
+  $query = $query[0];
+  $check = $action->loginCheck( $query , $request );
+  if ( !$check ) {
+    echo json_encode(array('error'=>'Credentials Don\'t match. Please correct and try again.'));
+    throw new Exception("Credentials don't match. Please try again.", 401);
+    end( $app );
+  }
+  $action = new Identity;
+  $user = $action->login( $request );
+  $query = new Request;
+  $user = $query->query( $user );
+  $user = $user[0];
+  $user['fname'] = decode5t($user['fname']);
+  $user['lname'] = decode5t($user['lname']);
+  $response = $user;
   echo json_encode( $response );
 });
 
+// Registration
+
 $app->post('/register', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  $response = $request;
+  $action = new Identity;
+  $action->register($request);
+  $insert = new Request;
+  $insert->insert( $action->sql );
+  $insert->query($action->get( $insert ));
+  $user = $insert->response;
+  $user = $user[0];
+  $user['fname'] = decode5t($user['fname']);
+  $user['lname'] = decode5t($user['lname']);
+  $response = $user;
   echo json_encode( $response );
 });
 

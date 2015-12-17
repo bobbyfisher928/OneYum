@@ -121,13 +121,21 @@ angular.module('OneYum.controllers', [])
   $scope.doLogin = function(data) {
     // console.log('Doing login', $scope.loginData);
     // 
-    LoginService.login(data);
+    LoginService.login(data)
+    .then(function(resp) {
+      console.log(resp)
+    },function(err) {
+      if (err) {
+        Popup.alert(PopupFill.login.invalidCred);
+        $scope.loginData = {};
+      };
+    });
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+    // $timeout(function() {
+    //   $scope.closeLogin();
+    // }, 1000);
   };
 
   $scope.checkUsername = function(data) {
@@ -147,8 +155,8 @@ angular.module('OneYum.controllers', [])
     RegisterService.register(data)
     .then(function(response) {
       console.log(response);
-      $scope.registerData = {};
-      $scope.closeRegister();
+      // $scope.registerData = {};
+      // $scope.closeRegister();
     })
     // // Simulate a register delay. Remove this and replace with your register
     // // code if using a register system
