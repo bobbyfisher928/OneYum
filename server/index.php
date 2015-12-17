@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 }
 
+header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+
 date_default_timezone_set('America/New_York');
 
 require '../vendor/slim/slim/Slim/Slim.php';
