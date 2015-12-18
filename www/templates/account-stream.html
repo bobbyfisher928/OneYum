@@ -9,7 +9,13 @@
     </ion-refresher>
     
     <div class="stream">
-      <h1 class="text padding-left padding-top stableheader">Helpful Messages</h1>
+      <div class="card list">
+        <div class="item item-icon-left item-icon-right"> 
+          <i class="icon ion-chatbox-working stableheader"></i>
+          <h2 class="text stableheader">Helpful Messages: </h2>
+          <i class="icon text highlight text-right">{{Posts.length}}</i>
+        </div>
+      </div>
       <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid">
         <div class="card list">
           <div class="item item-avatar-left item-text-wrap">
@@ -30,7 +36,14 @@
         Status Update w/Photo
         <ng-include ng-If="Post.type === 'status-image'" src="'templates/post-types/status-image.html'"></ng-include> -->
       </div>
-      <h1 class="text padding-left padding-top stableheader">Community Activity</h1>
+
+      <div class="card list">
+        <div class="item item-icon-left item-icon-right"> 
+          <i class="icon ion-chatbox-working stableheader"></i>
+          <h2 class="text stableheader">Community Activity: </h2>
+          <i class="icon text highlight text-right">{{Posts.length}}</i>
+        </div>
+      </div>
       <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid">
         <div class="card list">
           <div class="item item-avatar-left item-text-wrap">
