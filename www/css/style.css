@@ -616,3 +616,8 @@ circle.pie4 {
 	background-size: cover;
 }
 
+.plansBackground {
+	background-image: url('../img/yellow_lined_paper.png');
+	background-size: cover;
+}
+
