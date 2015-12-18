@@ -148,18 +148,7 @@ angular.module('OneYum.controllers', [])
         $scope.loginData = {};
       };
     });
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    // $timeout(function() {
-    //   $scope.closeLogin();
-    // }, 1000);
   };
-
-  $scope.checkUsername = function(data) {
-    RegisterService.check(data);
-    // console.log(data);
-  }
 
   $scope.doRegister = function(data) {
     // console.log('Doing register', $scope.registerData);
@@ -172,15 +161,22 @@ angular.module('OneYum.controllers', [])
     }
     RegisterService.register(data)
     .then(function(response) {
-      console.log(response);
-      // $scope.registerData = {};
-      // $scope.closeRegister();
-    })
-    // // Simulate a register delay. Remove this and replace with your register
-    // // code if using a register system
-    // $timeout(function() {
+      $scope.show();
+      $timeout(function() {
+        $state.go('account.stream');
+        $scope.registerData = {};
+        $scope.closeRegister();
+        $scope.hide();
+        console.log('click');
+        
+      }, 1000);
       
-    // }, 1000);
+    }, function(err) {
+      if (err) {
+        Popup.alert(PopupFill.register.problem);
+        $scope.loginData = {};
+      };
+    });
   };
 
   $scope.dosupRegisterkey = function(data) {

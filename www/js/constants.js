@@ -15,6 +15,10 @@ angular.module('OneYum.constants', [])
 			title: 'Uh oh...',
 			message: 'Passwords do not match. Please try again.'
 		},
+			problem: {
+				title: 'Uh oh...',
+				message: 'There seems to have been an issue during registration.'
+		}
 	},
 	login: {
 		invalidCred: {
