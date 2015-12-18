@@ -184,5 +184,5 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
 
   ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/welcome/home');
+  $urlRouterProvider.otherwise('/account/stream');
 });

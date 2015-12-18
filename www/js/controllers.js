@@ -255,8 +255,8 @@ angular.module('OneYum.controllers', [])
   
 }])
 
-.controller('StreamCtrl', ['$scope', function($scope){
-  
+.controller('StreamCtrl', ['$scope','Posts', function($scope,Posts){
+  $scope.Posts = Posts.get();
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

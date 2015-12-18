@@ -611,3 +611,8 @@ circle.pie4 {
 
 }
 
+.activityBackground {
+	background-image: url('../img/CuttingBoardBambooLight.png');
+	background-size: cover;
+}
+

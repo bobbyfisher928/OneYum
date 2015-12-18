@@ -1,6 +1,6 @@
 <ion-view>
   
-  <ion-content>
+  <ion-content class="activityBackground">
 
     <!-- Refresher -->
     <ion-refresher
@@ -8,25 +8,28 @@
       on-refresh="doRefresh()">
     </ion-refresher>
     
-    <!-- Post Options -->
-    <!-- <ng-include src="'templates/global/post-options.html'"></ng-include> -->
-
-    <!-- Search Box -->
-    <!-- <ng-include src="'templates/global/search-box.html'"></ng-include> -->
-    <div class="list padding" ng-click="openModal()">
-      <div class="item item-thumbnail-left">
-        <img src="{{Ident.avatar}}" alt="">
-        <input type="text" placeholder="Say something..." />
-      </div>
-    </div>
-    
     <div class="stream">
       <!-- Status Update -->
-      <div ng-repeat="Post in Posts | orderBy: '-pid' as filtered_result track by Post.pid">
-        <ng-include ng-If="Post.type === 'status-basic'" src="'templates/post-types/status-basic.html'"></ng-include>
+      <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid">
+        <!-- {{Post}} -->
+        <div class="card list">
+          <div class="item item-avatar-left item-text-wrap">
+            <img src="../img/OneYumPie.png">
+            <h2 class="text"><b class="text highlight">{{Post.title}} </b>by <b class="text highlight">{{Post.source}}</b></h2>
+            <h4 class="text">{{Post.timestamp | date}}</h4>
+          </div>
+          <div class="item item-inset-text item-text-wrap">
+            <p class="text">{{Post.description}}</p>
+          </div>
+          <div class="item item-icon-right">
+            <p class="text">{{Post.action}}</p>
+            <i class="icon ion-ios-arrow-right"></i>
+          </div>
+        </div>
+        <!-- <ng-include ng-If="Post.type === 'status-basic'" src="'templates/post-types/status-basic.html'"></ng-include>
         
-        <!-- Status Update w/Photo -->
-        <ng-include ng-If="Post.type === 'status-image'" src="'templates/post-types/status-image.html'"></ng-include>
+        Status Update w/Photo
+        <ng-include ng-If="Post.type === 'status-image'" src="'templates/post-types/status-image.html'"></ng-include> -->
       </div>
 
     </div>

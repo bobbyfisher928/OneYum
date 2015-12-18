@@ -98,3 +98,7 @@ angular.module('OneYum.services', [])
 	}
 	
 }])
+
+.service('PostService', ['Posts','$q','$http', function(Posts,$q,$http){
+	
+}])

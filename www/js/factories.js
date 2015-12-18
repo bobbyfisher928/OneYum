@@ -62,3 +62,29 @@ angular.module('OneYum.factories', [])
 		}
 	};
 })
+
+.factory('Posts', function(){
+	var Posts = [{
+		pid: 0,
+		avatar: '',
+		timestamp: '12/10/2015',
+		source: 'OneYum',
+		title: 'Welcome Tutorial',
+		description: 'Take this tutorial to get yourself aquainted with your new found freedoms.',
+		action: 'Get comfortable with OneYum'
+	},
+	{
+		pid: 1,
+		avatar: '',
+		timestamp: '12/10/2015',
+		source: 'OneYum',
+		title: 'A Simple Base',
+		description: 'It is our goal to provide you with a healthy foundation affordably.',
+		action: 'Read more to learn about our meals'
+	}]
+	return {
+		get: function() {
+			return Posts;
+		}
+	};
+})

@@ -4066,7 +4066,7 @@ ion-tabs.tabs-color-active-assertive .tab-item {
 ion-tabs.tabs-color-active-balanced .tab-item {
   color: #444; }
   ion-tabs.tabs-color-active-balanced .tab-item.tab-item-active, ion-tabs.tabs-color-active-balanced .tab-item.active, ion-tabs.tabs-color-active-balanced .tab-item.activated {
-    color: #33cd5f; }
+    color: #3CA688; }
 ion-tabs.tabs-color-active-energized .tab-item {
   color: #444; }
   ion-tabs.tabs-color-active-energized .tab-item.tab-item-active, ion-tabs.tabs-color-active-energized .tab-item.active, ion-tabs.tabs-color-active-energized .tab-item.activated {
@@ -7460,13 +7460,13 @@ a.button {
   border-color: #e42012; }
 
 .balanced, a.balanced {
-  color: #33cd5f; }
+  color:#3CA688; }
 
 .balanced-bg {
-  background-color: #33cd5f; }
+  background-color: #3CA688; }
 
 .balanced-border {
-  border-color: #28a54c; }
+  border-color: #3CA688; }
 
 .energized, a.energized {
   color: #ffc900; }
