@@ -8,8 +8,77 @@
       on-refresh="doRefresh()">
     </ion-refresher>
 
-    <!-- Meals Display -->
-        
+    <!-- Manage Family Display -->
+    <ion-list class="card list">
+	    <ion-item class="item item-icon-left item-icon-right"> 
+	      <i class="icon ion-person-stalker stableheader"></i>
+	      <h2 class="text stableheader">Household Members</h2>
+	      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+	    </ion-item>
+	    <ion-item class="item no-padding">
+	      <div ng-repeat="Member in Household" class="item no-padding">
+          <div class="item item-icon-left item-text-wrap item-icon-right">
+            <i class="icon ion-document-text padding-left stableheader" ></i>
+            <h3 class="text padding-left"><b class="text stableheader">{{Member.name}} </b></h3>
+            <i class="icon ion-ios-arrow-right stableheader"></i>
+          </div>
+	      </div>
+	      <div class="no-padding" ui-sref="account.plans-household">
+	      	<div class="no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-person-add stableheader padding-left" style="font-size:22px;"></i>
+	            <h3 class="text stableheader padding-left">Manage Household</h3>
+	            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+	          </div>
+	        </div>
+	      </div>
+	    </ion-item>
+		</ion-list>
+
+    <!-- Current Plans Display -->
+    <ion-list class="card list">
+	    <ion-item class="item item-icon-left item-icon-right"> 
+	      <i class="icon ion-clipboard stableheader"></i>
+	      <h2 class="text stableheader">Current Plans</h2>
+	      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+	    </ion-item>
+	    <ion-item class="item no-padding">
+	      <div ng-repeat="Plan in OpenPlans" class="item no-padding">
+          <div class="item item-icon-left item-text-wrap item-icon-right">
+            <i class="icon ion-document-text stableheader padding-left"></i>
+            <h3 class="text padding-left"><b class="text stableheader">{{Plan.title}} </b></h3>
+            <i class="icon ion-ios-arrow-right stableheader"></i>
+          </div>
+	      </div>
+	      <ion-item class="item no-padding">
+	      	<div class="no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-document stableheader padding-left" style="font-size:22px;"></i>
+	            <h3 class="text stableheader padding-left">Start a new Plan</h3>
+	            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+	          </div>
+	        </div>
+	      </ion-item>
+	    </ion-item>
+		</ion-list>
+
+		<!-- Plan History Display -->
+    <ion-list class="card list">
+	    <ion-item class="item item-icon-left item-icon-right"> 
+	      <i class="icon ion-clipboard stableheader"></i>
+	      <h2 class="text stableheader">Plan History</h2>
+	      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+	    </ion-item>
+	    <ion-item class="item no-padding">
+	      <div ng-repeat="Plan in PastPlans" class="item no-padding">
+          <div class="item item-icon-left item-text-wrap item-icon-right">
+            <i class="icon ion-document-text stableheader padding-left"></i>
+            <h3 class="text stableheader padding-left">{{Plan.title}}</h3>
+            <i class="icon ion-ios-arrow-right stableheader"></i>
+          </div>
+	      </div>
+	    </ion-item>
+		</ion-list>
       
   </ion-content>
 

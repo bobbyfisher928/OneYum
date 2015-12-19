@@ -10,52 +10,49 @@
     
     <div class="stream">
       <div class="card list">
-        <div class="item item-icon-left item-icon-right"> 
+        <div class="item item-icon-left item-icon-right" ng-click="HMActivated = !HMActivated;view()"> 
           <i class="icon ion-chatbox-working stableheader"></i>
-          <h2 class="text stableheader">Helpful Messages: </h2>
-          <i class="icon text highlight text-right">{{Posts.length}}</i>
+          <h2 class="text stableheader">Helpful Messages <span ng-show="countHMessages()">&nbsp;|&nbsp; {{countHMessages()}}</span></h2>
+          <ion-spinner icon="ripple" class="icon spinner-balanced" ng-show="countHMessages()"></ion-spinner>
+        </div>
+        <div class="item list no-padding" ng-show="HMActivated" ng-class="{openToggle:HMActivated,closeToggle:!HMActivated}">
+          <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid" class="item no-padding">
+            <div class="no-padding">
+              <div class="item item-avatar-left item-text-wrap item-icon-right">
+                <img src="../img/OneYumPie.png">
+                <h3 class="text"><b class="text highlight">{{Post.title}} </b>by <b class="text highlight">{{Post.source}}</b></h3>
+                <h4 class="text">{{Post.timestamp | date}}</h4>
+                <i class="icon ion-ios-arrow-right"></i>
+              </div>
+            </div>
+            <!-- <ng-include ng-If="Post.type === 'status-basic'" src="'templates/post-types/status-basic.html'"></ng-include>
+            
+            Status Update w/Photo
+            <ng-include ng-If="Post.type === 'status-image'" src="'templates/post-types/status-image.html'"></ng-include> -->
+          </div>
         </div>
       </div>
-      <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid">
-        <div class="card list">
-          <div class="item item-avatar-left item-text-wrap">
-            <img src="../img/OneYumPie.png">
-            <h2 class="text"><b class="text highlight">{{Post.title}} </b>by <b class="text highlight">{{Post.source}}</b></h2>
-            <h4 class="text">{{Post.timestamp | date}}</h4>
-          </div>
-          <div class="item item-inset-text item-text-wrap">
-            <p class="text">{{Post.description}}</p>
-          </div>
-          <div class="item item-icon-right">
-            <p class="text">{{Post.action}}</p>
-            <i class="icon ion-ios-arrow-right"></i>
-          </div>
-        </div>
-        <!-- <ng-include ng-If="Post.type === 'status-basic'" src="'templates/post-types/status-basic.html'"></ng-include>
         
-        Status Update w/Photo
-        <ng-include ng-If="Post.type === 'status-image'" src="'templates/post-types/status-image.html'"></ng-include> -->
-      </div>
 
       <div class="card list">
         <div class="item item-icon-left item-icon-right"> 
           <i class="icon ion-chatbox-working stableheader"></i>
           <h2 class="text stableheader">Community Activity: </h2>
-          <i class="icon text highlight text-right">{{Posts.length}}</i>
+          <i class="icon text highlight text-right">{{HMessages.length}}</i>
         </div>
       </div>
-      <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid">
+      <div ng-repeat="Message in HMessages | orderBy: 'pid' as filtered_result track by Message.pid">
         <div class="card list">
           <div class="item item-avatar-left item-text-wrap">
             <img src="../img/OneYumPie.png">
-            <h2 class="text"><b class="text highlight">{{Post.title}} </b>by <b class="text highlight">{{Post.source}}</b></h2>
-            <h4 class="text">{{Post.timestamp | date}}</h4>
+            <h2 class="text"><b class="text highlight">{{Message.title}} </b>by <b class="text highlight">{{Message.source}}</b></h2>
+            <h4 class="text">{{Message.timestamp | date}}</h4>
           </div>
           <div class="item item-inset-text item-text-wrap">
-            <p class="text">{{Post.description}}</p>
+            <p class="text">{{Message.description}}</p>
           </div>
           <div class="item item-icon-right">
-            <p class="text">{{Post.action}}</p>
+            <p class="text">{{Message.action}}</p>
             <i class="icon ion-ios-arrow-right"></i>
           </div>
         </div>

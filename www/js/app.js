@@ -157,7 +157,17 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
     views: {
       'account-plans': {
         templateUrl: 'templates/account-plans.html',
-        controller: 'MealCtrl'
+        controller: 'PlanCtrl'
+      }
+    }
+  })
+
+  .state('account.plans-household', {
+    url: '/household',
+    views: {
+      'account-plans': {
+        templateUrl: 'templates/account-household.html',
+        controller: 'HouseholdCtrl'
       }
     }
   })

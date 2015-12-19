@@ -1,0 +1,49 @@
+
+<ion-view>
+	<ion-nav-bar>
+      <ion-nav-back-button class="stableheader"></ion-nav-back-button>
+  </ion-nav-bar>
+  
+  <ion-content class="activityBackground">
+
+    <!-- Refresher -->
+    <ion-refresher
+      pulling-text=""
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <!-- Manage Family Display -->
+    <ion-list class="card list">
+	    <ion-item class="item item-icon-left item-icon-right"> 
+	      <i class="icon ion-person-stalker stableheader"></i>
+	      <h2 class="text stableheader">Household Members &nbsp;|&nbsp; {{hhold.length + 1}}</h2>
+	      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+	    </ion-item>
+	    <ion-item class="item no-padding">
+	    	<div class="item no-padding">
+          <div class="item item-icon-left item-text-wrap item-icon-right">
+            <i class="icon ion-person padding-left stableheader"></i>
+            <h3 class="text padding-left stableheader">{{self.fname}} {{self.lname}}   (you)</h3>
+            <i class="icon ion-wrench stableheader" style="font-size:22px;"></i>
+          </div>
+	      </div>
+	      <div ng-repeat="Member in hhold" class="item no-padding">
+          <div class="item item-icon-left item-text-wrap item-icon-right">
+            <i class="icon ion-document-text padding-left stableheader" ></i>
+            <h3 class="text padding-left"><b class="text stableheader">{{Member.fname}} {{Member.lname}}</b></h3>
+            <i class="icon ion-ios-arrow-right stableheader" style="font-size:22px;"></i>
+          </div>
+	      </div>
+	      <ion-item class="item no-padding">
+	      	<div class="no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-person-add stableheader padding-left" style="font-size:22px;"></i>
+	            <h3 class="text stableheader padding-left">Add</h3>
+	            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+	          </div>
+	        </div>
+	      </ion-item>
+	    </ion-item>
+		</ion-list>
+
+</ion-view>

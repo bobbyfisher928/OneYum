@@ -3,6 +3,8 @@ angular.module('OneYum.controllers', [])
 .controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
+
+
   // console.log(window.innerWidth < 650);
   // console.log(screen);
   $scope.setClass = function() {
@@ -243,17 +245,46 @@ angular.module('OneYum.controllers', [])
   
 }])
 
-.controller('MealCtrl', ['$scope', function($scope){
-  
+.controller('PlanCtrl', ['$scope','Plans','$ionicNavBarDelegate', function($scope,Plans,$ionicNavBarDelegate){
+  $scope.OpenPlans = Plans.getPlans();
+  $scope.PastPlans = Plans.getHistory();
+  // console.log($scope.Plans);
+  $ionicNavBarDelegate.showBar('false');
 }])
 
 .controller('CalendarCtrl', ['$scope', function($scope){
   
 }])
 
-.controller('StreamCtrl', ['$scope','Posts', function($scope,Posts){
+.controller('StreamCtrl', ['$scope','Posts','Activity', function($scope,Posts,Activity){
   $scope.Posts = Posts.get();
+  $scope.HMessages = Activity.get();
+  console.log($scope.Posts, $scope.HMessages);
+  $scope.countHMessages = function() {
+    $scope.HMCount = 0;
+    // console.log('Enter');
+    for (var i = 0; i < $scope.HMessages.length; i++) {
+      if(!$scope.HMessages[i].viewed) {
+        $scope.HMCount = $scope.HMCount + 1;
+        // console.log('Added');
+      }
+    };
+    return $scope.HMCount;
+  }
+  $scope.view = function(){
+    $scope.countHMessages = function() {
+      return 0;
+    };
+  }
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification) {
+  $ionicNavBarDelegate.showBar('true');
+  $scope.self = Identification.getIdent();
+  $scope.hhold = Identification.getHHold();
+
+  console.log($scope.self,$scope.hhold);
 });

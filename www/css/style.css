@@ -1,4 +1,7 @@
+
+
 /* Empty. Add your own CSS if you like */
+
 .text {
 	font-family:'Bitter', serif !important;
 	margin: 0!important;
@@ -22,6 +25,10 @@
 .left {
 	left: 0!important;
 	padding-right: 0 !important;
+}
+
+.no-padding {
+	padding:0 !important;
 }
 
 .errortext {
@@ -151,12 +158,19 @@
 	position: absolute;
 }
 
-.spinner svg {
+/*.spinner svg {
   width: 28px;
   height: 28px;
   stroke: #fff;
   fill: #fff;
 }
+
+.action .spinner svg {
+	width: 28px;
+	height: 28px;
+	stroke: #3CA688;
+	fill: #3CA688;
+}*/
 
 .separator:before, .separator:after {
 	content: ' ';
@@ -621,3 +635,12 @@ circle.pie4 {
 	background-size: cover;
 }
 
+.touch {
+	position: absolute;
+	top: 12px;
+    right: 22%;
+}
+
+.householdNavBar {
+	background-color: rgba(0,0,0,0);
+}
