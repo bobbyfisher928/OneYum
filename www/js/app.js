@@ -192,7 +192,17 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
     }
   })
 
+  .state('account.details', {
+    url: '/details',
+    views: {
+      'account-details': {
+        templateUrl: 'templates/account-details.html',
+        controller: 'AccountCtrl'
+      }
+    }
+  })
+
   ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/welcome/home');
+  $urlRouterProvider.otherwise('/account/plans');
 });

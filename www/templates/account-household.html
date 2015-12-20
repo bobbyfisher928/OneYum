@@ -13,37 +13,78 @@
     </ion-refresher>
 
     <!-- Manage Family Display -->
-    <ion-list class="card list">
-	    <ion-item class="item item-icon-left item-icon-right"> 
-	      <i class="icon ion-person-stalker highlight"></i>
-	      <h2 class="text highlight">Household Members &nbsp;|&nbsp; {{hhold.length + 1}}</h2>
-	      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-	    </ion-item>
-	    <ion-item class="item no-padding">
-	    	<div class="item no-padding">
-          <div class="item item-icon-left item-text-wrap item-icon-right">
-            <i class="icon ion-person padding-left stableheader"></i>
-            <h3 class="text padding-left stableheader">{{self.fname}} {{self.lname}}   (you)</h3>
-            <i class="icon ion-wrench stableheader" style="font-size:22px;"></i>
-          </div>
-	      </div>
-	      <div ng-repeat="Member in hhold" class="item no-padding">
-          <div class="item item-icon-left item-text-wrap item-icon-right">
-            <i class="icon ion-document-text padding-left stableheader" ></i>
-            <h3 class="text padding-left"><b class="text stableheader">{{Member.fname}} {{Member.lname}}</b></h3>
-            <i class="icon ion-ios-arrow-right stableheader" style="font-size:22px;"></i>
-          </div>
-	      </div>
-	      <ion-item class="item no-padding">
-	      	<div class="no-padding">
+    <div class="stream">
+	    <div class="card list">
+		    <div class="item item-icon-left item-icon-right"> 
+		      <i class="icon ion-home highlight"></i>
+		      <h2 class="text highlight">Households</h2>
+		      <i class="icon ion-wrench stableheader" style="font-size:22px;"></i>
+		      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    </div>
+		    <div class="item no-padding">
+		    	<!-- <div class="item no-padding">
 	          <div class="item item-icon-left item-text-wrap item-icon-right">
-	            <i class="icon ion-person-add stableheader padding-left" style="font-size:22px;"></i>
-	            <h3 class="text stableheader padding-left">Add</h3>
-	            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+	            <i class="icon ion-location padding-left stableheader"></i>
+	            <div>
+	            	<h3 class="text padding-left stableheader"><b>Paul's Place</b></h3>
+	            	<h3 class="text padding-left stableheader">309 Lewis O. Gray Drive</h3>
+	            	<h3 class="text padding-left stableheader">Saugus, MA 01906</h3>
+
+	            </div>
+	            <i class="icon ion-wrench stableheader" style="font-size:22px;"></i>
 	          </div>
-	        </div>
-	      </ion-item>
-	    </ion-item>
-		</ion-list>
+		      </div> -->
+		      <div ng-repeat="Member in hhold" class="item no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-document-text padding-left stableheader" ></i>
+	            <h3 class="text padding-left"><b class="text stableheader">{{Member.fname}} {{Member.lname}}</b></h3>
+	            <i class="icon ion-ios-arrow-right stableheader" style="font-size:22px;"></i>
+	          </div>
+		      </div>
+		      <div class="item no-padding">
+		      	<div class="no-padding">
+		          <div class="item item-icon-left item-text-wrap item-icon-right">
+		            <i class="icon ion-location stableheader padding-left" style="font-size:22px;"></i>
+		            <h3 class="text stableheader padding-left">Add</h3>
+		            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+			</div>
+
+			<div class="card list">
+		    <div class="item item-icon-left item-icon-right"> 
+		      <i class="icon ion-person-stalker highlight"></i>
+		      <h2 class="text highlight">Household Members &nbsp;|&nbsp; {{hhold.length + 1}}</h2>
+		      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    </div>
+		    <div class="item no-padding">
+		    	<div class="item no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-person padding-left stableheader"></i>
+	            <h3 class="text padding-left stableheader">{{self.fname}} {{self.lname}}   (you)</h3>
+	            <i class="icon ion-wrench stableheader" style="font-size:22px;"></i>
+	          </div>
+		      </div>
+		      <div ng-repeat="Member in hhold" class="item no-padding">
+	          <div class="item item-icon-left item-text-wrap item-icon-right">
+	            <i class="icon ion-document-text padding-left stableheader" ></i>
+	            <h3 class="text padding-left"><b class="text stableheader">{{Member.fname}} {{Member.lname}}</b></h3>
+	            <i class="icon ion-ios-arrow-right stableheader" style="font-size:22px;"></i>
+	          </div>
+		      </div>
+		      <div class="item no-padding">
+		      	<div class="no-padding">
+		          <div class="item item-icon-left item-text-wrap item-icon-right">
+		            <i class="icon ion-person-add stableheader padding-left" style="font-size:22px;"></i>
+		            <h3 class="text stableheader padding-left">Add</h3>
+		            <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+			</div>
+		</div>
 
 </ion-view>

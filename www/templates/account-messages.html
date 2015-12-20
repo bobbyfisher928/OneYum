@@ -9,12 +9,30 @@
     </ion-refresher>
     
     <!-- Messages Display -->
-    <div class="card list">
-      <div class="item item-icon-left"> 
-        <i class="icon ion-email highlight"></i>
-        <h2 class="text highlight">Messages Activity: <span class="text-right" style="width:75%;">0</span></h2>
-      </div>
+    <div class="stream"></div>
+      <div class="card list">
+        <div class="item item-icon-left"> 
+          <i class="icon ion-email highlight"></i>
+          <h2 class="text highlight">Messages Activity: <span class="text-right" style="width:75%;">0</span></h2>
+        </div>
 
+      </div>
+      <div ng-repeat="Post in Posts | orderBy: 'pid' as filtered_result track by Post.pid" class="card list no-padding" >
+        <div class="no-padding">
+          <div class="item item-avatar-left item-text-wrap item-icon-right" ng-click="activate = !activate; changeViewed(Post);" ng-click="activate = !activate">
+            <img src="../img/OneYumPie.png">
+            <h3 class="text"><b class="text highlight">{{Post.title}} </b></h3>
+            <h4>by <b class="text highlight">{{Post.source}}</b></h4>
+            <h4 class="text">{{Post.timestamp | date}}</h4>
+            <i class="icon stableheader ion-android-mail" ng-show="!Post.viewed"></i>
+            <i class="icon stableheader ion-android-drafts" ng-show="Post.viewed"></i>
+          </div >
+          <div class="item item-text-wrap" ng-show="activate">
+            <p class="text stableheader padding-bottom">{{Post.description}}</p>
+            <button class="button btn text stableheader">{{Post.action}}</button>
+          </div>
+        </div>
+      </div>
     </div>
         
       

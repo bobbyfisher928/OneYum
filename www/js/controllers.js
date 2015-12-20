@@ -1,6 +1,6 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading) {
+.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading','Identification', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading,Identification) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
 
@@ -135,7 +135,7 @@ angular.module('OneYum.controllers', [])
     LoginService.login(data)
     .then(function(resp) {
       console.log(resp);
-      
+      Identification.setIdent(resp);
       $scope.show();
       $timeout(function() {
         $state.go('account.stream');
@@ -164,6 +164,7 @@ angular.module('OneYum.controllers', [])
     RegisterService.register(data)
     .then(function(response) {
       $scope.show();
+      Identification.setIdent(response);
       $timeout(function() {
         $state.go('account.stream');
         $scope.registerData = {};
@@ -241,8 +242,18 @@ angular.module('OneYum.controllers', [])
   
 }])
 
-.controller('MessageCtrl', ['$scope', function($scope){
-  
+.controller('MessageCtrl', ['$scope','Posts', function($scope,Posts){
+  $scope.Posts = Posts.get();
+
+  $scope.changeViewed = function(data) {
+    console.log(data);
+    $scope.Posts = Posts.updateViewed(data.pid);
+    console.log($scope.Posts);
+  }
+
+  $scope.$watch('Posts', function() {
+    
+  })
 }])
 
 .controller('PlanCtrl', ['$scope','Plans','$ionicNavBarDelegate', function($scope,Plans,$ionicNavBarDelegate){
@@ -256,10 +267,10 @@ angular.module('OneYum.controllers', [])
   
 }])
 
-.controller('StreamCtrl', ['$scope','Posts','Activity', function($scope,Posts,Activity){
-  $scope.Posts = Posts.get();
+.controller('StreamCtrl', ['$scope','Activity', function($scope,Activity){
+  
   $scope.HMessages = Activity.get();
-  console.log($scope.Posts, $scope.HMessages);
+  console.log($scope.HMessages);
   $scope.countHMessages = function() {
     $scope.HMCount = 0;
     // console.log('Enter');
@@ -279,6 +290,9 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('AccountCtrl', function($scope, $stateParams) {
 })
 
 .controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification) {

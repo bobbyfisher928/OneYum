@@ -110,6 +110,17 @@ angular.module('OneYum.factories', [])
 	return {
 		get: function() {
 			return Posts;
+		},
+		updateViewed: function(data) {
+			// console.log(data);
+			for (var i = 0; i < Posts.length; i++) {
+				console.log(Posts[i],data);
+				if(parseInt(Posts[i].pid) === parseInt(data)) {
+					console.log(Posts[i]);
+					Posts[i].viewed = true;
+				}
+			};
+			return Posts;
 		}
 	};
 })
@@ -144,40 +155,40 @@ angular.module('OneYum.factories', [])
 
 .factory('Plans', function(){
 	var PlanListOpen = [{
-		pid:2,
-		title: '12/16/2015 - 12/23/2015',
-		targets: [{
-			name: "Bobby Fisher",
-			meals:[{
-				mid:1,
-				title: "Monday Dinner",
-				base: [{
-					'meats': 21,
-					'veg': 28,
-					'grains': 21,
-					'fruits': 20,
-					'dairy': 10
-				}]
-			}]
-		}]
+		// pid:2,
+		// title: '12/16/2015 - 12/23/2015',
+		// targets: [{
+		// 	name: "Bobby Fisher",
+		// 	meals:[{
+		// 		mid:1,
+		// 		title: "Monday Dinner",
+		// 		base: [{
+		// 			'meats': 21,
+		// 			'veg': 28,
+		// 			'grains': 21,
+		// 			'fruits': 20,
+		// 			'dairy': 10
+		// 		}]
+		// 	}]
+		// }]
 	}];
 	var PlanListHistory = [{
-		pid:1,
-		title: '12/08/2015 - 12/15/2015',
-		targets: [{
-			name: "Bobby Fisher",
-			meals:[{
-				mid:1,
-				title: "Monday Dinner",
-				base: [{
-					'meats': 21,
-					'veg': 28,
-					'grains': 21,
-					'fruits': 20,
-					'dairy': 10
-				}]
-			}]
-		}]
+		// pid:1,
+		// title: '12/08/2015 - 12/15/2015',
+		// targets: [{
+		// 	name: "Bobby Fisher",
+		// 	meals:[{
+		// 		mid:1,
+		// 		title: "Monday Dinner",
+		// 		base: [{
+		// 			'meats': 21,
+		// 			'veg': 28,
+		// 			'grains': 21,
+		// 			'fruits': 20,
+		// 			'dairy': 10
+		// 		}]
+		// 	}]
+		// }]
 	}];
 
 	return {
