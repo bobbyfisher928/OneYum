@@ -110,7 +110,7 @@ $app->post('/meals', function() use ( $app ) {
 $app->post('/location', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
   $response = $request;
-  echo json_encode( $response );
+  echo json_encode( $request );
 });
 
 $app->post('/household', function() use ( $app ) {
