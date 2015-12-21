@@ -109,27 +109,27 @@ $app->post('/meals', function() use ( $app ) {
 
 $app->post('/location', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  switch ($request['action']) {
-    case 'ADD':
-      $response = $request['info'];
-      break;
-    case 'GET':
-      # code...
-      break;
-    case 'EDIT':
-      # code...
-      break;
-    case 'REMOVE':
-      # code...
-      break;
+  // switch ($request['action']) {
+  //   case 'ADD':
+  //     $response = $request['info'];
+  //     break;
+  //   case 'GET':
+  //     # code...
+  //     break;
+  //   case 'EDIT':
+  //     # code...
+  //     break;
+  //   case 'REMOVE':
+  //     # code...
+  //     break;
     
-    default:
-      # code...
-      break;
-  }
+  //   default:
+  //     # code...
+  //     break;
+  // }
 
   $response = $request;
-  echo json_encode( $response['action'] );
+  echo json_encode( $response );
 });
 
 $app->post('/household', function() use ( $app ) {
