@@ -91,26 +91,31 @@ $app->post('/checkemail', function() use ( $app ) {
 
 $app->post('/validatesupkey', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
+  $response = $request;
   echo json_encode( $response );
 });
 
 $app->post('/supregister', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
+  $response = $request;
   echo json_encode( $response );
 });
 
 $app->post('/meals', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
+  $response = $request;
   echo json_encode( $response );
 });
 
 $app->post('/location', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
+  $response = $request;
   echo json_encode( $response );
 });
 
 $app->post('/household', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
+  $response = $request;
   echo json_encode( $response );
 });
 
