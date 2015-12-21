@@ -4,7 +4,7 @@
 // 'OneYum' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'OneYum.controllers' is found in controllers.js
-angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
+angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -172,6 +172,26 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
     }
   })
 
+  .state('account.plans-household-location', {
+    url: '/addlocation',
+    views: {
+      'account-plans': {
+        templateUrl: 'templates/new-location.html',
+        controller: 'HouseholdCtrl'
+      }
+    }
+  })
+
+  .state('account.plans-create', {
+    url: '/create',
+    views: {
+      'account-plans': {
+        templateUrl: 'templates/account-plans-create.html',
+        controller: 'PlanCtrl'
+      }
+    }
+  })
+
   .state('account.messages', {
     url: '/messages',
     views: {
@@ -204,5 +224,5 @@ angular.module('OneYum', ['ionic', 'ngCookies','ui.router','ngHello','ngFileUplo
 
   ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/welcome/home');
+  $urlRouterProvider.otherwise('/account/plans');
 });

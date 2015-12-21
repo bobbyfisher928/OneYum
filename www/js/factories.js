@@ -61,6 +61,33 @@ angular.module('OneYum.factories', [])
   }
 })
 
+.factory('Locations', function(){
+	var Locations = [];
+	var LocationObj = {
+		name:'',
+		street:'',
+		city: '',
+		state:'',
+		zip: ''
+	}
+	return {
+		build: function() {
+			return LocationObj;
+		},
+		get: function() {
+			return Locations;
+		},
+		set: function(data) {
+			Locations[Locations.length] = data;
+			return Locations;
+		},
+		add: function(data) {
+			Locations[Locations.length] = data;
+			return Locations;
+		}
+	};
+})
+
 .factory('ContactService', function(){
 	var Contacts = {
 		'BobbyFisher': {

@@ -7,6 +7,9 @@ angular.module('OneYum.constants', [])
 	register: 'http://www.oneyum.org/oneyum.org/server/index.php/register',
 	validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
 	supregister: 'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
+	meals: 'http://www.oneyum.org/oneyum.org/server/index.php/meals',
+	location: 'http://www.oneyum.org/oneyum.org/server/index.php/location',
+	household: 'http://www.oneyum.org/oneyum.org/server/index.php/houshold'
 })
 
 .constant('PopupFill', {

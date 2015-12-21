@@ -99,6 +99,21 @@ $app->post('/supregister', function() use ( $app ) {
   echo json_encode( $response );
 });
 
+$app->post('/meals', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  echo json_encode( $response );
+});
+
+$app->post('/location', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  echo json_encode( $response );
+});
+
+$app->post('/household', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  echo json_encode( $response );
+});
+
 $app->error( function ( Exception $exc ) use ( $app ) {
    if ( $exc->getCode() !== 0 ) {
       $app->response->setStatus( $exc->getCode() );

@@ -252,15 +252,79 @@ angular.module('OneYum.controllers', [])
   }
 
   $scope.$watch('Posts', function() {
-    
+
   })
 }])
 
-.controller('PlanCtrl', ['$scope','Plans','$ionicNavBarDelegate', function($scope,Plans,$ionicNavBarDelegate){
+.controller('PlanCtrl', ['$scope','Plans','$ionicNavBarDelegate','$state','Identification', function($scope,Plans,$ionicNavBarDelegate,$state,Identification){
   $scope.OpenPlans = Plans.getPlans();
   $scope.PastPlans = Plans.getHistory();
   // console.log($scope.Plans);
-  $ionicNavBarDelegate.showBar('false');
+  // 
+  $scope.HHold = Identification.getHHold();
+  $scope.Ident = Identification.getIdent();
+
+  $scope.goToPlans = function() {
+    $state.go('account.plans');
+  }
+  $scope.createPlan = {};
+  
+  var today = new Date();
+
+  $scope.addDays = function(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  };
+  $scope.date = $scope.addDays(today,3);
+
+  var disabledDates = [
+    // new Date(1437719836326),
+    // new Date(),
+    // new Date(2015, 7, 10), //months are 0-based, this is August, 10th!
+    // new Date('Wednesday, August 12, 2015'), //Works with any valid Date formats like long format
+    // new Date("08-14-2015"), //Short format
+    // new Date(1439676000000) //UNIX format
+  ];
+  var datePickerCallback = function (val) {
+    if (typeof(val) === 'undefined') {
+      // console.log('No date selected');
+    } else {
+      console.log('Selected date is : ', val)
+      
+      $scope.date = val;
+    }
+  };
+  var weekDaysList = ["S", "M", "T", "W", "T", "F", "S"];
+  var monthList = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+  $scope.datepickerObject = {
+    // titleLabel: 'Title',  //Optional
+    todayLabel: '',  //Optional
+    closeLabel: 'Close',  //Optional
+    setLabel: 'Select',  //Optional
+    setButtonType : 'btn',  //Optional
+    // todayButtonType : 'button-assertive',  //Optional
+    closeButtonType : 'button-light',  //Optional
+    inputDate: $scope.date,  //Optional
+    mondayFirst: false,  //Optional
+    disabledDates: disabledDates, //Optional
+    weekDaysList: weekDaysList, //Optional
+    monthList: monthList, //Optional
+    templateType: 'popup', //Optional
+    showTodayButton: 'false', //Option
+    modalHeaderColor: 'bar-positive', //Optional
+    modalFooterColor: 'bar-positive', //Optional
+    from: $scope.addDays(today,2), //Optional
+    to: new Date(2018, 8, 25),  //Optional
+    callback: function (val) {  //Mandatory
+      datePickerCallback(val)
+    },
+    dateFormat: 'YYY-MM-DDTHH:MM:SS', //Optional
+    closeOnSelect: true, //Optional
+  };
+
+
+
 }])
 
 .controller('CalendarCtrl', ['$scope', function($scope){
@@ -295,10 +359,33 @@ angular.module('OneYum.controllers', [])
 .controller('AccountCtrl', function($scope, $stateParams) {
 })
 
-.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification) {
-  $ionicNavBarDelegate.showBar('true');
+.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification,$state,Locations,LocationService) {
+  
+  // $ionicNavBarDelegate.showBar('true');
   $scope.self = Identification.getIdent();
   $scope.hhold = Identification.getHHold();
-
+  $scope.location = Locations.build();
+  $scope.Locations = Locations.get();
   console.log($scope.self,$scope.hhold);
+
+  $scope.goToHH = function() {
+    $state.go('account.plans-household');
+  }
+
+  $scope.newLocation = function(data) {
+    LocationService.add(data)
+    .then(function(resp) {
+      $scope.Locations = Locations.set(data);
+    },function(err) {
+      console.log(err);
+    })
+    
+    $state.go('account.plans-household');
+    console.log(data);
+  }
+
+  $scope.goToPlans = function() {
+    $scope.location = '';
+    $state.go('account.plans');
+  }
 });

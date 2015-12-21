@@ -1,0 +1,43 @@
+<ion-view>
+  
+  <ion-content class="activityBackground">
+  	<form name="new-lacation-form">
+	  	<div class="card list">
+	  		<div class="item item-icon-left">
+	  			<i class="icon ion-location highlight"></i>
+	  			<h2 class="text highlight">Location Name</h2>
+	  		</div>
+	  		<label class="item item-input">
+	  			<input type='text' ng-model="location.name" placeholder="Location Name">
+	  		</label>
+	  	</div>
+
+	  	<div class="card list">
+	  		<div class="item item-icon-left">
+	  			<i class="icon ion-map highlight"></i>
+	  			<h2 class="text highlight">Address</h2>
+	  		</div>
+		  	<label class="item item-input">
+	  			<input type='text' ng-model="location.street" placeholder="Street Address">
+	  		</label>
+	  		<label class="item item-input">
+	  			<input type='text' ng-model="location.city" placeholder="City">
+	  		</label>
+	  		<label class="item item-input">
+	  			<input type='text' ng-model="location.state" placeholder="State">
+	  		</label>
+	  		<label class="item item-input">
+	  			<input type='text' nng-model="location.zip" placeholder="Zip">
+	  		</label>
+	  	</div>
+
+	  	<div class="card no-padding">
+	  		<div class="row no-padding">
+		  		<button class="button button-light col col-50" style="margin-top:0px!important;" ng-click="goToHH()"><b class="text">Cancel</b></button>
+		  		<button class="button btn col col-50" style="margin-top:0px!important;" ng-click="newLocation(location)"><b class="text">Save</b></button>
+	  		</div>
+	  	</div>
+    </form>
+  </ion-content>
+
+</ion-view>

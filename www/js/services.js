@@ -101,4 +101,88 @@ angular.module('OneYum.services', [])
 
 .service('PostService', ['Posts','$q','$http', function(Posts,$q,$http){
 	
+	return {
+
+	}
+}])
+
+.service('LocationService', ['Locations','$q','$http','API', function(Locations,$q,$http,API){
+	var get = function(data) {
+		var d = $q.defer();
+		var request = {
+			action: 'GET',
+			data: data,
+		};
+		$http.post(API.location,request)
+		.success(function(response) {
+			d.resolve(response);
+			console.log(response);
+		})
+		.error(function(response) {
+			d.reject(response);
+			console.log(response);
+		})
+		return d.promise;
+	};
+
+	var remove = function(data) {
+		var d = $q.defer();
+		var request = {
+			action: 'REMOVE',
+			data: data,
+		};
+		$http.post(API.location,request)
+		.success(function(response) {
+			d.resolve(response);
+			console.log(response);
+		})
+		.error(function(response) {
+			d.reject(response);
+			console.log(response);
+		})
+		return d.promise;
+	};
+
+	var update = function(data) {
+		var d = $q.defer();
+		var request = {
+			action: 'UPDATE',
+			data: data,
+		};
+		$http.post(API.location,request)
+		.success(function(response) {
+			d.resolve(response);
+			console.log(response);
+		})
+		.error(function(response) {
+			d.reject(response);
+			console.log(response);
+		})
+		return d.promise;
+	};
+
+	var add = function(data) {
+		var d = $q.defer();
+		var request = {
+			action: 'ADD',
+			data: data,
+		};
+		$http.post(API.location,request)
+		.success(function(response) {
+			d.resolve(response);
+			console.log(response);
+		})
+		.error(function(response) {
+			d.reject(response);
+			console.log(response);
+		})
+		return d.promise;
+	}
+
+	return {
+		get: get,
+		remove: remove,
+		update: update,
+		add: add
+	}	
 }])
