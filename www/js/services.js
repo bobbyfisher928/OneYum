@@ -1,5 +1,9 @@
 angular.module('OneYum.services', [])
 
+.service('RefreshService', ['$q','$http', function($q,$http){
+	
+}])
+
 .service('SupplierRegisterService', ['$q','$http','API', function($q,$http,API){
 	var validateKey = function(data) {
 		var d = $q.defer();
