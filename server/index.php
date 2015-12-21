@@ -128,8 +128,8 @@ $app->post('/location', function() use ( $app ) {
       break;
   }
 
-  // $response = $request;
-  echo json_encode( $response );
+  $response = $request;
+  echo json_encode( $response['action'] );
 });
 
 $app->post('/household', function() use ( $app ) {

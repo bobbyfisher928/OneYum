@@ -111,7 +111,7 @@ angular.module('OneYum.services', [])
 		var d = $q.defer();
 		var request = {
 			action: 'GET',
-			data: data,
+			info: data,
 		};
 		$http.post(API.location,request)
 		.success(function(response) {
@@ -129,7 +129,7 @@ angular.module('OneYum.services', [])
 		var d = $q.defer();
 		var request = {
 			action: 'REMOVE',
-			data: data,
+			info: data,
 		};
 		$http.post(API.location,request)
 		.success(function(response) {
@@ -147,7 +147,7 @@ angular.module('OneYum.services', [])
 		var d = $q.defer();
 		var request = {
 			action: 'EDIT',
-			data: data,
+			info: data,
 		};
 		$http.post(API.location,request)
 		.success(function(response) {
