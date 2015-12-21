@@ -146,7 +146,7 @@ angular.module('OneYum.services', [])
 	var update = function(data) {
 		var d = $q.defer();
 		var request = {
-			action: 'UPDATE',
+			action: 'EDIT',
 			data: data,
 		};
 		$http.post(API.location,request)
@@ -171,6 +171,7 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			d.resolve(response);
 			console.log(response);
+			Locations.add(response.info);
 		})
 		.error(function(response) {
 			d.reject(response);

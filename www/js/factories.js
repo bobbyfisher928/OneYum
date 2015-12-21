@@ -78,7 +78,7 @@ angular.module('OneYum.factories', [])
 			return Locations;
 		},
 		set: function(data) {
-			Locations[Locations.length] = data;
+			Locations = [data];
 			return Locations;
 		},
 		add: function(data) {

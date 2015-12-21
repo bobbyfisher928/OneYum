@@ -374,11 +374,11 @@ angular.module('OneYum.controllers', [])
 
   $scope.newLocation = function(data) {
     LocationService.add(data)
-    // .then(function(resp) {
-    //   $scope.Locations = Locations.set(data);
-    // },function(err) {
-    //   console.log(err);
-    // })
+    .then(function(resp) {
+      $scope.Locations = Locations.get();
+    },function(err) {
+      console.log(err);
+    })
     
     $state.go('account.plans-household');
     console.log(data);

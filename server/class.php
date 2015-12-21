@@ -117,5 +117,70 @@ class Identity {
 
 }
 
+class Household {
+	public $response;
+	protected $id;
+	protected $hid;
+	public $sql;
+
+	function create( $data ) {
+		$this->id = 	$data['id'];
+		$this->hid = 	$data['hid'];
+		$this->sql = 	"INSERT INTO household (id,hid) VALUES ('$this->id','$this->hid');";
+		return $this->sql;
+	}
+
+	function getAll( data ) {
+		$this->sql = '';
+		return $this->sql;
+	}
+
+	function get( data ) {
+		$this->sql = '';
+		return $this->sql;
+	}
+}
+
+class Location {
+	public $response;
+	protected $hid;
+	protected $name;
+	protected $street;
+	protected $city;
+	protected $state;
+	protected $zip;
+	protected $hid;
+	public $sql;
+
+	function add($data) {
+		$this->hid = 	$data['hid'];
+		$this->name = 	$data['name'];
+		$this->street = $data['street'];
+		$this->city = 	$data['city'];
+		$this->state = 	$data['state'];
+		$this->zip = 	$data['zip'];
+		$this->sql = 	"INSERT INTO location (hid,name,street,city,state,zip) VALUES ('$this->hid','$this->name','$this->street','$this->city','$this->state','$this->zip');";
+		return $this->sql;
+	}
+
+	function get($data) {
+		$this->hid = $data['hid'];
+		$this->sql = "SELECT * FROM location WHERE hid = '$this->hid';";
+		return $this->sql;
+	}
+
+	function update($data) {
+		$this->hid = 	$data['hid'];
+		$this->name = 	$data['name'];
+		$this->street = $data['street'];
+		$this->city = 	$data['city'];
+		$this->state = 	$data['state'];
+		$this->zip = 	$data['zip'];
+		$this->sql = "UPDATE location SET name = '$this->name', street = '$this->street', city = '$this->city', state = '$this->state', zip = '$this->zip';"
+		return $this->sql;
+	}
+
+}
+
 
 ?>
