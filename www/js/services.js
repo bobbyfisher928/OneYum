@@ -165,7 +165,7 @@ angular.module('OneYum.services', [])
 		var d = $q.defer();
 		var request = {
 			action: 'ADD',
-			data: data,
+			info: data,
 		};
 		$http.post(API.location,request)
 		.success(function(response) {
