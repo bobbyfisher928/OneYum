@@ -172,7 +172,9 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			d.resolve(response);
 			console.log(response);
-			Locations.add(response.info);
+			if (response.hid) {
+				Locations.add(response.info);
+			};
 		})
 		.error(function(response) {
 			d.reject(response);
