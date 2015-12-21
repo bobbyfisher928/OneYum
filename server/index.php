@@ -20,8 +20,8 @@ date_default_timezone_set('America/New_York');
 
 require '../vendor/slim/slim/Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
-require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
-require '../vendor/firebase/php-jwt/Authentication/JWT.php';
+// require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+// require '../vendor/firebase/php-jwt/Authentication/JWT.php';
 require 'control.php';
 require 'class.php';
 

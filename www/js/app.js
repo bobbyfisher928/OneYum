@@ -7,12 +7,12 @@
 angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
 
 .run(function($ionicPlatform,$state,$cookies,RefreshService,Identification) {
-  if ($cookies['oy']) {
-    // RefreshService.refresh();
-    $state.go('account.stream',{id:Identification.getIdent().id})
-  } else {
-    $state.go('welcome.home');
-  };
+  // if ($cookies['oy']) {
+  //   // RefreshService.refresh();
+  //   $state.go('account.stream',{id:Identification.getIdent().id})
+  // } else {
+  //   $state.go('welcome.home');
+  // };
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -230,5 +230,5 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
 
   ;
   // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise('/account/plans');
+  $urlRouterProvider.otherwise('/welcome/home');
 });
