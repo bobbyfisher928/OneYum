@@ -135,15 +135,21 @@ angular.module('OneYum.controllers', [])
     LoginService.login(data)
     .then(function(resp) {
       console.log(resp);
-      Identification.setIdent(resp);
-      $scope.show();
-      $timeout(function() {
-        $state.go('account.stream');
-        $scope.closeLogin();
+      if (resp.id) {
+        Identification.setIdent(resp);
+        $scope.show();
+        $timeout(function() {
+          $state.go('account.stream');
+          $scope.closeLogin();
+          $scope.hide();
+          console.log('click');
+          
+        }, 1000);
+      } else {
         $scope.hide();
-        console.log('click');
-        
-      }, 1000);
+        Popup.alert()
+      };
+      
     },function(err) {
       if (err) {
         Popup.alert(PopupFill.login.invalidCred);

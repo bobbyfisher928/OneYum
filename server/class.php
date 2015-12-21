@@ -130,12 +130,12 @@ class Household {
 		return $this->sql;
 	}
 
-	function getAll( data ) {
+	function getAll( $data ) {
 		$this->sql = '';
 		return $this->sql;
 	}
 
-	function get( data ) {
+	function get( $data ) {
 		$this->sql = '';
 		return $this->sql;
 	}
@@ -149,7 +149,6 @@ class Location {
 	protected $city;
 	protected $state;
 	protected $zip;
-	protected $hid;
 	public $sql;
 
 	function add($data) {
@@ -176,7 +175,7 @@ class Location {
 		$this->city = 	$data['city'];
 		$this->state = 	$data['state'];
 		$this->zip = 	$data['zip'];
-		$this->sql = "UPDATE location SET name = '$this->name', street = '$this->street', city = '$this->city', state = '$this->state', zip = '$this->zip';"
+		$this->sql = "UPDATE location SET name = '$this->name', street = '$this->street', city = '$this->city', state = '$this->state', zip = '$this->zip';";
 		return $this->sql;
 	}
 
