@@ -92,17 +92,19 @@ $app->post('/login', function() use ( $app ) {
 
 $app->post('/refresh', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  if ($_SESSION['oy'] === $request['authorize']) {
-    $action = new Identity;
-    $action->refresh($request);
-    $query = new Request;
-    $user = $query->query( $action->sql );
-    $user = $user[0];
-    $response = $user;
+  $action = new Identity;
+  $action->refresh($request);
+  $query = new Request;
+  $user = $query->query( $action->sql );
+  $user = $user[0];
+  $response = $user;
+
+  // if ($_SESSION['oy'] === $request['authorize']) {
     
-  } else {
-    $response = array($_SESSION['oy'], $request['authorize']);
-  }
+    
+  // } else {
+  //   $response = array($_SESSION['oy'], $request['authorize']);
+  // }
 
     echo json_encode( $response );
 });
