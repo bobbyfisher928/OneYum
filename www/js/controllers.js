@@ -365,7 +365,7 @@ angular.module('OneYum.controllers', [])
   
 }])
 
-.controller('StreamCtrl', ['$scope','Activity', function($scope,Activity){
+.controller('StreamCtrl', ['$scope','Activity','Identification','$state', function($scope,Activity,Identification,$state){
   
   $scope.HMessages = Activity.get();
   console.log($scope.HMessages);
