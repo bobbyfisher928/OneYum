@@ -51,6 +51,7 @@ $app->post('/register', function() use ( $app ) {
   $user['lname'] = decode5t($user['lname']);
   $response = $user;
   $app->setCookie('oy',$user['authorize'],'2 days','/','oneyum.org');
+  $_SESSION['oy'] = $user['authorize'];
   echo json_encode( $response );
 });
 
@@ -83,6 +84,7 @@ $app->post('/login', function() use ( $app ) {
   $user['lname'] = decode5t($user['lname']);
   $response = $user;
   $app->setCookie('oy',$user['authorize'],'2 days','/','oneyum.org');
+  $_SESSION['oy'] = $user['authorize'];
   echo json_encode( $response );
 });
 
@@ -90,13 +92,19 @@ $app->post('/login', function() use ( $app ) {
 
 $app->post('/refresh', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  $action = new Identity;
-  $action->refresh($request);
-  $query = new Request;
-  $user = $query->query( $action->sql );
-  $user = $user[0];
-  $response = $user;
-  echo json_encode( $response );
+  if ($_SESSION['oy'] === $request['authorize']) {
+    $action = new Identity;
+    $action->refresh($request);
+    $query = new Request;
+    $user = $query->query( $action->sql );
+    $user = $user[0];
+    $response = $user;
+    
+  } else {
+    $response = array($_SESSION['oy'], $request['authorize']);
+  }
+
+    echo json_encode( $response );
 });
 
 $app->post('/checkemail', function() use ( $app ) {
