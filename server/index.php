@@ -48,7 +48,7 @@ $app->post('/register', function() use ( $app ) {
   $user['fname'] = decode5t($user['fname']);
   $user['lname'] = decode5t($user['lname']);
   $response = $user;
-  $app->setCookie('oy',$user['authorize'],'2 days','/','');
+  $app->setCookie('oy',$user['authorize'],'2 days','/','oneyum.org');
   echo json_encode( $response );
 });
 
