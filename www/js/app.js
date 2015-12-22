@@ -9,9 +9,18 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
 .run(function($ionicPlatform,$state,$cookies,RefreshService,Identification) {
 
   if (localStorage.getItem('oy')) {
-
-    RefreshService.refresh(localStorage.getItem('oy'));
-    $state.go('account.stream',{id:Identification.getIdent().id});
+    RefreshService.refresh(localStorage.getItem('oy'))
+    .then(function(resp){
+      console.log(resp);
+      console.log(resp === 'null');
+      if (resp === 'null') {
+        localStorage.removeItem('oy');
+        $state.go('welcome.home');
+      } else {
+        $state.go('account.stream',{id:Identification.getIdent().id});
+      };
+    });
+    
   } else {
     $state.go('welcome.home');
   };
