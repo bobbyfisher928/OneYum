@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 }
 
+session_start();
+
 date_default_timezone_set('America/New_York');
 
 require '../vendor/slim/slim/Slim/Slim.php';
