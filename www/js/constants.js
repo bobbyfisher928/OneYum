@@ -11,6 +11,7 @@ angular.module('OneYum.constants', [])
 	location: 		'http://localhost/OneYum/server/index.php/location',
 	household: 		'http://localhost/OneYum/server/index.php/household',
 	members: 		'http://localhost/OneYum/server/index.php/members',
+	refresh: 		'http://localhost/OneYum/server/index.php/refresh',
 
 
 	// login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',

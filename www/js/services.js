@@ -1,7 +1,24 @@
 angular.module('OneYum.services', [])
 
-.service('RefreshService', ['$q','$http', function($q,$http){
-	
+.service('RefreshService', ['$q','$http','API','Identification', function($q,$http,API,Identification){
+	return {
+		refresh: function(data) {
+			var d = $q.defer();
+			$http.post(API.refresh,{authorize:data})
+			.success(function(response) {
+				console.log(response);
+				if (response) {
+					Identification.setIdent(response);
+				};
+				d.resolve(response);
+			})
+			.error(function(response) {
+				console.log(response);
+				d.reject(response);
+			})
+			return d.promise;
+		}
+	}
 }])
 
 .service('SupplierRegisterService', ['$q','$http','API', function($q,$http,API){

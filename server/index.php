@@ -34,6 +34,23 @@ $app->map('/:x+', function($x) {
 
 // throw new Exception("Invalid Credentials.", 401);
 
+// Registration
+
+$app->post('/register', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  $action = new Identity;
+  $action->register($request);
+  $insert = new Request;
+  $insert->insert( $action->sql );
+  $insert->query($action->get( $insert ));
+  $user = $insert->response;
+  $user = $user[0];
+  $user['fname'] = decode5t($user['fname']);
+  $user['lname'] = decode5t($user['lname']);
+  $response = $user;
+  $app->setCookie('oy',$user['authorize'],'2 days','/','');
+  echo json_encode( $response );
+});
 
 // Login
 
@@ -63,22 +80,19 @@ $app->post('/login', function() use ( $app ) {
   $user['fname'] = decode5t($user['fname']);
   $user['lname'] = decode5t($user['lname']);
   $response = $user;
+  $app->setCookie('oy',$user['authorize'],'2 days','/','');
   echo json_encode( $response );
 });
 
-// Registration
+// Refresh
 
-$app->post('/register', function() use ( $app ) {
+$app->post('/refresh', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
   $action = new Identity;
-  $action->register($request);
-  $insert = new Request;
-  $insert->insert( $action->sql );
-  $insert->query($action->get( $insert ));
-  $user = $insert->response;
+  $action->refresh($request);
+  $query = new Request;
+  $user = $query->query( $action->sql );
   $user = $user[0];
-  $user['fname'] = decode5t($user['fname']);
-  $user['lname'] = decode5t($user['lname']);
   $response = $user;
   echo json_encode( $response );
 });
@@ -106,6 +120,10 @@ $app->post('/meals', function() use ( $app ) {
   $response = $request;
   echo json_encode( $response );
 });
+
+
+
+
 
 $app->post('/location', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
