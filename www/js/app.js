@@ -7,10 +7,10 @@
 angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
 
 .run(function($ionicPlatform,$state,$cookies,RefreshService,Identification) {
-  
-  if ($cookies.get('oy')) {
 
-    RefreshService.refresh($cookies.get('oy'));
+  if (localStorage.getItem('oy')) {
+
+    RefreshService.refresh(localStorage.getItem('oy'));
     $state.go('account.stream',{id:Identification.getIdent().id});
   } else {
     $state.go('welcome.home');

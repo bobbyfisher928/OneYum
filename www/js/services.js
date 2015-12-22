@@ -66,6 +66,7 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			d.resolve(response);
 			console.log(response);
+			localStorage.setItem('oy',response.authorize);
 		})
 		.error(function(error) {
 			d.reject(error);
@@ -87,6 +88,7 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			d.resolve(response);
 			console.log(response);
+			localStorage.setItem('oy',response.authorize);
 		})
 		.error(function(error) {
 			d.reject(error);
