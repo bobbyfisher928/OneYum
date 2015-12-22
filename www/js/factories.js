@@ -1,23 +1,23 @@
 angular.module('OneYum.factories', [])
 
-.factory('User', function(){
-	var user = {
-		// id:
-		// email:
-		// firstname:
-		// lastname:
-		// start:
-		// verified:
-		// authorize:
-		// req:
-		// avatar:
-		// perma:
-		// sup:
-		// part:
-		// corp:
-	}
+.factory('Members', function(){
+	var members = [];
 	return {
-		
+		set: function(data) {
+			members = data;
+			console.log(data);
+		},
+		getAll: function() {
+			return members;
+		},
+		add: function(data) {
+			if (members.length) {
+				members = data;
+			} else {
+				members[members.length] = data;
+			};
+			console.log(members);
+		}
 	};
 })
 
@@ -46,8 +46,14 @@ angular.module('OneYum.factories', [])
       // auth.authorization = 
     },
     setHHold: function(data) {
-      hhold = data;
+    	// console.log(data);
+      	hhold = data;
+      	// console.log(hhold);
       // auth.authorization = 
+    },
+    addHHold: function(data) {
+    	hhold[hhold.length] = data;
+    	return hhold;
     },
     name: function() {
       return ident.fname + ' ' + ident.lname;
@@ -56,6 +62,7 @@ angular.module('OneYum.factories', [])
     	return ident;
     },
     getHHold: function() {
+    	// console.log(hhold);
     	return hhold;
     }
   }
@@ -78,7 +85,7 @@ angular.module('OneYum.factories', [])
 			return Locations;
 		},
 		set: function(data) {
-			Locations = [data];
+			Locations = data;
 			return Locations;
 		},
 		add: function(data) {

@@ -1,0 +1,38 @@
+<ion-view>
+  
+  <ion-content class="activityBackground">
+  	<form name="NewMemberform">
+	  	<div class="card list">
+	  		<div class="item item-icon-left">
+	  			<i class="icon ion-location highlight"></i>
+	  			<h2 class="text highlight">Member Name</h2>
+	  		</div>
+	  		<label class="item item-input">
+	  			<input type='text' ng-model="NewMember.fname" placeholder="First Name" required>
+	  		</label>
+	  		<label class="item item-input">
+	  			<input type='text' ng-model="NewMember.lname" placeholder="Last Name" required>
+	  		</label>
+	  	</div>
+
+	  	<div class="card list">
+	  		<div class="item item-icon-left">
+	  			<i class="icon ion-map highlight"></i>
+	  			<h2 class="text highlight">Email</h2>
+	  		</div>
+	  		<h5 class="item item-text-wrap text stableheader">Enter an email address if this member is also an administrator for the household.</h5>
+		  	<label class="item item-input">
+	  			<input type='email' ng-model="NewMember.email" placeholder="Email">
+	  		</label>
+	  	</div>
+
+	  	<div class="card no-padding">
+	  		<div class="row no-padding">
+		  		<button class="button button-light col col-50" style="margin-top:0px!important;" ng-click="goToHH()"><b class="text">Cancel</b></button>
+		  		<button class="button btn col col-50" style="margin-top:0px!important;" ng-click="newLocation(location)"><b class="text" ng-disabled="NewMemberform.$invalid">Save</b></button>
+	  		</div>
+	  	</div>
+    </form>
+  </ion-content>
+
+</ion-view>

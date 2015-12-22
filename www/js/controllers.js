@@ -147,7 +147,7 @@ angular.module('OneYum.controllers', [])
         }, 1000);
       } else {
         $scope.hide();
-        Popup.alert()
+        Popup.alert(PopupFill.communication.error);
       };
       
     },function(err) {
@@ -169,16 +169,22 @@ angular.module('OneYum.controllers', [])
     }
     RegisterService.register(data)
     .then(function(response) {
-      $scope.show();
-      Identification.setIdent(response);
-      $timeout(function() {
-        $state.go('account.stream');
-        $scope.registerData = {};
-        $scope.closeRegister();
-        $scope.hide();
-        console.log('click');
+      if (response.id) {
+        $scope.show();
+        Identification.setIdent(response);
+        $timeout(function() {
+          $state.go('account.stream');
+          $scope.registerData = {};
+          $scope.closeRegister();
+          $scope.hide();
+          console.log('click');
+          
+        }, 1000);
+      } else {
+        Popup.alert(PopupFill.login.invalidCred);
+        $scope.loginData = {};
+      };
         
-      }, 1000);
       
     }, function(err) {
       if (err) {
@@ -262,13 +268,35 @@ angular.module('OneYum.controllers', [])
   })
 }])
 
-.controller('PlanCtrl', ['$scope','Plans','$ionicNavBarDelegate','$state','Identification', function($scope,Plans,$ionicNavBarDelegate,$state,Identification){
+.controller('PlanCtrl', ['$scope','$stateParams','Plans','$ionicNavBarDelegate','$state','Identification','HouseholdService','MemberService','Members', function($scope,$stateParams,Plans,$ionicNavBarDelegate,$state,Identification,HouseholdService,MemberService,Members){
+
+  if (!$stateParams.id) {
+    HouseholdService.get()
+    .then(function(resp) {
+      $scope.HHold = Identification.getHHold();
+      console.log($scope.HHold);
+      MemberService.get()
+      .then(function(resp) {
+        console.log(resp);
+      }, function(err) {
+        console.log(err);
+      });
+    }, function(err) {
+      console.log(err);
+    });
+  };
+
+  $scope.HHold = Identification.getHHold();
+  $scope.Ident = Identification.getIdent();
+  $scope.Members = Members.getAll();
   $scope.OpenPlans = Plans.getPlans();
   $scope.PastPlans = Plans.getHistory();
   // console.log($scope.Plans);
-  // 
-  $scope.HHold = Identification.getHHold();
-  $scope.Ident = Identification.getIdent();
+
+
+  $scope.goToHHManage = function() {
+    $state.go('account.plans-household',{id:$scope.Ident.id});
+  }
 
   $scope.goToPlans = function() {
     $state.go('account.plans');
@@ -365,33 +393,78 @@ angular.module('OneYum.controllers', [])
 .controller('AccountCtrl', function($scope, $stateParams) {
 })
 
-.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification,$state,Locations,LocationService) {
-  
-  // $ionicNavBarDelegate.showBar('true');
+.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification,$state,Locations,HouseholdService,MemberService,Members) {
+
+  // HouseholdService.get()
+
   $scope.self = Identification.getIdent();
   $scope.hhold = Identification.getHHold();
-  $scope.location = Locations.build();
-  $scope.Locations = Locations.get();
-  console.log($scope.self,$scope.hhold);
+  $scope.members = Members.getAll();
+  $scope.NewHH = {};
 
-  $scope.goToHH = function() {
-    $state.go('account.plans-household');
+  $scope.cancelNewHH = function () {
+    $scope.NewHH = {};
+
   }
 
-  $scope.newLocation = function(data) {
-    LocationService.add(data)
+  $scope.addNewHH = function(data) {
+    console.log(data);
+    HouseholdService.add(data)
     .then(function(resp) {
-      $scope.Locations = Locations.get();
+      console.log(resp);
+      $scope.hhold = Identification.getHHold();
+      console.log(resp.hid);
+      MemberService.add({hid:resp.hid})
+      .then(function(resp) {
+        console.log(resp);
+        $scope.members = Members.getAll();
+      });
     },function(err) {
       console.log(err);
     })
+  }
+
+  $scope.location = Locations.build();
+  $scope.Locations = Locations.get();
+  if ($scope.self.length && $scope.hhold.length) {
+    console.log($scope.self,$scope.hhold);
+  };
+
+  $scope.goToHH = function() {
+    $state.go('account.plans-household',{id:$scope.self.id});
+  }
+
+  $scope.newLocation = function(data) {
+    var request = data;
+    request.hid = Identification.getHHold()[0].hid;
+
+    console.log(request,Identification.getHHold().length);
+    // LocationService.add(request)
+    // .then(function(resp) {
+    //   $scope.Locations = Locations.get();
+    //   console.log($scope.Locations);
+    // },function(err) {
+    //   console.log(err);
+    // })
     
-    $state.go('account.plans-household');
-    console.log(data);
+    // $state.go('account.plans-household');
+    // console.log(data);
   }
 
   $scope.goToPlans = function() {
     $scope.location = '';
     $state.go('account.plans');
   }
+
+  $scope.$watch('Identification.getHHold()', function() {
+    $scope.hhold = Identification.getHHold();
+    console.log($scope.hhold);
+  })
+
+  $scope.$watch('Members.getAll()', function() {
+    $scope.members = Members.getAll();
+    console.log($scope.members);
+  })
+
+
 });

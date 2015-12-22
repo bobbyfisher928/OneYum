@@ -109,13 +109,104 @@ $app->post('/meals', function() use ( $app ) {
 
 $app->post('/location', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  $response = $request;
-  echo json_encode( $request );
+  switch ($request['action']) {
+    case 'GET':
+      break;
+    
+    case 'REMOVE':
+      break;
+    
+    case 'EDIT':
+      break;
+    
+    case 'ADD':
+      $action = new Location;
+      $action->add((array)$request['info']);
+      $insert = new Request;
+      $insert->insertNR($action->sql);
+      if ($insert) {
+        $response = (array)$request['info'];
+      }
+      break;
+    
+    default:
+      # code...
+      break;
+  }
+
+  
+
+  // $response = array('hhold'=>$household,'locations'=>$locations);
+
+  echo json_encode( $response );
 });
 
 $app->post('/household', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
-  $response = $request;
+  switch ($request['action']) {
+    case 'GET':
+      $action = new Household;
+      $action->getAll((array)$request['info']);
+      $query = new Request;
+      $households = $query->query($action->sql);
+      if (count($households)) {
+        $response = $households;
+      } else {
+        $response = array();
+      }
+      break;
+    
+    case 'REMOVE':
+      break;
+    
+    case 'EDIT':
+      break;
+    
+    case 'ADD':
+      $action = new Household;
+      $action->create((array)$request['info']);
+      $insert = new Request;
+      $request['info']->hid = $insert->insert($action->sql);
+      $response = $request['info'];
+      break;
+    
+    default:
+      # code...
+      break;
+  }
+  // $response = $request;
+  echo json_encode( $response );
+});
+
+$app->post('/members', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
+  switch ($request['action']) {
+    case 'GET':
+      $action = new Members;
+      $action->get((array)$request['info']);
+      $insert = new Request;
+      $response = $insert->query($action->sql);
+      break;
+    
+    case 'REMOVE':
+      break;
+    
+    case 'EDIT':
+      break;
+    
+    case 'ADD':
+      $action = new Members;
+      $action->add((array)$request['info']);
+      $insert = new Request;
+      $insert->insertNR($action->sql);
+      $response = $request['info'];
+      break;
+    
+    default:
+      # code...
+      break;
+  }
+  // $response = $request;
   echo json_encode( $response );
 });
 

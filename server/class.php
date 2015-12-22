@@ -15,6 +15,17 @@ class Request {
 		return $this->response;
 	}
 
+	function insertNR( $sql ) {
+		$db = getConnection();
+		try {
+			$stmt = $db->prepare( $sql )->execute();
+			$this->response = $stmt;
+		} catch(PDOExption $e) {
+			throw new Exception("Request Class Error Insert 25", $e , 401);
+		}
+		return $this->response;
+	}
+
 	function query( $sql ) {
 		$db = getConnection();
 		try {
@@ -121,22 +132,59 @@ class Household {
 	public $response;
 	protected $id;
 	protected $hid;
+	protected $name;
 	public $sql;
 
 	function create( $data ) {
 		$this->id = 	$data['id'];
-		$this->hid = 	$data['hid'];
-		$this->sql = 	"INSERT INTO household (id,hid) VALUES ('$this->id','$this->hid');";
+		$this->name = 	str_replace("'", "\'", $data['name']);
+		$this->sql = 	"INSERT INTO household (id,name) VALUES ('$this->id','$this->name');";
 		return $this->sql;
 	}
 
 	function getAll( $data ) {
+		$this->id = $data['id'];
+		$this->sql = "SELECT hid,name FROM household WHERE id = '$this->id';";
+		return $this->sql;
+	}
+
+	function update( $data ) {
 		$this->sql = '';
 		return $this->sql;
 	}
 
-	function get( $data ) {
+	function remove($data) {
 		$this->sql = '';
+		return $this->sql;
+	}
+}
+
+class Members {
+	public $sql;
+	protected $id;
+	protected $name;
+
+	function add($data) {
+		$this->hid = $data['hid'];
+		$this->id = $data['id'];
+		$this->name = $data['name'];
+		if ($data['id']) {
+			$this->sql = "INSERT INTO members (hid,id,name) VALUES ('$this->hid','$this->id','$this->name');";
+		} else {
+			$this->sql = "INSERT INTO members (hid,name) VALUES ('$this->hid','$this->name');";
+		}
+		
+		return $this->sql;
+	}
+
+	function remove($data) {
+		$this->sql = "";
+		return $this->sql;
+	}
+
+	function get($data) {
+		$this->hid = $data['hid'];
+		$this->sql = "SELECT * FROM members WHERE hid = '$this->hid';";
 		return $this->sql;
 	}
 }
@@ -152,8 +200,8 @@ class Location {
 	public $sql;
 
 	function add($data) {
-		$this->hid = 	$data['hid'];
-		$this->name = 	$data['name'];
+		$this->hid =	$data['hid'];
+		$this->name = 	str_replace("'", "\'", $data['name']);
 		$this->street = $data['street'];
 		$this->city = 	$data['city'];
 		$this->state = 	$data['state'];
@@ -166,6 +214,24 @@ class Location {
 		$this->hid = $data['hid'];
 		$this->sql = "SELECT * FROM location WHERE hid = '$this->hid';";
 		return $this->sql;
+	}
+
+	function getAll( $data ) {
+		$this->sql = "SELECT * FROM location WHERE hid = '";
+		if (count($data) === 1) {
+			$this->sql .= $data[0]['hid'] . "';";
+			return $this->sql;
+		} else if (count($data) > 1) {
+			for ($i=0; $i < count($data); $i++) { 
+				$this->sql .= $data[$i]['hid'];
+				if ($i < (count($data)-1)) {
+					$this->sql .= "' OR hid = '";
+				} else {
+					$this->sql .= "';";
+				}
+			}
+			return $this->sql;
+		}
 	}
 
 	function update($data) {

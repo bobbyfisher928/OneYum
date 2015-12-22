@@ -1,26 +1,29 @@
 angular.module('OneYum.constants', [])
 
 .constant('API', {
-	// login: 			'http://localhost/OneYum/server/index.php/login',
-	// username: 		'http://localhost/OneYum/server/index.php/checkusername',
-	// email: 			'http://localhost/OneYum/server/index.php/checkemail',
-	// register: 		'http://localhost/OneYum/server/index.php/register',
-	// validateSupKey: 'http://localhost/OneYum/server/index.php/validatesupkey',
-	// supregister: 	'http://localhost/OneYum/server/index.php/supregister',
-	// meals: 			'http://localhost/OneYum/server/index.php/meals',
-	// location: 		'http://localhost/OneYum/server/index.php/location',
-	// household: 		'http://localhost/OneYum/server/index.php/houshold'
+	login: 			'http://localhost/OneYum/server/index.php/login',
+	username: 		'http://localhost/OneYum/server/index.php/checkusername',
+	email: 			'http://localhost/OneYum/server/index.php/checkemail',
+	register: 		'http://localhost/OneYum/server/index.php/register',
+	validateSupKey: 'http://localhost/OneYum/server/index.php/validatesupkey',
+	supregister: 	'http://localhost/OneYum/server/index.php/supregister',
+	meals: 			'http://localhost/OneYum/server/index.php/meals',
+	location: 		'http://localhost/OneYum/server/index.php/location',
+	household: 		'http://localhost/OneYum/server/index.php/household',
+	members: 		'http://localhost/OneYum/server/index.php/members',
 
 
-	login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
-	username: 		'http://www.oneyum.org/oneyum.org/server/index.php/checkusername',
-	email: 			'http://www.oneyum.org/oneyum.org/server/index.php/checkemail',
-	register: 		'http://www.oneyum.org/oneyum.org/server/index.php/register',
-	validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
-	supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
-	meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
-	location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
-	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/houshold'
+	// login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
+	// username: 		'http://www.oneyum.org/oneyum.org/server/index.php/checkusername',
+	// email: 			'http://www.oneyum.org/oneyum.org/server/index.php/checkemail',
+	// register: 		'http://www.oneyum.org/oneyum.org/server/index.php/register',
+	// validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
+	// supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
+	// meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
+	// location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
+	// household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household'
+	// members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
+	// 
 })
 
 .constant('PopupFill', {
@@ -38,6 +41,12 @@ angular.module('OneYum.constants', [])
 		invalidCred: {
 			title: 'Uh oh...',
 			message: 'The crednetials you have entered don\'t match our records. Please correct and try again.'
+		}
+	},
+	communication: {
+		error: {
+			title: 'Uh oh...',
+			message: 'We are exeriencing minor serve delays. Please try again later.'
 		}
 	}
 })
