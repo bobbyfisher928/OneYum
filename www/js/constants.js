@@ -22,7 +22,7 @@ angular.module('OneYum.constants', [])
 	supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
 	meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
 	location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
-	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household'
+	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household',
 	members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
 	refresh: 		'http://www.oneyum.org/oneyum.org/server/index.php/refresh'
 })
