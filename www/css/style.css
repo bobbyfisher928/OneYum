@@ -654,6 +654,14 @@ circle.pie4 {
 .primaryBannerImageSuppliers {
 	width: 100%;
 	height:250px;
+	background-image: url('../img/LeadMay_FoodtoMarket-09c0a506.jpeg');
+	background-position: center;
+	background-size: cover;
+}
+
+.primaryBannerImagePartners {
+	width: 100%;
+	height:250px;
 	background-image: url('../img/Farmers.jpg');
 	background-position: center;
 	background-size: cover;

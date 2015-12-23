@@ -2,42 +2,42 @@
   <ion-header-bar align-title="center">
     <h1 class="title text highlight text-center">Register</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeRegister()">Close</button>
+      <button class="text button button-clear" ng-click="closeRegister()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
     <form name="registerform" ng-submit="doRegister(registerData)" novalidate>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">First Name:</span>
+          <span class="text input-label">First Name:</span>
           <input type="text" ng-model="registerData.fname">
         </label>
         <label class="item item-input">
-          <span class="input-label">Last Name:</span>
+          <span class="text input-label">Last Name:</span>
           <input type="text" ng-model="registerData.lname">
         </label>
         <label class="item item-input">
-          <span class="input-label">Email:</span>
+          <span class="text input-label">Email:</span>
           <input type="email" ng-model="registerData.email" ng-blur="checkUsername(registerData.email)">
         </label>
         <span class="item item-text-wrap text-center errortext" ng-show="isTakenEmail">This Email has already been taken. Please choose another.</span>
         <label class="item item-input">
-          <span class="input-label">Password:</span>
+          <span class="text input-label">Password:</span>
           <input type="password" ng-model="registerData.password" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required ng-focus="active=true" ng-blur="active=false">
         </label>
-        <span class="item item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
+        <span class="item text item-text-wrap text-center errortext" ng-show="active">Password must contain a capital letter, lowercase letter, number, symbol, and be between 8 and 30 characters long.</span>
         <label class="item item-input">
-          <span class="input-label">Verify Password:</span>
+          <span class="text input-label">Verify Password:</span>
           <input type="password" ng-model="registerData.verpassword" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
         </label>
         <label class="item">
           <span class="item item-text-wrap text-center errortext" ng-show="errored"></span>
-          <button class="button button-block btn" ng-disabled="registerform.$invalid">Submit</button>
+          <button class="text button button-block btn" ng-disabled="registerform.$invalid">Submit</button>
         </label>
       </div>
     </form>
-    <a class="button button-block button-clear" ng-click="supRegister()">Supplier Registration</a>
-    <a class="button button-block button-clear">Partner Registration</a>
-    <a class="button button-block button-clear">Corporate Registration</a>
+    <a class="text button button-block button-clear highlight" ng-click="supRegister()">Supplier Registration</a>
+    <!-- <a class="text button button-block button-clear highlight">Partner Registration</a>
+    <a class="text button button-block button-clear highlight">Corporate Registration</a> -->
   </ion-content>
 </ion-modal-view>

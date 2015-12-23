@@ -2,25 +2,25 @@
   <ion-header-bar align-title="center">
     <h1 class="title text highlight text-center">Login</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+      <button class="text button button-clear" ng-click="closeLogin()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
     <form name="loginform" ng-submit="doLogin(loginData)" novalidate>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Email:</span>
+          <span class="text input-label">Email:</span>
           <input type="email" ng-model="loginData.email" >
         </label>
         <label class="item item-input">
-          <span class="input-label">Password:</span>
+          <span class="text input-label">Password:</span>
           <input type="password" ng-model="loginData.secret" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
         </label>
         <label class="item item-text-wrap text-center">
-          <button class="button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
+          <button class="text button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
         </label>
       </div>
     </form>
-    <button class="button button-full button-clear" ng-click="register()">Sign Up</button>
+    <button class="text button button-full button-clear highlight" ng-click="register()"><b>Sign Up</b></button>
   </ion-content>
 </ion-modal-view>
