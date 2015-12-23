@@ -15,8 +15,8 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
       console.log(resp === 'null');
       if (resp === 'null') {
         localStorage.removeItem('oy');
-        $urlRouterProvider.otherwise('/welcome/home');
-        // $state.go('welcome.home');
+        // $urlRouterProvider.otherwise('/welcome/home');
+        $state.go('welcome.home');
       } else {
         $state.go('account.stream',{id:Identification.getIdent().id});
       };

@@ -141,7 +141,7 @@ angular.module('OneYum.services', [])
 		// console.log(data);
 		$http.post(API.household,request)
 		.success(function(response) {
-			// console.log(response);
+			console.log(response);
 			Identification.setHHold(response);
 			d.resolve(response);
 		})
