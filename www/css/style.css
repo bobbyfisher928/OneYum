@@ -659,6 +659,7 @@ circle.pie4 {
 	background-size: cover;
 }
 
+/*Partner's Page*/
 .primaryBannerImagePartners {
 	width: 100%;
 	height:250px;
@@ -667,6 +668,26 @@ circle.pie4 {
 	background-size: cover;
 }
 
+/*Careers Page*/
+
+.primaryBannerImageCareers {
+	width: 100%;
+	height:250px;
+	background-image: url('../img/careerMap.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+/*About Page*/
+
+.primaryBannerImageAbout {
+	width: 100%;
+	height:80px;
+	background-image: url('../img/OneYumlogoonwood.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
 /*Contact Page*/
 
