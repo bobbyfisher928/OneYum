@@ -13,41 +13,111 @@
 	
 	<p class="text stableheader BannerTextCtn text-center">Choose your own ingredients or select from OneYum’s Featured Menu options.</p>
 
-	<h3 class="text text-center highlight BannerTextCtn">Step One: How Many?</h3>
-	<h5 class="italic-text text stableheader text-center">(Try it out. See how easy it is.)</h5>
-	<div class="card list">
-		<div class="item item-divider">Your Weekly Plan</div>
-		<div class="item item-input item-select">
-			<h5 class="Text">Adults</h5>
-			<select ng-model="adultCountSelection">
-		      <option>1</option>
-		      <option selected>2</option>
-		      <option>3</option>
-		      <option>4</option>
-		      <option>5</option>
-		      <option>6</option>
-		      <option>7</option>
-		      <option>8</option>
-		    </select>
+	<div class="card list no-padding tanBackground" ng-controller="PieCtrl">
+		<div class="item">
+			<h2 class="text text-center highlight"><b>The Breakdown</b></h2>
+			<h4 class="italic-text text stableheader text-center">A balanced foundation for every diet.</h4>
 		</div>
-		<div class="item item-input item-select">
-			<h5 class="Text">Children</h5>
-			<select ng-model="childCountSelection" >
-		      <option>1</option>
-		      <option selected>2</option>
-		      <option>3</option>
-		      <option>4</option>
-		      <option>5</option>
-		      <option>6</option>
-		      <option>7</option>
-		      <option>8</option>
-		      <option>9</option>
-		      <option>10</option>
-		    </select>
+		<div class="card list">
+			<h3 class="item highlight text">Traditional Meals</h3>
+			<div class="item row" style="margin-left:5px;">
+				<div class="pieCtn">
+					<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+				</div>
+				
+				<table class="pieTable left stableheader">
+					<caption></caption>
+					<thead>
+						<tr>
+							<th class="text-center text"><h5><b>Contents</b></h5></th>
+							<th class="text-center text"><h5><b>Ounces</b></h5></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in traditional.data track by $index">
+							<td class="text-center text"><h5>{{traditional.labels[$index]}}</h5></td>
+							<td class="text-center text"><h5>{{item}}</h5></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="item item-icon-right">
+				<p class="text stableheader">Learn more...</p>
+				<i class="icon ion-chevron-right" style="font-size:22px"></i>
+			</div>
 		</div>
-		<div class="item row">
-			<h5 class="Text col left">Pets</h5>
-			<h5 class="Text col text-right">(Coming Soon)</h5>
+		<div class="card list">
+			<h3 class="item highlight text">Vegetarian Meals</h3>
+			<div class="item row" style="margin-left:5px;">
+				<div class="pieCtn">
+					<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+				</div>
+				<table class="pieTable left stableheader">
+					<caption></caption>
+					<thead>
+						<tr>
+							<th class="text-center text"><h5><b>Contents</b></h5></th>
+							<th class="text-center text"><h5><b>Ounces</b></h5></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in vegetarian.data track by $index">
+							<td class="text-center text"><h5>{{vegetarian.labels[$index]}}</h5></td>
+							<td class="text-center text"><h5>{{item}}</h5></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="item item-icon-right">
+				<p class="text stableheader">Learn more...</p>
+				<i class="icon ion-chevron-right" style="font-size:22px"></i>
+			</div>
+		</div>
+		<div class="card list">
+			<h3 class="item highlight text">Paleo Meals</h3>
+			<div class="item row" style="margin-left:5px;">
+				<div class="pieCtn">
+					<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+				</div>
+				<table class="pieTable left stableheader">
+					<caption></caption>
+					<thead>
+						<tr>
+							<th class="text-center text"><h5><b>Contents</b></h5></th>
+							<th class="text-center text"><h5><b>Ounces</b></h5></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in vegetarian.data track by $index">
+							<td class="text-center text"><h5>{{vegetarian.labels[$index]}}</h5></td>
+							<td class="text-center text"><h5>{{item}}</h5></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card list">
+			<h3 class="item highlight text">Vegan Meals</h3>
+			<div class="item row" style="margin-left:5px;">
+				<div class="pieCtn">
+					<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+				</div>
+				<table class="pieTable left stableheader">
+					<caption></caption>
+					<thead>
+						<tr>
+							<th class="text-center text"><h5><b>Contents</b></h5></th>
+							<th class="text-center text"><h5><b>Ounces</b></h5></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in vegetarian.data track by $index">
+							<td class="text-center text"><h5>{{vegetarian.labels[$index]}}</h5></td>
+							<td class="text-center text"><h5>{{item}}</h5></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
     

@@ -211,6 +211,59 @@ angular.module('OneYum.controllers', [])
     $state.go('welcome.support-detail');
     // console.log(data);
   }
+  
+
+}])
+
+.controller('PieCtrl', ['$scope', function($scope){
+
+  $scope.traditional = {
+    data:[2,1.5,3,4,3],
+    labels: ['Fruits','Dairy','Meats','Veggies','Grains'],
+  };
+
+  $scope.vegetarian = {
+    data:[2,1.5,3,4,3],
+    labels: ['Fruits','Dairy','Proteins','Veggies','Grains'],
+  };
+  $scope.onClick = function() {
+    console.log('click');
+  }
+  $scope.options = {
+    //Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke : true,
+
+    //String - The colour of each segment stroke
+    segmentStrokeColor : "#fff",
+
+    //Number - The width of each segment stroke
+    segmentStrokeWidth : 2,
+
+    //Number - The percentage of the chart that we cut out of the middle
+    percentageInnerCutout : 0, // This is 0 for Pie charts
+
+    //Number - Amount of animation steps
+    animationSteps : 100,
+
+    //String - Animation easing effect
+    animationEasing : "easeOutBounce",
+
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : false,
+
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : false,
+
+    //String - A legend template
+    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
+
+    // Boolean - whether or not the chart should be responsive and resize when the browser does.
+    responsive: true,
+
+    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+    maintainAspectRatio: false,
+
+  }
 }])
 
 .controller('ContactCtrl', ['$scope', function($scope){

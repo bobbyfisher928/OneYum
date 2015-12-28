@@ -639,6 +639,15 @@ circle.pie4 {
 	background-size: cover;
 }
 
+.pieCtn {
+	width:50%;
+	height:160px;
+}
+
+.pieTable {
+	width:50%;
+}
+
 .touch {
 	position: absolute;
 	top: 12px;

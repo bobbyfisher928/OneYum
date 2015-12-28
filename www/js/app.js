@@ -67,7 +67,8 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     url: '/meals',
     views: {
       'menuContent': {
-        templateUrl: 'templates/meals.html'
+        templateUrl: 'templates/meals.html',
+        controller: 'PieCtrl'
       }
     }
   })
