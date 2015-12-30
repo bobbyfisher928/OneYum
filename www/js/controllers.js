@@ -4,6 +4,32 @@ angular.module('OneYum.controllers', [])
   $scope.screenset1 = false;
   $scope.screenset2 = false;
 
+  $scope.mobile = function() {
+    var screen = window.innerWidth;
+    if ( screen < 641 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tablet = function() {
+    var screen = window.innerWidth;
+    if ( screen > 640 && screen < 901 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.desktop = function() {
+    var screen = window.innerWidth;
+    if ( screen > 900 ) {
+      return true;
+    } else {
+      return false;
+    };
+  }
 
   // console.log(window.innerWidth < 650);
   // console.log(screen);

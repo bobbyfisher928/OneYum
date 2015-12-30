@@ -1,0 +1,119 @@
+<div class="backgroundSection2" ng-if="mobile()">
+	<h1 class="text sectionHeader stableheader padding"><strong>OneYum NOURISHES</strong></h1>
+	<div>
+		<div class="card">
+  		<ion-list class="list">
+  			<div class="item item-icon-left">
+  				<i class="icon ion-arrow-graph-up-right stableheader"></i>
+  				<span class="text stableheader center-text"><b>Increase Your Internal Potential</b></span>
+  			</div>
+  			<div class="item item-image">
+  				<h3 class="nourishText nT1 text">Properly portioned, </h3>
+  				<h3 class="nourishText nT2 text">balanced meals </h3>
+  				<h3 class="nourishText nT3 text">are great for your body.</h3>
+  				<div class="pieChart">
+				  </div>
+  			</div>
+  			<ion-item class="item item-icon-right" href="#">
+  				<span class="text stableheader standardTextSize">Learn about our balanced meal options...</span>
+  				<i class="icon ion-chevron-right stableheader"></i>
+  			</ion-item>
+  		</ion-list>
+		</div>
+		<div class="card">
+  		<ion-list class="list">
+  			<div class="item item-icon-left">
+  				<i class="icon"><img class="iconHeart" src="img/iconmonstr-favorite-9-icon-32.png"></i>
+  				<span class="text stableheader center-text"><b>Engage Your Heart And Soul</b></span>
+  			</div>
+  			<div class="item item-image">
+  				<div src="img/grouphandsin.png" class="handsin"></div>
+  			</div>
+  			<ion-item class="item item-icon-right" href="#">
+  				<span class="text stableheader standardTextSize">Each meal solves more than hunger...</span>
+  				<i class="icon ion-chevron-right stableheader"></i>
+  			</ion-item>
+  		</ion-list>
+		</div>
+	</div>
+</div>
+
+<div class="backgroundSection2" ng-if="tablet()">
+  <h1 class="text text-center sectionHeader stableheader padding"><strong>OneYum NOURISHES</strong></h1>
+  <div ng-class="{row:desktiop()}">
+    <div class="card" ng-class="{col:desktop()}">
+      <ion-list class="list">
+        <div class="item item-icon-left">
+          <i class="icon ion-arrow-graph-up-right stableheader"></i>
+          <span class="text stableheader center-text"><b>Increase Your Internal Potential</b></span>
+        </div>
+        <div class="item item-image">
+          <h3 class="nourishText nT1 text">Properly portioned, </h3>
+          <h3 class="nourishText nT2 text">balanced meals </h3>
+          <h3 class="nourishText nT3 text">are great for your body.</h3>
+          <div class="pieChart">
+          </div>
+        </div>
+        <ion-item class="item item-icon-right" href="#">
+          <span class="text stableheader standardTextSize">Learn about our balanced meal options...</span>
+          <i class="icon ion-chevron-right stableheader"></i>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="card" ng-class="{col:desktop()}">
+      <ion-list class="list">
+        <div class="item item-icon-left">
+          <i class="icon"><img class="iconHeart" src="img/iconmonstr-favorite-9-icon-32.png"></i>
+          <span class="text stableheader center-text"><b>Engage Your Heart And Soul</b></span>
+        </div>
+        <div class="item item-image">
+          <div src="img/grouphandsin.png" class="handsin"></div>
+        </div>
+        <ion-item class="item item-icon-right" href="#">
+          <span class="text stableheader standardTextSize">Each meal solves more than hunger...</span>
+          <i class="icon ion-chevron-right stableheader"></i>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</div>
+
+<div class="backgroundSection2" ng-if="desktop()">
+  <h1 class="text sectionHeader stableheader padding" ng-class="{desktop:!setClass(), shdesktop:!setClass()}"><strong>OneYum NOURISHES</strong></h1>
+  <div ng-class="{row:!setClass(), desktop:!setClass(),tablet:tablet()}">
+    <div class="card" ng-class="{col:!setClass()}">
+      <ion-list class="list">
+        <div class="item item-icon-left">
+          <i class="icon ion-arrow-graph-up-right stableheader"></i>
+          <span class="text stableheader center-text"><b>Increase Your Internal Potential</b></span>
+        </div>
+        <div class="item item-image">
+          <h3 class="nourishText nT1 text">Properly portioned, </h3>
+          <h3 class="nourishText nT2 text">balanced meals </h3>
+          <h3 class="nourishText nT3 text">are great for your body.</h3>
+          <div class="pieChart">
+          </div>
+        </div>
+        <ion-item class="item item-icon-right" href="#">
+          <span class="text stableheader standardTextSize">Learn about our balanced meal options...</span>
+          <i class="icon ion-chevron-right stableheader"></i>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="card" ng-class="{col:!setClass()}">
+      <ion-list class="list">
+        <div class="item item-icon-left">
+          <i class="icon"><img class="iconHeart" src="img/iconmonstr-favorite-9-icon-32.png"></i>
+          <span class="text stableheader center-text"><b>Engage Your Heart And Soul</b></span>
+        </div>
+        <div class="item item-image">
+          <div src="img/grouphandsin.png" class="handsin"></div>
+        </div>
+        <ion-item class="item item-icon-right" href="#">
+          <span class="text stableheader standardTextSize">Each meal solves more than hunger...</span>
+          <i class="icon ion-chevron-right stableheader"></i>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</div>
