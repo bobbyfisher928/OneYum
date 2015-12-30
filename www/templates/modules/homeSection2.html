@@ -79,9 +79,9 @@
 </div>
 
 <div class="backgroundSection2" ng-if="desktop()">
-  <h1 class="text sectionHeader stableheader padding" ng-class="{desktop:!setClass(), shdesktop:!setClass()}"><strong>OneYum NOURISHES</strong></h1>
-  <div ng-class="{row:!setClass(), desktop:!setClass(),tablet:tablet()}">
-    <div class="card" ng-class="{col:!setClass()}">
+  <h1 class="text sectionHeader stableheader padding" ng-class="{desktop:desktop(), shdesktop:desktop()}"><strong>OneYum NOURISHES</strong></h1>
+  <div ng-class="{row:desktop(), desktop:desktop()}">
+    <div class="card" ng-class="{col:desktop()}">
       <ion-list class="list">
         <div class="item item-icon-left">
           <i class="icon ion-arrow-graph-up-right stableheader"></i>
@@ -100,7 +100,7 @@
         </ion-item>
       </ion-list>
     </div>
-    <div class="card" ng-class="{col:!setClass()}">
+    <div class="card" ng-class="{col:desktop()}">
       <ion-list class="list">
         <div class="item item-icon-left">
           <i class="icon"><img class="iconHeart" src="img/iconmonstr-favorite-9-icon-32.png"></i>

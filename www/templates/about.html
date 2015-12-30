@@ -3,43 +3,51 @@
 		<span class="text hightlight">About</span>
 	</ion-nav-title>
   <ion-content>
-    <div class="primaryBannerImageAbout"></div>
+    <!-- <div class="primaryBannerImageAbout"></div> -->
 
     <!-- <h1 class="text highlight text-center BannerTextCtn"><b>Locally Focused</b></h1> -->
+    <div ng-class="{desktop:desktop(), shdesktop:desktop()}">
+        <div ng-class="{row:desktop()}">
+            <div ng-class="{col:desktop()}">
+                <h4 class="italic-text text text-center stableheader BannerTextCtn"><b>Our Mission</b></h4>
 
-    <h4 class="italic-text text text-center stableheader BannerTextCtn"><b>Our Mission</b></h4>
+                <p class="text stableheader text-center BannerTextCtn">Our mission is to create balanced meals that are affordable and convenient.  OneYum will leverage innovative processes like composting and recycling to minimize waste whenever possible. Create an infrastructure of food production that sustains and meets the needs of every community and their existing infrastructures.</p>
+            </div>
+            <div ng-class="{col:desktop()}">
+                <h4 class="italic-text text text-center stableheader BannerTextCtn"><b>Our Vision</b></h4>
 
-    <p class="text stableheader text-center BannerTextCtn">Our mission is to create balanced meals that are affordable and convenient.  OneYum will leverage innovative processes like composting and recycling to minimize waste whenever possible. Create an infrastructure of food production that sustains and meets the needs of every community and their existing infrastructures.</p>
+                <p class="text stableheader text-center BannerTextCtn">Our vision is to challenge the way that food works. We will consistently focus on nurturing the growth of local food production through civic initiatives, buying power, and innovative repurposing practices that redefine the ‘food-to-table’ process to better meet the evolving needs in every community, drive sustainable environmental practices, and reward everyone involved with more opportunities to better themselves.</p>
+            </div>
+        </div>
+        <div ng-class="{row:desktop()}">
+            <div class="card list" ng-class="{col:desktop()}">
+            	<h3 class="item text text-center highlight"><b>About the Founders</b><h3>
+            	<div class="item card list no-padding">
+            		<div class="item text-left item-thumbnail-left item-icon-right" ng-click="">
+            			<img src="../img/BobbyFisherpic.jpg">
+            			<h2 class="text stableheader"><b>Bobby Fisher</b></h2>
+            			<h3 class="text stableheader italic-text">CEO</h3>
+            			<h4 class="text stableheader italic-text">Co-Founder</h4>
+            			<i class="icon ion-chevron-right right stableheader" style="font-size:22px;"></i>
+            		</div>
+            	</div>
+            	<div class="item card list no-padding">
+            		<div class="item text-left item-thumbnail-left item-icon-right" ng-click="">
+            			<img src="../img/JosephRoyalpic.png">
+            			<h2 class="text stableheader"><b>Joseph Royal</b></h2>
+            			<h3 class="text stableheader italic-text">CBDO</h3>
+            			<h4 class="text stableheader italic-text">Co-Founder</h4>
+            			<i class="icon ion-chevron-right right stableheader" style="font-size:22px;"></i>
+            		</div>
+            	</div>
+            </div>
+            <div ng-class="{col:desktop()}">
+                <h3 class="text text-center highlight BannerTextCtn"><b>Get Invloved</b></h3>
 
-    <h4 class="italic-text text text-center stableheader BannerTextCtn"><b>Our Vision</b></h4>
-
-    <p class="text stableheader text-center BannerTextCtn">Our vision is to challenge the way that food works. We will consistently focus on nurturing the growth of local food production through civic initiatives, buying power, and innovative repurposing practices that redefine the ‘food-to-table’ process to better meet the evolving needs in every community, drive sustainable environmental practices, and reward everyone involved with more opportunities to better themselves.</p>
-
-    <div class="card list">
-    	<h3 class="item text text-center highlight"><b>About the Founders</b>
-    	<div class="item card list no-padding">
-    		<div class="item text-left item-thumbnail-left item-icon-right" ng-click="">
-    			<img src="../img/BobbyFisherpic.jpg">
-    			<h2 class="text stableheader"><b>Bobby Fisher</b></h2>
-    			<h3 class="text stableheader italic-text">CEO</h3>
-    			<h4 class="text stableheader italic-text">Co-Founder</h4>
-    			<i class="icon ion-chevron-right right stableheader" style="font-size:22px;"></i>
-    		</div>
-    	</div>
-    	<div class="item card list no-padding">
-    		<div class="item text-left item-thumbnail-left item-icon-right" ng-click="">
-    			<img src="../img/JosephRoyalpic.png">
-    			<h2 class="text stableheader"><b>Joseph Royal</b></h2>
-    			<h3 class="text stableheader italic-text">CBDO</h3>
-    			<h4 class="text stableheader italic-text">Co-Founder</h4>
-    			<i class="icon ion-chevron-right right stableheader" style="font-size:22px;"></i>
-    		</div>
-    	</div>
+                <p class="text stableheader text-center BannerTextCtn">Take part in our surveys and help us build the best food management system around.</p>
+                <p class="text-center"><a class="text stableheader text-center BannerTextCtn" ui-sref="welcome.support">Read more</a></p>
+            </div>
+        </div>
     </div>
-
-    <h3 class="text text-center highlight BannerTextCtn"><b>Get Invloved</b></h3>
-
-    <p class="text stableheader text-center BannerTextCtn">Take part in our surveys and help us build the best food management system around.</p>
-    <p class="text-center"><a class="text stableheader text-center BannerTextCtn" ui-sref="welcome.support">Read more</a></p>
   </ion-content>
 </ion-view>
