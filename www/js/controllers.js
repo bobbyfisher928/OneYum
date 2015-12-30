@@ -15,7 +15,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.tablet = function() {
     var screen = window.innerWidth;
-    if ( screen > 640 && screen < 901 ) {
+    if ( screen > 640 && screen < 951 ) {
       return true;
     } else {
       return false;
@@ -24,43 +24,11 @@ angular.module('OneYum.controllers', [])
 
   $scope.desktop = function() {
     var screen = window.innerWidth;
-    if ( screen > 900 ) {
+    if ( screen > 950 ) {
       return true;
     } else {
       return false;
     };
-  }
-
-  // console.log(window.innerWidth < 650);
-  // console.log(screen);
-  $scope.setClass = function() {
-    if (!$scope.screenset1) {
-      var screen = window.innerWidth;
-      // console.log(screen);
-      if (screen < 650 ) {
-        return true;
-        // console.log('mobile');
-      } else {
-        return false;
-        console.log('larger');
-      };
-      $scope.screenset1 = true;
-    };
-  }; 
-
-  $scope.tablet = function() {
-    if (!$scope.screenset2) {
-      var screen = window.innerWidth;
-      // console.log(screen);
-      if (screen < 900 && screen > 649) {
-        return true;
-        // console.log('mobile');
-      } else {
-        return false;
-        console.log('larger');
-      };
-      $scope.screenset2 = true;
-    };     
   }
 
   $scope.goHome = function() {
