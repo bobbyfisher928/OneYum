@@ -15,7 +15,25 @@ angular.module('OneYum.controllers', [])
 
   $scope.tablet = function() {
     var screen = window.innerWidth;
-    if ( screen > 640 && screen < 951 ) {
+    if ( screen > 640 && screen < 1051 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tabletVert = function() {
+    var screen = window.innerWidth;
+    if ( screen > 640 && screen < 901 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tabletHori = function() {
+    var screen = window.innerWidth;
+    if ( screen > 900 && screen < 1051 ) {
       return true;
     } else {
       return false;
@@ -24,7 +42,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.desktop = function() {
     var screen = window.innerWidth;
-    if ( screen > 950 ) {
+    if ( screen > 1050 ) {
       return true;
     } else {
       return false;
@@ -210,6 +228,8 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('PieCtrl', ['$scope', function($scope){
+  // var imageObj = new Image();
+  // imageObj.src = "your/path/to/image.png";
 
   $scope.traditional = {
     data:[2,1.5,3,4,3],

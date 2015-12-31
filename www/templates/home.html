@@ -1,10 +1,11 @@
 <ion-view text-align="center" class="steadybackground">
 	<ion-nav-title class="text highlight logo">
-		<img class="padding-top" src="../img/OneYumPie.png" style="height:1.2em;background-size:contain;margin-right:-5px;">
-		neYum
+		<img class="padding-top" src="../img/OneYumPie.png" style="height:1.2em;background-size:contain;margin-right:-5px;" ng-if="!desktop()">
+		<span>neYum<span>
+		
 	</ion-nav-title>
   <ion-content class="steadybackground" ng-controller="AppCtrl">
-	  	
+	
   	<ng-include src="'templates/modules/homeBannerImage1.html'"></ng-include>
 
   	<div class="separator" ng-hide="!setClass()"></div>
