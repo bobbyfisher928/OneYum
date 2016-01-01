@@ -650,6 +650,10 @@ circle.pie4 {
 	background-size: cover;
 }
 
+.splitCard {
+	width:50%;
+}
+
 .pieCtn {
 	max-width:200px;
 	max-height:199px;

@@ -228,8 +228,50 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('PieCtrl', ['$scope', function($scope){
-  // var imageObj = new Image();
-  // imageObj.src = "your/path/to/image.png";
+  $scope.mobile = function() {
+    var screen = window.innerWidth;
+    if ( screen < 641 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tablet = function() {
+    var screen = window.innerWidth;
+    if ( screen > 640 && screen < 1051 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tabletVert = function() {
+    var screen = window.innerWidth;
+    if ( screen > 640 && screen < 901 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.tabletHori = function() {
+    var screen = window.innerWidth;
+    if ( screen > 900 && screen < 1051 ) {
+      return true;
+    } else {
+      return false;
+    };
+  };
+
+  $scope.desktop = function() {
+    var screen = window.innerWidth;
+    if ( screen > 1050 ) {
+      return true;
+    } else {
+      return false;
+    };
+  }
 
   $scope.traditional = {
     data:[2,1.5,3,4,3],
