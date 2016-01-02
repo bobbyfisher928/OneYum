@@ -6,7 +6,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.mobile = function() {
     var screen = window.innerWidth;
-    if ( screen < 641 ) {
+    if ( screen < 751 ) {
       return true;
     } else {
       return false;
@@ -14,8 +14,9 @@ angular.module('OneYum.controllers', [])
   };
 
   $scope.tablet = function() {
+    console.log();
     var screen = window.innerWidth;
-    if ( screen > 640 && screen < 1051 ) {
+    if ( screen > 750 && screen < 1051 ) {
       return true;
     } else {
       return false;
@@ -228,59 +229,26 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('PieCtrl', ['$scope', function($scope){
-  $scope.mobile = function() {
-    var screen = window.innerWidth;
-    if ( screen < 641 ) {
-      return true;
-    } else {
-      return false;
-    };
-  };
 
-  $scope.tablet = function() {
-    var screen = window.innerWidth;
-    if ( screen > 640 && screen < 1051 ) {
-      return true;
-    } else {
-      return false;
-    };
-  };
-
-  $scope.tabletVert = function() {
-    var screen = window.innerWidth;
-    if ( screen > 640 && screen < 901 ) {
-      return true;
-    } else {
-      return false;
-    };
-  };
-
-  $scope.tabletHori = function() {
-    var screen = window.innerWidth;
-    if ( screen > 900 && screen < 1051 ) {
-      return true;
-    } else {
-      return false;
-    };
-  };
-
-  $scope.desktop = function() {
-    var screen = window.innerWidth;
-    if ( screen > 1050 ) {
-      return true;
-    } else {
-      return false;
-    };
-  }
 
   $scope.traditional = {
     data:[2,1.5,3,4,3],
-    labels: ['Fruits','Dairy','Meats','Veggies','Grains'],
+    labels: ['Fruits','Dairy','Meats','Vegetables','Whole Grains'],
   };
 
   $scope.vegetarian = {
     data:[2,1.5,3,4,3],
-    labels: ['Fruits','Dairy','Proteins','Veggies','Grains'],
+    labels: ['Fruits','Cheese','Proteins','Vegetables','Whole Grains'],
+  };
+
+  $scope.paleo = {
+    data:[2,3,3,4,1.5],
+    labels: ['Fruits','Tubers','Meats','Vegetables','Nuts and Seeds'],
+  };
+
+  $scope.vegan = {
+    data:[2,1.5,3,4,3],
+    labels: ['Fruits','Dairy Substitutes','Proteins','Vegetables','Whole Grains'],
   };
   $scope.onClick = function() {
     console.log('click');
