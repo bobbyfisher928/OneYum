@@ -320,6 +320,10 @@
 	background-image: url("../img/fabric-background.png");
 }
 
+.fabricBackground {
+	background-image: url("../img/fabric-background.png");
+}
+
 .sectionHeader {
 	width: 80%;
 	margin-left: 10% !important;
@@ -419,11 +423,13 @@
 	/*border-bottom:5px solid #184850;*/
 	padding-top:40px;
 	padding-bottom:20px;
+	background-image: url("../img/fabric-background.png");
 	/*background-image: url('../img/CuttingBoardBambooLight.png');*/
 	/*background-size: cover;*/
-	background-color: rgba(242,231,174,0.5);
+	/*background-color: rgba(242,231,174,0.5);*/
 	/*background-color: rgba(108,93,74,0.30);*/
 	/*background-color: rgba(242,231,174,0.2);*/
+
 }
 
 .backgroundSlider {
@@ -435,9 +441,10 @@
 	/*border-bottom:5px solid #184850;*/
 	padding-top:40px;
 	padding-bottom:20px;
+	background-image: url("../img/fabric-background.png");
 	/*background-image: url('../img/CuttingBoardBambooLight.png');*/
-	background-size: cover;
-	background-color: rgba(108,93,74,0.30);
+	/*background-size: cover;*/
+	/*background-color: rgba(108,93,74,0.30);*/
 	/*background-color: rgba(128,128,128,0.2);*/
 	/*background-color: rgba(242,231,174,0.2);*/
 }
