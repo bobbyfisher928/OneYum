@@ -18,7 +18,7 @@
 				<h1 class="text text-center highlight"><b>The Breakdown</b></h1>
 				<h3 class="italic-text text stableheader text-center">A balanced foundation for every diet.</h3>
 			</div>
-			<div class="card list" ng-class="{splitCard:tabletHori(), splitCard:desktop()}">
+			<div class="card list">
 				<h3 class="item highlight text"><b>Traditional Meals</b></h3>
 				<div class="item row no-padding" style="height:199px;" >
 					<div class="pieCtn">
@@ -43,7 +43,7 @@
 					<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
 				</div>
 			</div>
-			<div class="card list" ng-class="{col:tabletHori(), col:desktop()}">
+			<div class="card list">
 				<h3 class="item highlight text">Vegetarian Meals</h3>
 				<div class="item row no-padding" style="height:199px;">
 					<div class="pieCtn">
@@ -71,16 +71,16 @@
 				<h3 class="item highlight text">Paleo Meals</h3>
 				<div class="item row no-padding" style="height:199px;">
 					<div class="pieCtn">
-						<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+						<canvas id="pieChart" class="chart chart-pie" data="paleo.data" labels="paleo.labels" options="options" colours="paleo.colours" legend="false" series="series" chart-click="onClick()"></canvas>
 					</div>
 					<div class="pieTable right stableheader">
 						<div class="row" style="border-left:1px solid #d6d6d6;">
 							<h4 class="text-center text highlight col"><b>Contents</b></h4>
 							<h4 class="text-center text highlight col"><b>Ounces</b></h4>
 						</div>
-						<div ng-repeat="item in vegetarian.data track by $index">
+						<div ng-repeat="item in paleo.data track by $index">
 							<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
-								<h5 class="text-center stableheader text col">{{vegetarian.labels[$index]}}</h5>
+								<h5 class="text-center stableheader text col">{{paleo.labels[$index]}}</h5>
 								<h5 class="text-center stableheader text col">{{item}}</h5>
 							</div>
 						</div>
@@ -95,16 +95,16 @@
 				<h3 class="item highlight text">Vegan Meals</h3>
 				<div class="item row no-padding" style="height:199px;">
 					<div class="pieCtn">
-						<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+						<canvas id="pieChart" class="chart chart-pie" data="vegan.data" labels="vegan.labels" options="options" colours="vegan.colours" legend="false" series="series" chart-click="onClick()"></canvas>
 					</div>
 					<div class="pieTable right stableheader">
 						<div class="row" style="border-left:1px solid #d6d6d6;">
 							<h4 class="text-center text highlight col"><b>Contents</b></h4>
 							<h4 class="text-center text highlight col"><b>Ounces</b></h4>
 						</div>
-						<div ng-repeat="item in vegetarian.data track by $index">
+						<div ng-repeat="item in vegan.data track by $index">
 							<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
-								<h5 class="text-center stableheader text col">{{vegetarian.labels[$index]}}</h5>
+								<h5 class="text-center stableheader text col">{{vegan.labels[$index]}}</h5>
 								<h5 class="text-center stableheader text col">{{item}}</h5>
 							</div>
 						</div>
@@ -182,7 +182,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div ng-class="{row:tabletHori()}">
 				<div class="card list" ng-class="{col:tabletHori()}">
 					<h3 class="item highlight text"  ng-class="{'text-center':tabletHori()}"><b>Paleo Meals</b></h3>
 					<div class="item row no-padding" style="height:199px;">
