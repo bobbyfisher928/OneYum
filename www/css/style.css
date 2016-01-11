@@ -656,6 +656,16 @@ circle.pie4 {
 
 }
 
+.meal-slider-card {
+	height:250px !important;
+	margin-bottom:-3px;
+}
+
+.meal-slider-img {
+	height:152px; 
+	width:100%; 
+	background-position:center;
+}
 
 .slider-pager {
 	bottom:3px !important;
