@@ -9,7 +9,11 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <!-- <button class="text button button-icon button-clear highlight" menu-toggle="right" ng-click="login()">Login</button> -->
+        <button class="text button button-icon button-clear highlight" 
+                menu-toggle="right"  
+                
+                >Login
+        </button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -19,7 +23,7 @@
     <ion-header-bar class="bar-stable">
       <h1 class="title stableheader text">What are you looking for?</h1>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="stableBackground">
       <ion-list>
         <ion-item menu-close href="#/welcome/home">
           Home
@@ -45,6 +49,9 @@
         <ion-item menu-close href="#/welcome/contact">
           Contact
         </ion-item>
+        <ion-item menu-close href="#/welcome/media">
+          Media
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
@@ -61,7 +68,7 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <!-- <button class="text button button-icon button-clear highlight" menu-toggle="right" ng-click="login()">Login</button> -->
+        <button class="text button button-icon button-clear highlight" menu-toggle="right" >Login</button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -71,7 +78,7 @@
     <ion-header-bar class="bar-stable">
       <h1 class="title stableheader text text-left padding-left">What are you looking for?</h1>
     </ion-header-bar>
-    <ion-content class="tanBackground">
+    <ion-content class="stableBackground">
       <ion-list>
         <ion-item menu-close href="#/welcome/home">
           Home
@@ -114,6 +121,7 @@
         <a class="col button button-clear text" ng-href="#/welcome/careers" nav-transition="none">Careers</a>
         <a class="col button button-clear text" ng-href="#/welcome/about" nav-transition="none">About</a>
         <a class="col button button-clear text" ng-href="#/welcome/contact" nav-transition="none">Contact</a>
+        <a class="col button button-clear text" ng-click="login()" >Login</a>
       </ul>
       <ion-nav-back-button class="highlight">
       </ion-nav-back-button>
@@ -133,7 +141,7 @@
           <button class="button button-clear">About</button>
           <button class="button button-clear">Contact</button>
         </ul> -->
-        <!-- <button class="text button button-icon button-clear highlight" menu-toggle="right" ng-click="login()">Login</button> -->
+        <button class="text button button-icon button-clear highlight" menu-toggle="right" >Login</button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>

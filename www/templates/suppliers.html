@@ -5,37 +5,38 @@
     <span class="text hightlight">Suppliers</span>
 	</ion-nav-title>
   <ion-content class="fabricBackground">
-
   	<div class="primaryBannerImageSuppliers"></div>
+    
+    <div ng-class="{desktop:desktop()}">
+      <h1 class="text highlight text-center BannerTextCtn"><b>Locally Centered</b></h1>
 
-    <h1 class="text highlight text-center BannerTextCtn"><b>Locally Centered</b></h1>
+      <h4 class="italic-text text text-center stableheader BannerTextCtn">Everything prepared by OneYum is sourced from your own community.</h4>
 
-    <h4 class="italic-text text text-center stableheader BannerTextCtn">Everything prepared by OneYum is sourced from your own community.</h4>
+      <p class="text stableheader text-center BannerTextCtn">We have built every existing infrastructure into our model. It is our mission to find the perfect balance to drive growth for both suppliers and distributors.</p>
 
-    <p class="text stableheader text-center BannerTextCtn">We have built every existing infrastructure into our model. It is our mission to find the perfect balance to drive growth for both suppliers and distributors.</p>
-
-    <div class="card list">
-      <h3 class="item text highlight"><b>OneYum Suppliers Include:</b></h3>
-      <div class="item">
-          <p class="text stableheader">Food Banks</p>
-          <p class="text stableheader">Grocery Stores</p>
-          <p class="text stableheader">Farmer's Markets</p>
-          <p class="text stableheader">Local CSA's</p>
+      <div class="card list">
+        <h3 class="item text highlight"><b>OneYum Suppliers Include:</b></h3>
+        <div class="item">
+            <p class="text stableheader">Food Banks</p>
+            <p class="text stableheader">Grocery Stores</p>
+            <p class="text stableheader">Farmer's Markets</p>
+            <p class="text stableheader">Local CSA's</p>
+        </div>
+        <div class="item item-avatar item-icon-right" ng-if="suppliers" ng-repeat="supplier in suppliers">
+          <img src="../img/{{supplier.avatar}}" alt="">
+          <h4>{{supplier.name}}</h4>
+          <p>{{supplier.location}}</p>
+          <i class="icon ion-chevron-right" style="font-size:22px;"></i>
+        </div>
+        <div class="item item-avatar item-icon-right">
+          <img src="../img/iconmonstr-user-14-icon-256.png">
+          <p class="stableheader text">New Suppliers Welocme</p>
+          <h4 class="stableheader text">Click here to join us today.</h4>
+          <i class="icon ion-chevron-right" style="font-size:22px;"></i>
+        </div>
       </div>
-      <div class="item item-avatar item-icon-right" ng-if="suppliers" ng-repeat="supplier in suppliers">
-        <img src="../img/{{supplier.avatar}}" alt="">
-        <h4>{{supplier.name}}</h4>
-        <p>{{supplier.location}}</p>
-        <i class="icon ion-chevron-right" style="font-size:22px;"></i>
-      </div>
-      <div class="item item-avatar item-icon-right">
-        <img src="../img/iconmonstr-user-14-icon-256.png">
-        <p class="stableheader text">New Suppliers Welocme</p>
-        <h4 class="stableheader text">Click here to join us today.</h4>
-        <i class="icon ion-chevron-right" style="font-size:22px;"></i>
-      </div>
+
+      <p class="text stableheader text-center BannerTextCtn">Purchasing locally makes sense. It supports the farmers in our communities, prevents food from being wasted and diminishes the carbon footprint of our food. Initially, local grocery stores, CSAs, and farmer’s markets will supply our raw ingredients while we develop direct relationships with farms in the area. Local suppliers of produce and meat are encourage to reach out. We want to know more about you, your farm, and your offerings.</p>
     </div>
-
-    <p class="text stableheader text-center BannerTextCtn">Purchasing locally makes sense. It supports the farmers in our communities, prevents food from being wasted and diminishes the carbon footprint of our food. Initially, local grocery stores, CSAs, and farmer’s markets will supply our raw ingredients while we develop direct relationships with farms in the area. Local suppliers of produce and meat are encourage to reach out. We want to know more about you, your farm, and your offerings.</p>
   </ion-content>
 </ion-view>

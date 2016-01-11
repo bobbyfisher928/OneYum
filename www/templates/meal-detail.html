@@ -1,0 +1,25 @@
+<div class="card list">
+	<h3 class="item highlight text"><b>Traditional Meals</b></h3>
+	<div class="item row no-padding" style="height:199px;" >
+		<div class="pieCtn">
+			<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+		</div>
+		
+		<div class="pieTable right stableheader">
+			<div class="row" style="border-left:1px solid #d6d6d6;">
+				<h4 class="text-center text highlight col"><b>Contents</b></h4>
+				<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+			</div>
+			<div ng-repeat="item in traditional.data track by $index">
+				<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+					<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+					<h5 class="text-center stableheader text col">{{item}}</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item item-icon-right" ng-click="">
+		<p class="text stableheader">View Traditional Meal Options</p>
+		<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+	</div>
+</div>

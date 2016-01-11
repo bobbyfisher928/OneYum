@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://localhost:8101/?ionicplatform=ios#/welcome/meals -->
+<html ng-hint=""><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><script src="chrome-extension://ighdmehidhipcmcojjgiloacoafjmpfk/dist/hint.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <script>
+      // Injected Ionic Go To URL Live Reload Plugin
+      window.LiveReloadPlugin_IonicGoToUrl = (function() {
+        var GOTO_KEY = "__ionic_goto_url__";
+        var HISTORY_GO_KEY = "__ionic_history_go__";
+        var GoToUrlPlugin = function(window, host) {
+          this.window = window;
+          this.host = host;
+        }
+        GoToUrlPlugin.identifier = "__ionic_goto_url__";
+        GoToUrlPlugin.version = "1.0";
+        GoToUrlPlugin.prototype.reload = function(path) {
+          try {
+            if(path) {
+              if(path.indexOf(GOTO_KEY) === 0) {
+                this.window.document.location = path.replace(GOTO_KEY, "");
+                return true;
+              }
+              if(path.indexOf(HISTORY_GO_KEY) === 0) {
+                this.window.document.history.go( parseInt(path.replace(HISTORY_GO_KEY, ""), 10));
+                return true;
+              }
+            }
+          } catch(e) {
+            console.log(e);
+          }
+          return false;
+        };
+        return GoToUrlPlugin;
+      })();
+    </script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>OneYum</title>
+    <link href="./OneYum_files/css" rel="stylesheet" type="text/css">
+    <link href="./OneYum_files/ionic.css" rel="stylesheet">
+    <link href="./OneYum_files/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./OneYum_files/angular-chart.css">
+    <link rel="stylesheet" href="./OneYum_files/ionic.filter.bar.css">
+    <link rel="stylesheet" href="./OneYum_files/fullcalendar.css">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="./OneYum_files/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="./OneYum_files/cordova.js"></script>
+
+    <script src="./OneYum_files/angular-cookies.js"></script>
+    <script src="./OneYum_files/hello.all.js"></script>
+    <script src="./OneYum_files/ng-hello.js"></script>
+    <script src="./OneYum_files/ng-file-upload-all.min.js"></script>
+    <script src="./OneYum_files/ng-file-upload-shim.min.js"></script>
+    <script src="./OneYum_files/angular-jwt.min.js"></script>
+    
+    <script src="./OneYum_files/angular-touch.min.js"></script>
+    <script src="./OneYum_files/angular-ui-router.min.js"></script>
+    <script src="./OneYum_files/Chart.js"></script>
+    <script src="./OneYum_files/angular-chart.js"></script>
+    <script src="./OneYum_files/ionic.filter.bar.js"></script>
+    <script src="./OneYum_files/angular-timestamp-filter.min.js"></script>
+    <script src="./OneYum_files/ionic-datepicker.bundle.min.js"></script><style>.selected_date_full {
+  color: #387EF5;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.color_blue {
+  color: rgb(56, 126, 245) !important;
+}
+
+.bg_color_blue {
+  background-color: rgb(56, 126, 245);
+}
+
+.date_col:hover {
+  background-color: rgba(56, 126, 245, 0.5);
+  cursor: pointer;
+}
+
+.date_col:active {
+  background-color: rgba(56, 126, 245, 1);
+  cursor: pointer;
+}
+
+.no_padding {
+  padding: 0;
+}
+
+.date_cell {
+  padding: 5px;
+}
+
+.date_selected {
+  background-color: rgba(56, 126, 245, 1) !important;
+}
+
+.today {
+  background-color: rgba(186, 186, 186, 1);
+}
+
+.pointer_events_none {
+  pointer-events: none !important;
+  color: #AAAAAA;
+}
+
+.select_section {
+  padding: 0;
+}
+
+.select_section label {
+  padding: 12px;
+}
+
+.select_section select {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 10px;
+  direction: ltr;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.select_section .item-select:after {
+  right: 4px;
+  border-top: 4px solid;
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-left: 4px solid rgba(0, 0, 0, 0);
+}
+
+.left_arrow {
+  direction: rtl;
+}
+
+.right_arrow {
+
+}
+.ionic_datepicker_modal_content .selected_date_full {
+  font-size: 20px;
+}
+.font_22px {
+  font-size: 22px;
+}
+.ionic_datepicker_modal_content {
+  padding-top: 10%;
+}
+.ionic_datepicker_modal_content .selected_date_full{
+  padding: 20px;
+}
+@media (min-width: 680px) {
+  .ionic_datepicker_modal_content {
+    padding-top: 0;
+  }
+  .ionic_datepicker_modal_content .selected_date_full {
+    font-size: inherit;
+  }
+  .ionic_datepicker_modal_content .selected_date_full{
+    padding: 10px 0 0 0;
+  }
+}</style>
+
+    <!-- your app's js -->
+    <script src="./OneYum_files/app.js"></script>
+    <script src="./OneYum_files/constants.js"></script>
+    <script src="./OneYum_files/factories.js"></script>
+    <script src="./OneYum_files/services.js"></script>
+    <script src="./OneYum_files/controllers.js"></script>
+  <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script></head>
+
+  <body ng-app="OneYum" class="text steadybackground grade-a platform-browser platform-ios platform-ready">
+    
+    <ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe=""><div class="pane" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);"><!-- ngIf: mobile() -->
+
+<!-- ngIf: tablet() -->
+
+<!-- ngIf: desktop() --><ion-side-menus enable-menu-with-back-views="false" ng-if="desktop()" class="view">
+  <ion-side-menu-content class="menu-content pane">
+    <ion-nav-bar class="bar-stable text highlight nav-bar-container" nav-bar-transition="ios" nav-bar-direction="none" nav-swipe="">
+      <!-- ngIf: desktop() --><ul class="row desktopNav no-padding" ng-if="desktop()">
+        <a class="col button button-clear highlight text" ui-sref="welcome.home" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/home"><img src="./OneYum_files/OneYumPie.png" style="height:18px;background-size:contain;margin-right:1px;"><b>neYum</b></a>
+        <a class="col button button-clear text" ng-href="#/welcome/meals" nav-transition="none" href="./OneYum_files/OneYum.html">Meals</a>
+        <a class="col button button-clear text" ng-href="#/welcome/suppliers" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/suppliers">Suppliers
+        </a><a class="col button button-clear text" ng-href="#/welcome/partners" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/partners">Partners</a>
+        <a class="col button button-clear text" ng-href="#/welcome/support" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/support">Support</a>
+        <a class="col button button-clear text" ng-href="#/welcome/careers" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/careers">Careers</a>
+        <a class="col button button-clear text" ng-href="#/welcome/about" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/about">About</a>
+        <a class="col button button-clear text" ng-href="#/welcome/contact" nav-transition="none" href="http://localhost:8101/?ionicplatform=ios#/welcome/contact">Contact</a>
+        <a class="col button button-clear text" ng-click="login()">Login</a>
+      </ul><!-- end ngIf: desktop() -->
+      <ion-nav-back-button class="hide"></ion-nav-back-button>
+
+      <ion-nav-buttons side="left" class="hide"></ion-nav-buttons>
+      <ion-nav-buttons class="hide"></ion-nav-buttons>
+    <div class="nav-bar-block" nav-bar="cached"><ion-header-bar class="bar-stable text highlight bar bar-header disable-user-behavior" align-title="center"><button class="button back-button hide buttons highlight button-clear header-item" ng-click="$ionicGoBack()"><i class="icon ion-ios-arrow-back"></i> 
+      <span class="back-text"><span class="default-title">Back</span><span class="previous-title hide"></span></span></button><div class="buttons buttons-left header-item"><span class="left-buttons">
+        <!-- <ul>
+          <button class="button button-clear">Home</button>
+          <button class="button button-clear">Meals</button>
+          <button class="button button-clear">Suppliers</button>
+          <button class="button button-clear">Partners</button>
+          <button class="button button-clear">Support</button>
+          <button class="button button-clear">Careers</button>
+          <button class="button button-clear">About</button>
+          <button class="button button-clear">Contact</button>
+        </ul> -->
+        <button class="text button button-icon button-clear highlight" menu-toggle="right">Login</button>
+      </span></div><div class="title title-center header-item"></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-stable text highlight bar bar-header disable-user-behavior" align-title="center"><button class="button back-button hide buttons highlight button-clear header-item" ng-click="$ionicGoBack()"><i class="icon ion-ios-arrow-back"></i> 
+      <span class="back-text"><span class="default-title">Back</span><span class="previous-title hide"></span></span></button><div class="buttons buttons-left header-item"><span class="left-buttons">
+        <!-- <ul>
+          <button class="button button-clear">Home</button>
+          <button class="button button-clear">Meals</button>
+          <button class="button button-clear">Suppliers</button>
+          <button class="button button-clear">Partners</button>
+          <button class="button button-clear">Support</button>
+          <button class="button button-clear">Careers</button>
+          <button class="button button-clear">About</button>
+          <button class="button button-clear">Contact</button>
+        </ul> -->
+        <button class="text button button-icon button-clear highlight" menu-toggle="right">Login</button>
+      </span></div><div class="title title-center header-item" style="left: 67px; right: 67px;"><span class="text highlight logo nav-bar-title">
+		<!-- <img class="padding-top" src="../img/OneYumPie.png" style="height:1.2em;background-size:contain;margin-right:-5px;" ng-click="goHome()">
+		neYum -->
+		<span class="text highlight">Meals</span>
+	</span></div></ion-header-bar></div></ion-nav-bar>
+    <ion-nav-view name="menuContent" class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe=""><ion-view class="pane" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);">
+	<ion-nav-title class="hide"></ion-nav-title>
+  <ion-content class="fabricBackground scroll-content ionic-scroll  has-header"><div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+  	<div class="primaryBannerImageMeals"></div>
+	<!-- ngIf: mobile() -->
+
+
+    <!-- ngIf: tablet() -->
+
+    <!-- ngIf: desktop() --><div ng-if="desktop()">
+		<h1 class="text text-center highlight BannerTextCtn"><strong>Smart and Flexible</strong></h1>
+		
+		<h4 class="italic-text text stableheader BannerTextCtn text-center">Design your meals based on scientific or dietary guidelines.</h4>
+		
+		<p class="text stableheader BannerTextCtn text-center">Choose your own ingredients or select from OneYum’s Featured Menu options.</p>
+
+		<div class="card list no-padding tanBackground desktop" ng-class="{desktop:desktop()}">
+			<div class="item">
+				<h1 class="text text-center highlight"><b>The Breakdown</b></h1>
+				<h3 class="italic-text text stableheader text-center">A balanced foundation for every diet.</h3>
+			</div>
+			<div class="row">
+				<div class="card list no-padding col">
+					<h3 class="item highlight text text-center"><b>Traditional Meals</b></h3>
+					<div class="item item-text-wrap" style="height:199px;">
+						<div style="margin-top:auto !important; margin-bottom:auto !important;">
+							<p class="text stableheader ">Traditional meals contain and follow the dietary guidelines established by the U.S.D.A and the Center for Nutrition Policy and Promotion. </p><br>
+							<p class="text stableheader ">These meals contain a selection of meat, veggie, fruit, grain, and dairy.</p>
+						</div>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in traditional.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">Learn more about traditional meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+				<div class="card no-padding list col">
+					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
+					<div class="item no-padding" style="height:199px;">
+						<div class="card list no-padding">
+							<div class="item no-padding">
+								<div class="" style="background-image:url(&#39;../img/chicken-rice-green-2.jpg&#39;); height:100px; width:100%; background-position:center;"></div>
+								<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+							</div>
+							<div class="item item-text-wrap">
+								<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+							</div>
+						</div>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in traditional.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">See all of the traditional Meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="card list col">
+					<h3 class="item highlight text text-center"><b>Vegetarian Meals</b></h3>
+					<div class="item item-text-wrap" style="height:199px;">
+						<p class="text stableheader ">Vegetarian meals follow dietary specifications for vegetarian diets.</p>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="vegetarian.data" labels="vegetarian.labels" options="options" colours="vegetarian.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in vegetarian.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{vegetarian.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">Learn more...</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+				<div class="card no-padding list col">
+					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
+					<div class="item no-padding" style="height:199px;">
+						<div class="card list no-padding">
+							<div class="item no-padding">
+								<div class="" style="background-image:url(&#39;../img/chicken-rice-green-2.jpg&#39;); height:100px; width:100%; background-position:center;"></div>
+								<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+							</div>
+							<div class="item item-text-wrap">
+								<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+							</div>
+						</div>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in traditional.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">See all of the traditional Meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="card list col">
+					<h3 class="item highlight text" ng-class="{&#39;text-center&#39;:tabletHori()}"><b>Paleo Meals</b></h3>
+					<div class="item item-text-wrap" style="height:199px;">
+						<p class="text stableheader ">Paleo meals follow dietary specifications for paleo diets.</p>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="paleo.data" labels="paleo.labels" options="options" colours="paleo.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in paleo.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{paleo.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">Learn more...</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+				<div class="card no-padding list col">
+					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
+					<div class="item no-padding" style="height:199px;">
+						<div class="card list no-padding">
+							<div class="item no-padding">
+								<div class="" style="background-image:url(&#39;../img/chicken-rice-green-2.jpg&#39;); height:100px; width:100%; background-position:center;"></div>
+								<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+							</div>
+							<div class="item item-text-wrap">
+								<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+							</div>
+						</div>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in traditional.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">See all of the traditional Meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="card list col">
+					<h3 class="item highlight text text-center"><b>Vegan Meals</b></h3>
+					<div class="item item-text-wrap" style="height:199px;">
+						<p class="text stableheader ">Vegan meals follow dietary specifications for vegan diets.</p>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="vegan.data" labels="vegan.labels" options="options" colours="vegan.colours" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in vegan.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{vegan.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">Learn more...</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+				<div class="card no-padding list col">
+					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
+					<div class="item no-padding" style="height:199px;">
+						<div class="card list no-padding">
+							<div class="item no-padding">
+								<div class="" style="background-image:url(&#39;../img/chicken-rice-green-2.jpg&#39;); height:100px; width:100%; background-position:center;"></div>
+								<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+							</div>
+							<div class="item item-text-wrap">
+								<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+							</div>
+						</div>
+						<!-- <div class="pieCtn">
+							<canvas id="pieChart" class="chart chart-pie" data="traditional.data" labels="traditional.labels" options="options" colours="traditional.colors" legend="false" series="series" chart-click="onClick()"></canvas>
+						</div>
+						
+						<div class="pieTable right stableheader">
+							<div class="row" style="border-left:1px solid #d6d6d6;">
+								<h4 class="text-center text highlight col"><b>Contents</b></h4>
+								<h4 class="text-center text highlight col"><b>Ounces</b></h4>
+							</div>
+							<div ng-repeat="item in traditional.data track by $index">
+								<div class="row" style="border-top:1px solid #d6d6d6; border-left:1px solid #d6d6d6;">
+									<h5 class="text-center stableheader text col">{{traditional.labels[$index]}}</h5>
+									<h5 class="text-center stableheader text col">{{item}}</h5>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">See all of the traditional Meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div><!-- end ngIf: desktop() -->
+  </div><div class="scroll-bar scroll-bar-v"><div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 390px; transform-origin: center top 0px;"></div></div></ion-content>
+</ion-view></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title stableheader text">What are you looking for?</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/welcome/home">
+          Home
+        </ion-item>
+        <ion-item menu-close href="#/welcome/meals">
+          Meals
+        </ion-item>
+        <ion-item menu-close href="#/welcome/suppliers">
+          Suppliers
+        </ion-item>
+        <ion-item menu-close href="#/welcome/partners">
+          Partners
+        </ion-item>
+        <ion-item menu-close href="#/welcome/support">
+          Support
+        </ion-item>
+        <ion-item menu-close href="#/welcome/careers">
+          Careers
+        </ion-item>
+        <ion-item menu-close href="#/welcome/about">
+          About
+        </ion-item>
+        <ion-item menu-close href="#/welcome/contact">
+          Contact
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu> -->
+</ion-side-menus><!-- end ngIf: desktop() -->
+</div></ion-nav-view>
+    
+  
+<script>
+ionic && ionic.Platform && ionic.Platform.setPlatform("ios");
+</script>
+
+<script>//<![CDATA[
+document.write('<script src="//' + (location.hostname || 'localhost') + ':35730/livereload.js?snipver=1"><\/script>')
+//]]></script><script src="./OneYum_files/livereload.js"></script>
+
+
+<div class="backdrop"></div></body></html>

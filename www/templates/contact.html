@@ -4,47 +4,48 @@
 	</ion-nav-title>
   <ion-content class="fabricBackground">
   	<div class="primaryBannerImageContact"></div>
-  	<div class="padding">
-      <div class="card list">
-        <div class="item">How would you like to contact us?</div>
-        <ion-item  ng-click="engageEmail()">Email</ion-item>
-        <ion-item ng-show="openEmail" class="no-padding greyBackground">
-          <ion-list class="list">
-            <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/BobbyFisher">
-              <img src="../img/BobbyFisherpic.jpg">
-              <h2 class="text stableheader">Bobby Fisher</h2>
-              <h3 class="text stableheader">Co-Founder, CEO</h3>
-              <i class="icon ion-ios-email highlight"></i>
-            </ion-item>
-            <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/JosephRoyal">
-              <img src="../img/JosephRoyalpic.png">
-              <h2 class="text stableheader">Joseph Royal</h2>
-              <h3 class="text stableheader">Co-Founder, CBDO</h3>
-              <i class="icon ion-ios-email highlight"></i>
-            </ion-item>
-          </ion-list>
-        </ion-item>
-        <ion-item ng-click="engagePhone()" >Phone</ion-item>
-        <ion-item ng-show="openPhone" class="no-padding greyBackground">
-          <ion-list class="list">
-            <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactcall/BobbyFisher">
-              <img src="../img/BobbyFisherpic.jpg">
-              <h2 class="text stableheader">Bobby Fisher</h2>
-              <h3 class="text stableheader">Co-Founder, CEO</h3>
-              <i class="icon ion-ios-telephone highlight"></i>
-            </ion-item>
-            <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactcall/JosephRoyal">
-              <img src="../img/JosephRoyalpic.png">
-              <h2 class="text stableheader">Joseph Royal</h2>
-              <h3 class="text stableheader">Co-Founder, CBDO</h3>
-              <i class="icon ion-ios-telephone highlight"></i>
-            </ion-item>
-          </ion-list>
-        </ion-item>
-        <ion-item ng-click="engageMail()" >Mail</ion-item>
-        <ion-item ng-show="openMail" class="no-padding greyBackground"></ion-item>
+    <div ng-class="{desktop:desktop()}">
+    	<div class="padding">
+        <div class="card list">
+          <div class="item">How would you like to contact us?</div>
+          <ion-item  ng-click="engageEmail()">Email</ion-item>
+          <ion-item ng-show="openEmail" class="no-padding greyBackground">
+            <ion-list class="list">
+              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/BobbyFisher">
+                <img src="../img/BobbyFisherpic.jpg">
+                <h2 class="text stableheader">Bobby Fisher</h2>
+                <h3 class="text stableheader">Co-Founder, CEO</h3>
+                <i class="icon ion-ios-email highlight"></i>
+              </ion-item>
+              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/JosephRoyal">
+                <img src="../img/JosephRoyalpic.png">
+                <h2 class="text stableheader">Joseph Royal</h2>
+                <h3 class="text stableheader">Co-Founder, CBDO</h3>
+                <i class="icon ion-ios-email highlight"></i>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-item ng-click="engagePhone()" >Phone</ion-item>
+          <ion-item ng-show="openPhone" class="no-padding greyBackground">
+            <ion-list class="list">
+              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactcall/BobbyFisher">
+                <img src="../img/BobbyFisherpic.jpg">
+                <h2 class="text stableheader">Bobby Fisher</h2>
+                <h3 class="text stableheader">Co-Founder, CEO</h3>
+                <i class="icon ion-ios-telephone highlight"></i>
+              </ion-item>
+              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactcall/JosephRoyal">
+                <img src="../img/JosephRoyalpic.png">
+                <h2 class="text stableheader">Joseph Royal</h2>
+                <h3 class="text stableheader">Co-Founder, CBDO</h3>
+                <i class="icon ion-ios-telephone highlight"></i>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-item ng-click="engageMail()" >Mail</ion-item>
+          <ion-item ng-show="openMail" class="no-padding greyBackground"></ion-item>
+        </div>
       </div>
     </div>
-    	
   </ion-content>
 </ion-view>

@@ -4,24 +4,25 @@
 		<!-- <span ng-click="goHome()">Support</span> -->
 	</ion-nav-title>
   <ion-content class="fabricBackground">
-  	<div class="primaryBannerImageSupport">
-  	</div>
-  	<div class="padding">
-	    <h4 class="center-text text stableheader padding">There are many ways you can help OneYum reach success. Right now, we could really use your help with some of the following:</h4>
-  	</div>
-	    
-    <div class="list">
-    	<div class="list card" ng-repeat="options in supportOptions">
-    		<div class="item item-icon-left">
-			    <i class="icon {{options.thumbnail}} highlight"></i>
-			    <h2 class="text highlight"><strong>{{options.title}}</strong></h2>
-		  	</div>
-		  	<p class="item item-inset item-text-wrap">{{options.description}}</p>
-		  	<div class="item item-icon-right" ng-click="goToSupportTemplate(options.title)">
-		  		<h2 class="text stableheader">Take the Google Survey</h2>
-		  		<i class="icon ion-chevron-right stableheader"></i>
-		  	</div>
-    	</div>
+  	<div class="primaryBannerImageSupport"></div>
+  	<div ng-class="{desktop:desktop()}">
+	  	<div class="padding">
+		    <h4 class="center-text text stableheader padding">There are many ways you can help OneYum reach success. Right now, we could really use your help with some of the following:</h4>
+	  	</div>
+		    
+	    <div class="list">
+	    	<div class="list card" ng-repeat="options in supportOptions">
+	    		<div class="item item-icon-left">
+				    <i class="icon {{options.thumbnail}} highlight"></i>
+				    <h2 class="text highlight"><strong>{{options.title}}</strong></h2>
+			  	</div>
+			  	<p class="item item-inset item-text-wrap">{{options.description}}</p>
+			  	<div class="item item-icon-right" ng-click="goToSupportTemplate(options.title)">
+			  		<h2 class="text stableheader">Take the Google Survey</h2>
+			  		<i class="icon ion-chevron-right stableheader"></i>
+			  	</div>
+	    	</div>
+	    </div>
     </div>
   </ion-content>
 </ion-view>

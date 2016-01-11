@@ -1,0 +1,34 @@
+<ion-view>
+	<ion-nav-title class="text highlight logo">
+		<span class="text hightlight">Media</span>
+	</ion-nav-title>
+  <ion-content class="fabricBackground">
+  
+  	<div ng-class="{desktop:desktop()}">
+	  	<div ng-repeat="article in articles" class="card list">
+	  		<div class="item item-avatar-left">
+	  			<img src="">
+	  			<p class="text highlight"><b>Title</b></p>
+	  			<p class="text highlight">Author</p>
+	  			<h5 class="text stableheader">Date</h5>
+	  		</div>
+	  		<div class="item">
+	  			<p class="text stableheader">Story will go here.</p>
+	  		</div>
+	  	</div>
+	  	<div class="card list">
+		  	<p class="item item-text-wrap text highlight"><b>The Science Behind Amount and Content</b></p>
+	  		<div class="item item-avatar-left">
+	  			<img src="">
+	  			
+	  			<p class="text highlight">Bobby Fisher</p>
+	  			<h5 class="text stableheader">Jan. 1st, 2016</h5>
+	  		</div>
+	  		<div class="item item-text-wrap">
+	  			<p class="text stableheader">First off, Happy New Year. Today is the start many new adventures for souls all across the planet. To help, we want to dig into the science of the food we eat, how our body manages and processes that food, and the challenges associated with making better food decisions. It is important to be efficient with food. </p>
+	  		</div>
+	  	</div>
+  	</div>
+    
+  </ion-content>
+</ion-view>
