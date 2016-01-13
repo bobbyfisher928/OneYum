@@ -92,21 +92,21 @@ function ContactEmail($email,$subject,$message,$target) {
   // 0 = off (for production use)
   // 1 = client messages
   // 2 = client and server messages
-  $mail->SMTPDebug = 2;
+  $mail->SMTPDebug = 3;
   //Ask for HTML-friendly debug output
   $mail->Debugoutput = 'html';
   //Set the hostname of the mail server
-  $mail->Host = 'a2plcpnl0368.prod.iad2.secureserver.net';
+  $mail->Host = 'localhost';
   //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-  $mail->Port = 465;
+  $mail->Port = 25;
   //Set the encryption system to use - ssl (deprecated) or tls
-  $mail->SMTPOptions = array(
-      'ssl' => array(
-          'verify_peer' => false,
-          'verify_peer_name' => false,
-          'allow_self_signed' => true
-      )
-  );
+  // $mail->SMTPOptions = array(
+  //     'ssl' => array(
+  //         'verify_peer' => false,
+  //         'verify_peer_name' => false,
+  //         'allow_self_signed' => true
+  //     )
+  // );
   //Whether to use SMTP authentication
   $mail->SMTPAuth = true;
   //Username to use for SMTP authentication - use full email address for gmail
@@ -114,7 +114,7 @@ function ContactEmail($email,$subject,$message,$target) {
   //Password to use for SMTP authentication
   $mail->Password = ".sUF!CnIFx;S";
   //Set who the message is to be sent from
-  $mail->setFrom($email);
+  $mail->setFrom('support@oneyum.org','Contact Page');
 
   if ($target === 'Bobby Fisher') {
     //Set who the message is to be sent to
@@ -132,7 +132,7 @@ function ContactEmail($email,$subject,$message,$target) {
   }
   //Read an HTML message body from an external file, convert referenced images to embedded,
   //convert HTML into a basic plain-text alternative body
-  $mail->msgHTML($message);
+  $mail->msgHTML($message . "  <br/>Reach me at: " . $email);
   //Replace the plain text body with one created manually
   $mail->AltBody = 'This is a plain-text message body';
   //send the message, check for errors
