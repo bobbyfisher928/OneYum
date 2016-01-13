@@ -136,10 +136,12 @@ $app->post('/meals', function() use ( $app ) {
 $app->post('/emailContact', function() use ( $app ) {
   $request = (array) json_decode($app->request->getBody());
 
-  $response = ContactEmail($request['email'], $request['subject'], $request['message'], $request['target']);
-  if (!$response) {
-    $response = "Email Sent Successfully";
-  }
+  // $response = ContactEmail($request['email'], $request['subject'], $request['message'], $request['target']);
+  // if (!$response) {
+  //   $response = "Email Sent Successfully";
+  // }
+  // 
+  $response = $request;
   echo json_encode( $response );
 });
 
