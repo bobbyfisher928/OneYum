@@ -22,8 +22,8 @@ date_default_timezone_set('America/New_York');
 
 require '../vendor/slim/slim/Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
-// require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
-// require '../vendor/firebase/php-jwt/Authentication/JWT.php';
+require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+require '../vendor/firebase/php-jwt/Authentication/JWT.php';
 require 'control.php';
 require 'class.php';
 
@@ -133,7 +133,15 @@ $app->post('/meals', function() use ( $app ) {
   echo json_encode( $response );
 });
 
+$app->post('/emailContact', function() use ( $app ) {
+  $request = (array) json_decode($app->request->getBody());
 
+  $response = ContactEmail($request['email'], $request['subject'], $request['message'], $request['target']);
+  if (!$response) {
+    $response = "Email Sent Successfully";
+  }
+  echo json_encode( $response );
+});
 
 
 

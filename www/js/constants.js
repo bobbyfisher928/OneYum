@@ -12,6 +12,7 @@ angular.module('OneYum.constants', [])
 	// household: 		'http://localhost/OneYum/server/index.php/household',
 	// members: 		'http://localhost/OneYum/server/index.php/members',
 	// refresh: 		'http://localhost/OneYum/server/index.php/refresh',
+	emailContact: 		'http://localhost/OneYum/server/index.php/emailContact',
 
 
 	login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
@@ -25,6 +26,7 @@ angular.module('OneYum.constants', [])
 	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household',
 	members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
 	refresh: 		'http://www.oneyum.org/oneyum.org/server/index.php/refresh'
+	// emailContact:	'http://www.oneyum.org/oneyum.org/server/index.php/emailContact'
 })
 
 .constant('PopupFill', {

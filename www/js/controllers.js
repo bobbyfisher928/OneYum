@@ -306,19 +306,21 @@ angular.module('OneYum.controllers', [])
 
 }])
 
-.controller('ContactFormCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService){
+.controller('ContactFormCtrl', ['$scope','$stateParams','ContactService','EmailContactService', function($scope,$stateParams,ContactService,EmailContactService){
   console.log(ContactService.get($stateParams.target));
   $scope.Target = ContactService.get($stateParams.target);
   $scope.submit = function(data) {
-    console.log(data);
+    // console.log(data);
+    EmailContactService.send(data,$scope.Target);
   }
 }])
 
-.controller('ContactCallCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService){
+.controller('ContactCallCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService,EmailContactService){
   console.log(ContactService.get($stateParams.target));
   $scope.Target = ContactService.get($stateParams.target);
   $scope.submit = function(data) {
     console.log(data);
+
   }
 }])
 

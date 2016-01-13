@@ -102,6 +102,29 @@ angular.module('OneYum.services', [])
 	}
 }])
 
+.service('EmailContactService', ['$q','$http','API', function($q,$http,API){
+	var send = function(data,owner) {
+		var data = data;
+		data.target = owner.name;
+ 		var d = $q.defer();
+		$http.post(API.emailContact, data)
+		.success(function(response) {
+			d.resolve(response);
+			console.log(response);
+		})
+		.error(function(response) {
+			d.reject(response);
+			console.log(response);
+		})
+		return d.promise;
+	}
+
+	return {
+		send: send,
+
+	}
+}])
+
 .service('Popup', ['$ionicPopup', function($ionicPopup){
 
 	return {
