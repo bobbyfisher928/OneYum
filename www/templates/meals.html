@@ -17,12 +17,11 @@
 
 		<div class="card list no-padding tanBackground" ng-class="{desktop:desktop()}">
 			<div class="item">
-				<h1 class="text text-center highlight"><b>The Breakdown</b></h1>
-				<h3 class="italic-text text stableheader text-center">A balanced foundation for every diet.</h3>
+				<h1 class="text text-center highlight"><b>Traditional Meals</b></h1>
 			</div>
 			<div ng-class="{row:tabletHori(), row:desktop()}">
-				<div class="card list no-padding col">
-					<h3 class="item highlight text text-center"><b>Traditional Meals</b></h3>
+				<div class="card list no-padding no-background" ng-class="{col:tabletHori(), col:desktop()}">
+					<h3 class="item highlight text text-center"><b>Meal Breakdown</b></h3>
 					<div class="item item-text-wrap meal-slider-card">
 						<div style="margin-top:auto !important; margin-bottom:auto !important;">
 							<p class="text stableheader ">Traditional meals contain and follow the dietary guidelines established by the U.S.D.A and the Center for Nutrition Policy and Promotion. </p><br/>
@@ -35,7 +34,7 @@
 						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
 					</div>
 				</div>
-				<div class="card no-padding list col">
+				<div class="card list no-padding" ng-class="{col:tabletHori(), col:desktop()}">
 					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
 					<div class="item no-padding meal-slider-card">
 						<ion-slide-box 
@@ -112,9 +111,14 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="card list no-padding tanBackground" ng-class="{desktop:desktop()}">
+			<div class="item">
+				<h1 class="text text-center highlight"><b>Vegetarian Meals</b></h1>
+			</div>
 			<div ng-class="{row:tabletHori(), row:desktop()}">
 				<div class="card list col">
-					<h3 class="item highlight text text-center"><b>Vegetarian Meals</b></h3>
+					<h3 class="item highlight text text-center"><b>Meal Breakdown</b></h3>
 					<div class="item item-text-wrap meal-slider-card">
 						<p class="text stableheader ">Vegetarian meals follow dietary specifications for vegetarian diets.</p>
 					</div>
@@ -136,7 +140,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -148,7 +152,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -160,7 +164,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -172,7 +176,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -184,7 +188,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -200,9 +204,14 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="card list no-padding tanBackground" ng-class="{desktop:desktop()}">
+			<div class="item">
+				<h1 class="text text-center highlight"><b>Paleo Meals</b></h1>
+			</div>
 			<div ng-class="{row:tabletHori(), row:desktop()}">
 				<div class="card list col">
-					<h3 class="item highlight text"  ng-class="{'text-center':tabletHori()}"><b>Paleo Meals</b></h3>
+					<h3 class="item highlight text"  ng-class="{'text-center':tabletHori()}"><b>Meal Breakdown</b></h3>
 					<div class="item item-text-wrap meal-slider-card">
 						<p class="text stableheader ">Paleo meals follow dietary specifications for paleo diets.</p>
 					</div>
@@ -224,7 +233,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -236,7 +245,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -248,7 +257,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -260,7 +269,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -272,7 +281,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -288,9 +297,14 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="card list no-padding tanBackground" ng-class="{desktop:desktop()}">
+			<div class="item">
+				<h1 class="text text-center highlight"><b>Vegan Meals</b></h1>
+			</div>
 			<div ng-class="{row:tabletHori(), row:desktop()}">
 				<div class="card list col">
-					<h3 class="item highlight text text-center"><b>Vegan Meals</b></h3>
+					<h3 class="item highlight text text-center"><b>Meal Breakdown</b></h3>
 					<div class="item item-text-wrap meal-slider-card">
 						<p class="text stableheader ">Vegan meals follow dietary specifications for vegan diets.</p>
 					</div>
@@ -312,7 +326,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -324,7 +338,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -336,7 +350,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -348,7 +362,7 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">
@@ -360,7 +374,101 @@
 							<ion-slide>
 								<div class="card list no-padding">
 									<div class="item no-padding">
-										<div class="" style="background-image:url('../img/chicken-rice-green-2.jpg'); height:100px; width:100%; background-position:center;"></div>
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
+										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+									</div>
+									<div class="item item-text-wrap">
+										<h5 class="text stableheader">You can even make you own.</h5>
+									</div>
+								</div>
+							</ion-slide>
+					    </ion-slide-box>
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">See all of the traditional Meals</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card list no-padding tanBackground" ng-class="{desktop:desktop()}">
+			<div class="item">
+				<h1 class="text text-center highlight"><b>Build Your Own</b></h1>
+			</div>
+			<div ng-class="{row:tabletHori(), row:desktop()}">
+				<div class="card list col">
+					<h3 class="item highlight text text-center"><b>Meal Breakdown</b></h3>
+					<div class="item item-text-wrap meal-slider-card">
+						<p class="text stableheader ">For those who want absolute control over their meals. Have allergies, that's no problem for us.</p><br/>
+						<p class="text stableheader ">We prepare all meals for individuals with food allergies in a clean room to ensure we protect the safety of our community.</p>
+					</div>
+					<div class="item item-icon-right" ng-click="">
+						<p class="text stableheader">Learn more...</p>
+						<i class="icon ion-chevron-right stableheader" style="font-size:22px"></i>
+					</div>
+				</div>
+				<div class="card no-padding list col">
+					<h3 class="item highlight text text-center"><b>Feature Menu Traditional Meals</b></h3>
+					<div class="item no-padding meal-slider-card">
+						<ion-slide-box 
+							deligate-handle="login-register-slider" 
+							does-continue="false"
+							auto-play="false"
+							show-pager="true"
+							class="backgroundSlider"
+						>
+							<ion-slide>
+								<div class="card list no-padding">
+									<div class="item no-padding">
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
+										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+									</div>
+									<div class="item item-text-wrap">
+										<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+									</div>
+								</div>
+							</ion-slide>
+
+							<ion-slide>
+								<div class="card list no-padding">
+									<div class="item no-padding">
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
+										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+									</div>
+									<div class="item item-text-wrap">
+										<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+									</div>
+								</div>
+							</ion-slide>
+
+							<ion-slide>
+								<div class="card list no-padding">
+									<div class="item no-padding">
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
+										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+									</div>
+									<div class="item item-text-wrap">
+										<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+									</div>
+								</div>
+							</ion-slide>
+
+							<ion-slide>
+								<div class="card list no-padding">
+									<div class="item no-padding">
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
+										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
+									</div>
+									<div class="item item-text-wrap">
+										<h5 class="text stableheader">Chicken, green beans and white rice make up the centerpiece of this meal and includes grapes and Vermont Cheddar for dessert.</h5>
+									</div>
+								</div>
+							</ion-slide>
+
+							<ion-slide>
+								<div class="card list no-padding">
+									<div class="item no-padding">
+										<div class="meal-slider-img" style="background-image:url('../img/chicken-rice-green-2.jpg'); "></div>
 										<!-- <img src="./img/chicken-rice-green-2.jpg" height="100px" alt="meal image"> -->
 									</div>
 									<div class="item item-text-wrap">

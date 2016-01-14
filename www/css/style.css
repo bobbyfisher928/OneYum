@@ -7,6 +7,10 @@
 	margin: 0!important;
 }
 
+.no-background {
+	background-color: transparent;
+}
+
 .desktop{
 	width:80% !important;
 	max-width: 800px;
@@ -657,14 +661,15 @@ circle.pie4 {
 }
 
 .meal-slider-card {
-	height:250px !important;
-	margin-bottom:-3px;
+	/*height:265px !important;*/
+	/*margin-bottom:-3px;*/
 }
 
 .meal-slider-img {
-	height:152px; 
-	width:100%; 
+	height:150px; 
+	/*width:100%; */
 	background-position:center;
+	background-repeat: no-repeat;
 }
 
 .slider-pager {
