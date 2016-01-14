@@ -114,7 +114,7 @@ angular.module('OneYum.factories', [])
 			} else if(target === "JosephRoyal") {
 				item = Contacts.JosephRoyal;
 			};
-			console.log(item);
+			// console.log(item);
 			return item;
 		}
 	};

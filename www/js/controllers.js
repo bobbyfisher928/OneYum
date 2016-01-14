@@ -233,7 +233,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.contactform = function(target) {
     $scope.contactmodal.show();
-    console.log(ContactService.get(target));
+    // console.log(ContactService.get(target));
     $scope.Target = ContactService.get(target);
     
   }
@@ -241,11 +241,14 @@ angular.module('OneYum.controllers', [])
   $scope.closeContact = function() {
     $scope.contactmodal.hide();
     $scope.Target = '';
+    $scope.contact = {};
   }
 
   $scope.closeContactForm = function() {
 
   }
+
+  $scope.contactsent = false;
   $scope.Target = '';
   $scope.openEmail = false;
   $scope.openPhone = false;
@@ -266,11 +269,14 @@ angular.module('OneYum.controllers', [])
     .then(function(msg){
       console.log(msg);
       $scope.hide();
-      $scope.closeContact;
+      $scope.contactsent = true;
+      $scope.closeContact();
+      $scope.openEmail = false;
     },function(err) {
       console.log(err);
       $scope.hide();
-      $scope.closeContact;
+      $scope.closeContact();
+      $scope.openEmail = false;
     })
   }
 

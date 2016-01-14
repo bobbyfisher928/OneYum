@@ -7,8 +7,8 @@
     <div ng-class="{desktop:desktop()}">
     	<div class="padding">
         <div class="card list">
-          <div class="item">How would you like to contact us?</div>
-          <ion-item  ng-click="engageEmail()">Email</ion-item>
+          <div class="item stableheader">How would you like to contact us?</div>
+          <ion-item  ng-click="engageEmail()"><span ng-show="!contactsent" class="stableheader">Email</span><span ng-show="contactsent" class="highlight">Email sent successfully!</span></ion-item>
           <ion-item ng-show="openEmail" class="no-padding greyBackground">
             <ion-list class="list">
               <ion-item class="item item-avatar item-icon-right" ng-click="contactform('BobbyFisher')">
@@ -25,7 +25,7 @@
               </ion-item>
             </ion-list>
           </ion-item>
-          <ion-item ng-click="engagePhone()" >Phone</ion-item>
+          <ion-item ng-click="engagePhone()" class="stableheader" >Phone</ion-item>
           <ion-item ng-show="openPhone" class="no-padding greyBackground">
             <ion-list class="list">
               <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactcall/BobbyFisher">
@@ -42,7 +42,7 @@
               </ion-item>
             </ion-list>
           </ion-item>
-          <ion-item ng-click="engageMail()" >Mail</ion-item>
+          <ion-item ng-click="engageMail()" class="stableheader">Mail</ion-item>
           <ion-item ng-show="openMail" class="no-padding greyBackground"></ion-item>
         </div>
       </div>
