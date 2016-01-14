@@ -1,4 +1,4 @@
-<ion-view ng-controller="ContactCtrl">
+<ion-view>
 	<ion-nav-title class="text highlight logo">
 		<span class="text hightlight">Contact</span>
 	</ion-nav-title>
@@ -11,13 +11,13 @@
           <ion-item  ng-click="engageEmail()">Email</ion-item>
           <ion-item ng-show="openEmail" class="no-padding greyBackground">
             <ion-list class="list">
-              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/BobbyFisher">
+              <ion-item class="item item-avatar item-icon-right" ng-click="contactform('BobbyFisher')">
                 <img src="../img/BobbyFisherpic.jpg">
                 <h2 class="text stableheader">Bobby Fisher</h2>
                 <h3 class="text stableheader">Co-Founder, CEO</h3>
                 <i class="icon ion-ios-email highlight"></i>
               </ion-item>
-              <ion-item class="item item-avatar item-icon-right" href="#/welcome/contactform/JosephRoyal">
+              <ion-item class="item item-avatar item-icon-right" ng-click="contactform('JosephRoyal')">
                 <img src="../img/JosephRoyalpic.png">
                 <h2 class="text stableheader">Joseph Royal</h2>
                 <h3 class="text stableheader">Co-Founder, CBDO</h3>

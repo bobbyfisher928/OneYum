@@ -118,14 +118,14 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     }
   })
 
-  .state('welcome.contactform', {
-    url: '/contactform/:target',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/contactform.html'
-      }
-    }
-  })
+  // .state('welcome.contactform', {
+  //   url: '/contactform/:target',
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/contactform.html'
+  //     }
+  //   }
+  // })
 
   .state('welcome.contactcall', {
     url: '/contactcall/:target',

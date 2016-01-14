@@ -1,6 +1,6 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading','Identification', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading,Identification) {
+.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading','Identification','ContactService','EmailContactService', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading,Identification,ContactService,EmailContactService) {
   $scope.screenset1 = false;
   $scope.screenset2 = false;
 
@@ -224,7 +224,55 @@ angular.module('OneYum.controllers', [])
     $state.go('welcome.support-detail');
     // console.log(data);
   }
+
+  $ionicModal.fromTemplateUrl('templates/contactform.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.contactmodal = modal;
+  });
+
+  $scope.contactform = function(target) {
+    $scope.contactmodal.show();
+    console.log(ContactService.get(target));
+    $scope.Target = ContactService.get(target);
+    
+  }
+
+  $scope.closeContact = function() {
+    $scope.contactmodal.hide();
+    $scope.Target = '';
+  }
+
+  $scope.closeContactForm = function() {
+
+  }
+  $scope.Target = '';
+  $scope.openEmail = false;
+  $scope.openPhone = false;
+  $scope.openMail = false;
+  $scope.engageEmail = function() {
+    $scope.openEmail = !$scope.openEmail;
+  }
+  $scope.engagePhone = function() {
+    $scope.openPhone = !$scope.openPhone;
+  }
+  $scope.engageMail = function() {
+    $scope.openMail = !$scope.openMail;
+  }
   
+  $scope.submit = function(data) {
+    $scope.show();
+    EmailContactService.send(data,$scope.Target)
+    .then(function(msg){
+      console.log(msg);
+      $scope.hide();
+      $scope.closeContact;
+    },function(err) {
+      console.log(err);
+      $scope.hide();
+      $scope.closeContact;
+    })
+  }
 
 }])
 
@@ -288,40 +336,23 @@ angular.module('OneYum.controllers', [])
     maintainAspectRatio: false,
 
   }
+
+  
 }])
 
 .controller('ContactCtrl', ['$scope', function($scope){
-  $scope.openEmail = false;
-  $scope.openPhone = false;
-  $scope.openMail = false;
-  $scope.engageEmail = function() {
-    $scope.openEmail = !$scope.openEmail;
-  }
-  $scope.engagePhone = function() {
-    $scope.openPhone = !$scope.openPhone;
-  }
-  $scope.engageMail = function() {
-    $scope.openMail = !$scope.openMail;
-  }
+  
 
 }])
 
 .controller('ContactFormCtrl', ['$scope','$stateParams','ContactService','EmailContactService', function($scope,$stateParams,ContactService,EmailContactService){
   console.log(ContactService.get($stateParams.target));
   $scope.Target = ContactService.get($stateParams.target);
-  $scope.submit = function(data) {
-    // console.log(data);
-    EmailContactService.send(data,$scope.Target);
-  }
+  
 }])
 
 .controller('ContactCallCtrl', ['$scope','$stateParams','ContactService', function($scope,$stateParams,ContactService,EmailContactService){
-  console.log(ContactService.get($stateParams.target));
-  $scope.Target = ContactService.get($stateParams.target);
-  $scope.submit = function(data) {
-    console.log(data);
-
-  }
+  
 }])
 
 

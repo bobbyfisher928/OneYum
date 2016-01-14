@@ -1,8 +1,13 @@
-<ion-view view-title="Contact Form">
+<ion-modal-view view-title="Contact Form">
+	<ion-header-bar align-title="center">
+	    <h1 class="title text highlight text-center">Contact Form</h1>
+	    <div class="buttons">
+	      <button class="text button button-clear" ng-click="closeContact()">Close</button>
+	    </div>
+	</ion-header-bar>
 	<ion-content>
-		<form name="message" class="list" ng-controller="ContactFormCtrl" ng-submit="submit(contact)">
+		<form name="message" class="list" ng-submit="submit(contact)">
 			<div class="item item-header">Email to: <strong class="highlight">{{Target.name}}</strong></div>
-			<div class="item">{{Target.title}}</div>
 			<label class="item item-input">
 				<input type="text" name="messageSubject" placeholder="Message Subject" ng-model="contact.subject">
 			</label>
@@ -15,4 +20,4 @@
 			<button class="item text button btn button-block stableheader" type="submit"><strong>Send Message</strong></button>
 		</form>
 	</ion-content>
-</ion-view>
+</ion-modal-view>

@@ -92,7 +92,7 @@ function ContactEmail($email,$subject,$message,$target) {
   // 0 = off (for production use)
   // 1 = client messages
   // 2 = client and server messages
-  $mail->SMTPDebug = 3;
+  $mail->SMTPDebug = 0;
   //Ask for HTML-friendly debug output
   $mail->Debugoutput = 'html';
   //Set the hostname of the mail server
