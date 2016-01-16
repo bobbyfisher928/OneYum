@@ -7,10 +7,6 @@
 	margin: 0!important;
 }
 
-.no-background {
-	background-color: transparent;
-}
-
 .desktop{
 	width:80% !important;
 	max-width: 800px;
@@ -657,8 +653,9 @@ circle.pie4 {
 .BannerTitleCtn {
 	opacity: 0.6;
 	border-radius: 50%;
-
 }
+
+
 
 .meal-slider-card {
 	/*height:265px !important;*/
