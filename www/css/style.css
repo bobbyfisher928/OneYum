@@ -68,6 +68,10 @@
 	background-color: rgba(242,231,174,0.5);
 }
 
+.tanheader {
+	color: rgba(242,231,174,0.5);
+}
+
 .white {
 	color: #fff !important;
 }
@@ -96,7 +100,23 @@
 }
 
 .stableBackground {
-	background-color: #f8f8f8 !important;
+	background-color: #184850 !important;
+}
+
+.orangeBackground {
+	background-color: #F26E50 !important;
+}
+
+.orangeheader {
+	color: #F26E50 !important;
+}
+
+.brownheader {
+	color: #6C5D4A !important;
+}
+
+.brownBackground {
+	background-color: #6C5D4A !important;
 }
 
 .steadybackground {
