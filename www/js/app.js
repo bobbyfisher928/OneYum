@@ -4,11 +4,39 @@
 // 'OneYum' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'OneYum.controllers' is found in controllers.js
-angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants'])
+angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants','locator'])
 
-.run(function($ionicPlatform,$state,$cookies,RefreshService,Identification) {
+.run(function($log,$rootScope,$ionicPlatform,$state,$cookies,RefreshService,Identification,location,reverseGeocoder) {
+  console.groupCollapsed('APP RUN');
+  hello.init({
+    // facebook: ''
+  });
+  // Initialize user location variable for use later
+  $rootScope.userLocation = '';
+  
+  location.get( function() {
+    console.groupCollapsed('Location Services');
+    console.log('Location detection allowed');
+    console.log(location);
+    $rootScope.userLocation = location.current;
+    console.log('userLocation: ');
+    console.log($rootScope.userLocation);
+    location.ready( function() {
+      reverseGeocoder.geocode( $rootScope.userLocation ).then( function( results ) {
+        console.groupCollapsed("reverseGeocoder Engaged");
+        console.log('reverseGeocoder succeeded:');
+        console.log(results);
+        // $scope.locationOptions = results;
+        console.groupEnd();
+      }, $log.error);
+    });
+    console.groupEnd();
+  }, function() {
+    console.log('Location detection denied');
+  });
 
   if (localStorage.getItem('oy')) {
+    console.groupCollapsed('Local Storage Check');
     RefreshService.refresh(localStorage.getItem('oy'))
     .then(function(resp){
       console.log(resp);
@@ -21,8 +49,9 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
         $state.go('account.stream',{id:Identification.getIdent().id});
       };
     });
-    
+    console.groupEnd();
   } else {
+    console.log('No Local Storage available');
     $state.go('welcome.home');
   };
   $ionicPlatform.ready(function() {
@@ -38,6 +67,8 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
       StatusBar.styleDefault();
     }
   });
+      
+   console.groupEnd();   
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {

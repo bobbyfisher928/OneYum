@@ -1,5 +1,5 @@
 <div class='backgroundSection1' ng-if="mobile()">
-	<h1 class="text sectionHeader stableheader padding"><strong>OneYum is SIMPLE</strong></h1>
+	<h1 class="text text-center stableheader no-padding"><strong>Simple</strong></h1>
 	<div>
 		<div class="card list">
 			<div class="item item-icon-left">
@@ -66,8 +66,76 @@
 	</div>
 </div>
 
-<div class='backgroundSection1' ng-if="tablet()">
-	<h1 class="text sectionHeader stableheader padding"><strong>OneYum is SIMPLE</strong></h1>
+<div class='backgroundSection1' ng-if="tabletVert()">
+	<h1 class="text stableheader padding text-center"><strong>Simple</strong></h1>
+	<div ng-class="{row:tabletHori()}">
+		<div class="card list">
+			<div class="item item-icon-left">
+  			<i class="icon ion-android-done-all stableheader"></i>
+				<h2 class="text stableheader"><b>Select</b></h2>
+			</div>
+			<div class="item list item-text-wrap padding-left">
+  			<div class="item item-icon-left">
+  				<i class="icon ion-ios-list highlight listicon"></i>
+					<h3 class="text stableheader">Set up your meal plan.</h3>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-ios-cart highlight listicon"></i>
+					<h3 class="text stableheader">Select from OneYum's menu or build your own.</h3>
+			</div>
+			<div class="item item-icon-left">
+				<i class="icon ion-ios-heart highlight listicon"></i>
+  				<h3 class="text stableheader">Even those with the strictest of diets won't be left out.</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="card list">
+			<div class="item item-icon-left">
+  			<i class="icon ion-bonfire stableheader"></i>
+				<h2 class="text stableheader"><b>Prepare</b></h2>
+			</div>
+			<div class="item list item-text-wrap padding-left">
+				<div class="item item-icon-left">
+				<i class="icon ion-ios-nutrition highlight listicon"></i>
+  				<h3 class="text stableheader">Prepared and ready to cook.</h3>
+				</div>
+				<div class="item item item-icon-left">
+				<i class="icon ion-ios-flame highlight"></i>
+  				<h3 class="text stableheader" >Fully cooked  reheatable meals ready to serve.</h3>
+				</div>
+				<div class="item item-icon-left">
+				<i class="icon ion-ios-heart highlight listicon"></i>
+  				<h3 class="text stableheader">We've got options for those that like to cook and those that don't.</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="card list">
+			<div class="item item-icon-left">
+  			<i class="icon ion-happy-outline stableheader"></i>
+				<h2 class="text stableheader"><b>Enjoy</b></h2>
+			</div>
+			<div class="item list item-text-wrap padding-left">
+				<div class="item item-icon-left">
+				<i class="icon ion-ios-calendar highlight"></i>
+  				<h3 class="text stableheader">Pick a delivery date and time that fits your schedule.</h3>
+				</div>
+				<div class="item item-icon-left">
+				<i class="icon ion-ios-location highlight"></i>
+  				<h3 class="text stableheader">Choose your delivery location.</h3>
+				</div>
+				<div class="item item-icon-left">
+				<i class="icon ion-ios-heart highlight"></i>
+  				<h3 class="text stableheader">The simplicity may cause repeat use.</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class='backgroundSection1' ng-if="tabletHori()">
+	<h1 class="text sectionHeader stableheader padding"><strong>Simple</strong></h1>
 	<div ng-class="{row:tabletHori()}">
 		<div class="card list">
 			<div class="item item-icon-left">
@@ -135,9 +203,9 @@
 </div>
 
 <div class='backgroundSection1' ng-if="desktop()">
-	<h1 class="text sectionHeader stableheader padding"><strong>OneYum is SIMPLE</strong></h1>
+	<h1 class="text sectionHeader stableheader padding"><strong>Simple</strong></h1>
 	<div ng-class="{row:desktop(), desktop:desktop()}">
-		<div class="card list" ng-class="{col:desktop()}">
+		<div class="card list no-padding" ng-class="{col:desktop()}">
 			<div class="item item-icon-left">
   			<i class="icon ion-android-done-all stableheader"></i>
 				<h2 class="text stableheader"><b>Select</b></h2>
@@ -158,7 +226,7 @@
 			</div>
 		</div>
 
-		<div class="card list" ng-class="{col:desktop()}">
+		<div class="card list no-padding" ng-class="{col:desktop()}">
 			<div class="item item-icon-left">
   			<i class="icon ion-bonfire stableheader"></i>
 				<h2 class="text stableheader"><b>Prepare</b></h2>
@@ -179,7 +247,7 @@
 			</div>
 		</div>
 
-		<div class="card list" ng-class="{col:desktop()}">
+		<div class="card list no-padding" ng-class="{col:desktop()}">
 			<div class="item item-icon-left" ng-class="{tabletitem:tablet()}">
   			<i class="icon ion-happy-outline stableheader" ng-class="{left:tablet()}"></i>
 				<h2 class="text stableheader" ng-class="{tabletText:tablet()}"><b>Enjoy</b></h2>

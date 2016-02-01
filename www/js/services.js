@@ -88,7 +88,7 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			d.resolve(response);
 			console.log(response);
-			localStorage.setItem('oy',response.authorize);
+			// localStorage.setItem('oy',response.authorize);
 		})
 		.error(function(error) {
 			d.reject(error);
@@ -239,6 +239,24 @@ angular.module('OneYum.services', [])
 		update: update,
 		add: add
 	};
+}])
+
+.service('SupplierService', ['$q','$http','API','Suppliers', function($q,$http,API,Suppliers){
+	var getAll = function(data) {
+
+	};
+
+	var setAll = function(data) {
+
+	}
+
+
+
+	return {
+
+		getAll: getAll,
+		setAll: setAll
+	}
 }])
 
 .service('MemberService', ['$q','$http','API','Identification','Members', function($q,$http,API,Identification,Members){

@@ -1,12 +1,41 @@
 angular.module('OneYum.controllers', [])
 
-.controller('AppCtrl', ['$scope','$ionicModal','$timeout','$state','RegisterService','Popup','PopupFill','LoginService','SupportOptionList','$ionicLoading','Identification','ContactService','EmailContactService', function($scope, $ionicModal, $timeout, $state, RegisterService, Popup, PopupFill, LoginService,SupportOptionList,$ionicLoading,Identification,ContactService,EmailContactService) {
+.controller('AppCtrl', [
+  '$scope',
+  '$ionicModal',
+  '$timeout',
+  '$state',
+  'RegisterService',
+  'Popup',
+  'PopupFill',
+  'LoginService',
+  'SupportOptionList',
+  '$ionicLoading',
+  'Identification',
+  'ContactService',
+  'EmailContactService',
+  function(
+    $scope, 
+    $ionicModal, 
+    $timeout, 
+    $state, 
+    RegisterService, 
+    Popup, 
+    PopupFill, 
+    LoginService,
+    SupportOptionList,
+    $ionicLoading,
+    Identification,
+    ContactService,
+    EmailContactService
+  ) {
+  
   $scope.screenset1 = false;
   $scope.screenset2 = false;
 
   $scope.mobile = function() {
     var screen = window.innerWidth;
-    if ( screen < 751 ) {
+    if ( screen < 641 ) {
       return true;
     } else {
       return false;
@@ -16,7 +45,7 @@ angular.module('OneYum.controllers', [])
   $scope.tablet = function() {
     console.log();
     var screen = window.innerWidth;
-    if ( screen > 750 && screen < 1051 ) {
+    if ( screen > 640 && screen < 1076 ) {
       return true;
     } else {
       return false;
@@ -34,7 +63,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.tabletHori = function() {
     var screen = window.innerWidth;
-    if ( screen > 900 && screen < 1051 ) {
+    if ( screen > 900 && screen < 1076 ) {
       return true;
     } else {
       return false;
@@ -43,7 +72,7 @@ angular.module('OneYum.controllers', [])
 
   $scope.desktop = function() {
     var screen = window.innerWidth;
-    if ( screen > 1050 ) {
+    if ( screen > 1075 ) {
       return true;
     } else {
       return false;
@@ -61,6 +90,7 @@ angular.module('OneYum.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   //
+
   $scope.isTakenUsername = false;
   $scope.isTakenEmail = false;
 
@@ -583,4 +613,10 @@ angular.module('OneYum.controllers', [])
   })
 
 
-});
+})
+
+.controller('SupplierCtrl', ['$scope','SupplierService', function($scope,$SupplierService){
+  console.groupCollapsed('Suppler Ctrl entered');
+  // $scope.suppliers = SupplierService.getAll();
+  console.groupEnd();
+}]);

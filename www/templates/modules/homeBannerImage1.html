@@ -1,30 +1,55 @@
 <div class='headBannerImageCtn' ng-if="mobile()">
-	<div class="img1BannerSlider"></div>
-	<div>
-		<h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
-		<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
-		<button class="button button1 centered" ui-sref="welcome.about">
-		  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
-		  	<span class="text centered-text white">Become part of our story.</span>
-		</button>
-	</div>	
+	<div class="row">	
+		<!-- <div class="img2BannerSlider1 rotleft pullleftsmallest">
+		</div> -->
+		<div class=" actionContainer centerpullsmallest">
+			<div class="row text-center">
+				<span class="text-center col col-100">
+				<h1 class="text text-center highlight" style="font-size:50px;"><img src="../img/OneYumPie.png" style="height:45px;background-size:contain; margin-right:2px;"><b>neYum</b></h1></span>
+			</div>
+			<h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
+			<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
+			<button class="button button1 fullwidth centered" ui-sref="welcome.about">
+			  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
+			  	<span class="text centered-text white">Become part of our story.</span>
+			</button>
+		</div><!-- 
+		<div class="img2BannerSlider2 rotright pushrightsmallest">
+		
+		</div> -->
+	</div>		
 </div>
 
 <div class='headBannerImageCtn' ng-if="tabletVert()">
-	<div class="img1BannerSlider"></div>
-	<div>
-		<h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
-		<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
-		<button class="button button1 centered" ui-sref="welcome.about">
-		  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
-		  	<span class="text centered-text white">Become part of our story.</span>
-		</button>
+	
+	<div class="row">	
+		<div class="col img2BannerSlider1 rotleft pullleftsmall">
+		</div>
+		<div class="col col-66 actionContainer lift">
+			<div class="row text-center">
+				<span class="text-center col col-100">
+				<h1 class="text text-center highlight" style="font-size:50px;"><img src="../img/OneYumPie.png" style="height:45px;background-size:contain; margin-right:2px;"><b>neYum</b></h1></span>
+			</div>
+			<h1 class="center-text text highlight BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
+			<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
+			<button class="button button1 fullwidth centered" ui-sref="welcome.about">
+			  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
+			  	<span class="text centered-text white">Become part of our story.</span>
+			</button>
+		</div>
+		<div class="col img2BannerSlider2 rotright pushrightsmall">
+		
+		</div>
 	</div>	
 </div>
 
 <div class='headBannerImageCtn' ng-if="tabletHori()">
-	<div class="img2BannerSlider">
-		<div class="actionContainer">
+	<div class="row">
+		<div class="col">
+			<div class="img2BannerSlider1 rotleft pullleft">
+			</div>
+		</div>
+		<div class="col col-50 actionContainer">
 			<h1 class="text text-center highlight" style="font-size:50px;"><img src="../img/OneYumPie.png" style="height:45px;background-size:contain; margin-right:2px;"><b>neYum</b></h1>
 			<h1 class="center-text text stableheader BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
 			<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
@@ -32,13 +57,21 @@
 			  	<h3 class="text centered-text white "><strong>Read More...</strong></h3>
 			  	<span class="text centered-text white">Become part of our story.</span>
 			</button>
+		</div>
+		<div class="col">
+			<div class="img2BannerSlider2 rotright pushright">
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class='headBannerImageCtn' ng-if="desktop()">
-	<div class="img2BannerSlider">
-		<div class="actionContainer">
+	<div class="row">
+		<div class="col">
+			<div class="img2BannerSlider1 rotleft">
+			</div>
+		</div>
+		<div class="col actionContainer">
 			<h1 class="text text-center highlight" style="font-size:50px;"><img src="../img/OneYumPie.png" style="height:45px;background-size:contain; margin-right:2px;"><b>neYum</b></h1>
 			<h1 class="center-text text stableheader BannerTextCtn"><strong>Meal planning <br> made simple.</strong>{{class}}</h1>
 			<h4 class="center-text text stableheader italic-text BannerTextCtn">Balanced meals that fit<br> your budget and your life.</h4>
@@ -47,6 +80,11 @@
 			  	<span class="text centered-text white">Become part of our story.</span>
 			</button>
 		</div>
+		<div class="col">
+			<div class="img2BannerSlider2 rotright">
+			</div>
+		</div>
 	</div>
+		
 		
 </div>

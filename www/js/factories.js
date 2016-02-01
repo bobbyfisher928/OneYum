@@ -21,6 +21,19 @@ angular.module('OneYum.factories', [])
 	};
 })
 
+.factory('Suppliers', function(){
+	var suppliers = [];
+
+	var nolocal = [
+	{
+		
+	}]
+
+	return {
+		
+	};
+})
+
 .factory('Identification', function(){
   var ident = {
   	avatar: "",

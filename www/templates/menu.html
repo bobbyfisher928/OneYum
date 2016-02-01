@@ -11,7 +11,7 @@
       <ion-nav-buttons side="right">
         <button class="text button button-icon button-clear highlight" 
                 menu-toggle="right"  
-                
+                ng-click="login()"
                 >Login
         </button>
       </ion-nav-buttons>
@@ -68,13 +68,13 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <button class="text button button-icon button-clear highlight" menu-toggle="right" >Login</button>
+        <button class="text button button-icon button-clear highlight" menu-toggle="right" ng-click="login()">Login</button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left" expose-aside-when="(min-width:750px) and (max-width:950px)">
+  <ion-side-menu side="left" expose-aside-when="(min-width:650px) and (max-width:900px)">
     <ion-header-bar class="bar-stable">
       <h1 class="title stableheader text text-left padding-left">What are you looking for?</h1>
     </ion-header-bar>

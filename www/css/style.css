@@ -2,6 +2,10 @@
 
 /* Empty. Add your own CSS if you like */
 
+.white {
+	color: white !important;
+}
+
 .text {
 	font-family:'Bitter', serif !important;
 	margin: 0!important;
@@ -9,7 +13,7 @@
 
 .desktop{
 	width:80% !important;
-	max-width: 800px;
+	/*max-width: 800px;*/
 	margin-left:auto !important;
 	margin-right:auto !important;
 }
@@ -37,6 +41,30 @@
 	font-size: 12px;
 	color: #909090;
 }
+.iconPlaceholder {
+	margin-left: auto;
+    margin-right: auto;
+    height: 70px;
+	width:	70px;
+	padding: 10px;
+	background-image:
+    radial-gradient(
+      #3CA688,
+      #1D6954 95%
+    );
+	/*background-color: #3CA688;*/
+	border-radius: 10px;
+	box-shadow: 0 5px 13px 1px rgba(0,0,0,0.3);
+}
+
+.syncronization {
+	height: 100%;
+	width:	100%;
+    background-image: url("../img/iconmonstr-synchronization-11-240.png");
+    background-size: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .standardTextSize {
 	font-size: 14px;
@@ -62,6 +90,12 @@
 
 .highlight {
 	color:#3CA688 !important;
+}
+
+.primary {
+	background-color:#3CA688 !important;
+	position: relative;
+	z-index: 0;
 }
 
 .tanBackground {
@@ -124,7 +158,13 @@
 }
 
 .greyBackground {
-	background-color: #d6d6d6;
+	position: relative;
+	z-index: 1;
+	/*background-color: #d6d6d6;*/
+	background-image: url("../img/gray-linen_bg_tile.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 .italic-text {
@@ -147,14 +187,19 @@
 	margin-bottom: 20px;
 	background-color: #3CA688;
 	box-shadow: 0 4px 8px -4px rgba(0,0,0,1);
-	margin-left:15% !important;
+	margin-left:15%;
+}
+
+.fullwidth {
+	width: 100%;
+	margin-left:0% !important;
 }
 
 .headBannerImageCtn {
 	/*height: 575px;*/
 	width:100%;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .img1BannerSlider {
@@ -166,29 +211,110 @@
 	background-size: cover;
 	background-position: center;
 }
-.img2BannerSlider {
-	position: relative;
+.img2BannerSlider1 {
+	left:0px;
+	top:50px;
+	position: absolute;
 	height: 375px;
-	width:100%;
+	width: 400px;
 	background-image: url("../img/LeadMay_FoodtoMarket-09c0a506.jpeg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+	border-top: 20px solid #F7F5EC;
+	border-right: 20px solid #F7F5EC;
+	border-bottom: 60px solid #F7F5EC;
+	border-left: 20px solid #F7F5EC;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,0.25);
+}
+
+.salad-club {
+	background-image: url("../img/salad-club.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.img2BannerSlider2 {
+	right:0px;
+	top:50px;
+	z-index: 0;
+	position: absolute;
+	height: 375px;
+	width: 400px;
+	background-image: url("../img/salad-club.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-top: 20px solid #F7F5EC;
+	border-right: 20px solid #F7F5EC;
+	border-bottom: 60px solid #F7F5EC;
+	border-left: 20px solid #F7F5EC;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,0.25);
+
+}
+
+.rotleft {
+	-ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari */
+    transform: rotate(-20deg);
+}
+
+.rotright {
+	-ms-transform: rotate(20deg); /* IE 9 */
+    -webkit-transform: rotate(20deg); /* Safari */
+    transform: rotate(20deg);
+}
+
+.pullleft {
+	left: -10% !important;
+}
+
+.pullleftsmall {
+	left: -80% !important;
+	top:20%;
+}
+
+.pullleftsmallest {
+	left: -100% !important;
+    top: 20%;
+}
+
+.pushright {
+	right:-10% !important;
+}
+
+.pushrightsmall {
+	right:-80% !important;
+	top:20%;
+	
+}
+
+.pushrightsmallest {
+	right: -100% !important;
+    top: 20%;
+    left:inherit !important;
 }
 
 .actionContainer {
     /*border-radius: 20px;*/
     height: 100%;
-    width: 50%;
     max-width:800px;
-    /*position: absolute !important;*/
+    position: relative !important;
+
+    z-index: 5;
     /*right: 25%;*/
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: auto ;
+    margin-right: auto ;
     /*top: 10%;*/
     /*background-color: rgba(248,248,248, 1);*/
-    background-image: url("../img/fabric-background.png");
+    /*background-image: url("../img/fabric-background.png");*/
     padding-top: 30px;
-    box-shadow: 0 0 15px 1px rgba(0,0,0,0.75);
+    /*box-shadow: 0 0 15px 1px rgba(0,0,0,0.75);*/
+}
+
+.lift {
+	margin-top:-25px;
 }
 
 .BannerTextCtn {
@@ -219,124 +345,8 @@
 	fill: #3CA688;
 }*/
 
-.separator:before, .separator:after {
-	content: ' ';
-	height: 0;
-	position: absolute;
-	width: 0;
-	border: 30px solid transparent; /* arrow size */
-}
-
-.separator:before {
-	border-top-color: white;  /* arrow color */
-
-	/* positioning */
-	position: absolute;
-	/*top: -19px;*/
-	left: 40%;
-	z-index: 2;
-}
-
-.separator:after {
-	/*border-top-color: rgba(0,0,0,0.3);*/
-	/* positioning */
-	position: absolute;
-	/*top: 1px;*/
-	left: 41.5%;
-	z-index: -1;
-}
-
-.separator2 {
-
-}
-
-.separator2:before, .separator2:after {
-	content: ' ';
-	height: 0;
-	position: absolute;
-	width: 0;
-	border: 30px solid transparent; /* arrow size */
-}
-
-.separator2:before {
-	border-top-color: rgba(242,231,174,0.5);  /* arrow color */
-
-	/* positioning */
-	position: absolute;
-	/*top: -19px;*/
-	left: 40%;
-	z-index: 2;
-}
-
-.separator2:after {
-	border-top-color: rgba(255,255,255,1);
-	/* positioning */
-	position: absolute;
-	/*top: 1px;*/
-	left: 40%;
-	z-index: 1;
-}
-
-.separator3 {
-	
-}
-
-.separator3:before, .separator3:after {
-	content: ' ';
-	height: 0;
-	position: absolute;
-	width: 0;
-	border: 30px solid transparent; /* arrow size */
-}
-
-.separator3:before {
-	border-top-color: #184850;  /* arrow color */
-
-	/* positioning */
-	position: absolute;
-	/*top: -19px;*/
-	left: 40%;
-	z-index: 2;
-}
-
-.separator3:after {
-	/*border-top-color: rgba(255,255,255,1);*/
-	/* positioning */
-	position: absolute;
-	/*top: 1px;*/
-	left: 40%;
-	z-index: 1;
-}
-
-.separator4 {
-	
-}
-
-.separator4:before, .separator4:after {
-	content: ' ';
-	height: 0;
-	position: absolute;
-	width: 0;
-	border: 30px solid transparent; /* arrow size */
-}
-
-.separator4:before {
-	border-top-color: #fff;  /* arrow color */
-
-	/* positioning */
-	position: absolute;
-	/*top: -19px;*/
-	left: 40%;
-	z-index: 2;
-}
-
-.separator4:after {
-	/*border-top-color: rgba(255,255,255,1);*/
-	/* positioning */
-	position: absolute;
-	/*top: 1px;*/
-	left: 40%;
-	z-index: 1;
+.box-shadow-Section {
+	box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.5);
 }
 
 .backgroundSection1 {
@@ -437,7 +447,7 @@
 }
 
 .backgroundSection2 {
-	border-top:5px solid rgba(242,231,174,0.2);
+	/*border-top:5px solid rgba(242,231,174,0.2);*/
 	/*border-bottom:5px solid #184850;*/
 	padding-top:40px;
 	padding-bottom:20px;
@@ -448,7 +458,7 @@
 }
 
 .backgroundSection3 {
-	border-top:5px solid #184850;
+	/*border-top:5px solid #184850;*/
 	/*border-bottom:5px solid #184850;*/
 	padding-top:40px;
 	padding-bottom:20px;
@@ -466,16 +476,17 @@
 }
 
 .backgroundSection4 {
-	border-top:5px solid #fff;
+	/*border-top:5px solid #fff;*/
 	/*border-bottom:5px solid #184850;*/
 	padding-top:40px;
 	padding-bottom:20px;
-	background-image: url("../img/fabric-background.png");
+	background-image: url("../img/napkinbackground.jpg");
 	/*background-image: url('../img/CuttingBoardBambooLight.png');*/
 	/*background-size: cover;*/
 	/*background-color: rgba(108,93,74,0.30);*/
 	/*background-color: rgba(128,128,128,0.2);*/
 	/*background-color: rgba(242,231,174,0.2);*/
+	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.55);
 }
 
 .pieChart {
@@ -771,9 +782,7 @@ circle.pie4 {
 
 /*Contact Page*/
 
-.greyBackground {
-	background-color: rgba(108,93,74,0.30);
-}
+
 
 .primaryBannerImageContact {
 	width: 100%;
