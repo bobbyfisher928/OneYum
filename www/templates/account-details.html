@@ -1,6 +1,6 @@
 <ion-view>
   
-  <ion-content class="activityBackground">
+  <ion-content class="activityBackground" >
 
     <!-- Refresher -->
     <ion-refresher
@@ -8,8 +8,29 @@
       on-refresh="doRefresh()">
     </ion-refresher>
 
-    <!-- Calendar Display -->
-        
+    <!-- Account Information Display -->
+    <div class="row">
+    	<div class="col col-50 col-offset-25">
+    		<div class="accountThumbnail" ng-if="Ident.avatar" style="background-image:url({{Ident.avatar}});"></div>
+    		<img class="accountThumbnail" ng-if="!Ident.avatar" src="./img/profile_headshot.jpg">
+    	</div>
+    	
+    </div>
+    <div class="card list">
+    	<div class="item item-header">
+    		<p class="text highlight"><b>Account Information</b></p>
+    	</div>
+    	<div class="row row-center">
+    		<div class="col col-75">
+	    		<p class="text stableheader">{{Ident.fname}} {{Ident.lname}}</p>
+	    		<p class="text stableheader">{{Ident.email}}</p>
+				<p class="text stableheader">Manage password</p>
+			</div>
+			<div class="col col-25">
+				<button class="button button-clear ion-wrench stableheader editButton"></button>
+			</div>
+    	</div>
+    </div>
       
   </ion-content>
 

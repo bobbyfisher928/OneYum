@@ -80,19 +80,23 @@ angular.module('OneYum.services', [])
 	}
 }])
 
-.service('LoginService', ['$q','$http','API', function($q,$http,API){
+.service('LoginService', ['$q','$http','API','Identification','AuthService', function($q,$http,API,Identification,AuthService){
 	var login = function(data) {
 		var d = $q.defer();
 		// console.log(API.login,data);
 		$http.post(API.login,data)
 		.success(function(response) {
-			d.resolve(response);
-			console.log(response);
-			// localStorage.setItem('oy',response.authorize);
+			if (AuthService.decode(response).Auth && AuthService.decode(response).Ident) {
+				AuthService.setToken(response);
+				console.log(AuthService.decode(response));
+				d.resolve(response);
+			} else {
+				d.reject(response);
+			};
 		})
 		.error(function(error) {
 			d.reject(error);
-			// console.log(error);
+			console.log(error);
 		})
 		return d.promise;
 	}
@@ -154,6 +158,7 @@ angular.module('OneYum.services', [])
 
 .service('HouseholdService', ['$q','$http','API','Identification','Locations', function($q,$http,API,Identification,Locations){
 	var get = function() {
+		
 		var data = {};
 		data.id = Identification.getIdent().id;
 		var d = $q.defer();
@@ -164,14 +169,24 @@ angular.module('OneYum.services', [])
 		// console.log(data);
 		$http.post(API.household,request)
 		.success(function(response) {
-			console.log(response);
-			Identification.setHHold(response);
-			d.resolve(response);
+			console.groupCollapsed('HouseholdService Returned');
+			console.log(response.length);
+			if (response.length) {
+				Identification.setHHold(response);
+				d.resolve(response);
+			} else {
+				d.reject(response);
+				console.log("No Households Assigned");
+			};
+			console.groupEnd();
 		})
 		.error(function(response) {
+			console.groupCollapsed('HouseholdService Response Error');
 			d.reject(response);
 			console.log(response);
-		})
+			console.groupEnd();
+		});
+		
 		return d.promise;
 	};
 
@@ -259,10 +274,54 @@ angular.module('OneYum.services', [])
 	}
 }])
 
+.service('AuthService', [ 'jwtHelper','Identification', function( jwtHelper , Identification){
+	console.groupCollapsed("AuthService Entered");
+	console.log('AuthService called');
+	console.groupEnd();
+	return {
+		decode: function( token ) {
+			console.log('AuthService decoding token');
+			var tokenPayload = jwtHelper.decodeToken( token );
+			return tokenPayload;
+		},
+		getToken: function() {
+			var token = localStorage.getItem( 'oy' );
+			if( token ) {
+				console.log('Client token detected');
+				return token;
+			} else {
+	    		console.log('Client token not detected');
+				return false;
+			}
+		},
+		setToken: function( token ) {
+			if( token ) {
+				console.log('AuthService setting token');
+				return localStorage.setItem( 'oy', token );
+			} else {
+				console.error('AuthService can\'t set empty token');
+				return false;
+			}
+		},
+		isAuthorized: function() {
+			var token = this.getToken();
+			if( token ) {
+				// Set user identity
+				var data = this.decode( token );
+			    return data;
+			} else {
+				return false;
+			}
+		},
+		removeToken: function() {
+			return localStorage.removeItem( 'oy' );
+		}
+	};
+}])
+
 .service('MemberService', ['$q','$http','API','Identification','Members', function($q,$http,API,Identification,Members){
 	var get = function() {
 		var data = {};
-		data.hid = Identification.getHHold()[0].hid;
 		var d = $q.defer();
 		var request = {
 			action: 'GET',

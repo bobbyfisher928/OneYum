@@ -14,6 +14,7 @@ angular.module('OneYum.controllers', [])
   'Identification',
   'ContactService',
   'EmailContactService',
+  'AuthService',
   function(
     $scope, 
     $ionicModal, 
@@ -27,7 +28,8 @@ angular.module('OneYum.controllers', [])
     $ionicLoading,
     Identification,
     ContactService,
-    EmailContactService
+    EmailContactService,
+    AuthService
   ) {
   
   $scope.screenset1 = false;
@@ -178,15 +180,12 @@ angular.module('OneYum.controllers', [])
     LoginService.login(data)
     .then(function(resp) {
       console.log(resp);
-      if (resp.id) {
-        Identification.setIdent(resp);
+      if (AuthService.isAuthorized()) {
         $scope.show();
         $timeout(function() {
           $state.go('account.stream');
           $scope.closeLogin();
           $scope.hide();
-          console.log('click');
-          
         }, 1000);
       } else {
         $scope.hide();
@@ -396,8 +395,11 @@ angular.module('OneYum.controllers', [])
   
 })
 
-.controller('AccountCtrl', ['$scope', function($scope){
-  
+.controller('AccountDetailCtrl', ['$scope','Identification', function($scope,Identification){
+  console.groupCollapsed("AccountCtrl Entered");
+  $scope.Ident = Identification.getIdent();
+  console.log($scope.Ident);
+  console.groupEnd();
 }])
 
 .controller('MessageCtrl', ['$scope','Posts', function($scope,Posts){
@@ -415,22 +417,7 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('PlanCtrl', ['$scope','$stateParams','Plans','$ionicNavBarDelegate','$state','Identification','HouseholdService','MemberService','Members', function($scope,$stateParams,Plans,$ionicNavBarDelegate,$state,Identification,HouseholdService,MemberService,Members){
-
-  if (!$stateParams.id) {
-    HouseholdService.get()
-    .then(function(resp) {
-      $scope.HHold = Identification.getHHold();
-      console.log($scope.HHold);
-      MemberService.get()
-      .then(function(resp) {
-        console.log(resp);
-      }, function(err) {
-        console.log(err);
-      });
-    }, function(err) {
-      console.log(err);
-    });
-  };
+  console.groupCollapsed('PlanCtrl Engaged');
 
   $scope.HHold = Identification.getHHold();
   $scope.Ident = Identification.getIdent();
@@ -503,7 +490,7 @@ angular.module('OneYum.controllers', [])
     closeOnSelect: true, //Optional
   };
 
-
+  console.groupEnd();
 
 }])
 
@@ -512,7 +499,7 @@ angular.module('OneYum.controllers', [])
 }])
 
 .controller('StreamCtrl', ['$scope','Activity','Identification','$state', function($scope,Activity,Identification,$state){
-  
+  console.groupCollapsed('StreamCtrl Entered');
   $scope.HMessages = Activity.get();
   console.log($scope.HMessages);
   $scope.countHMessages = function() {
@@ -531,6 +518,7 @@ angular.module('OneYum.controllers', [])
       return 0;
     };
   }
+  console.groupEnd();
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

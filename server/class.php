@@ -1,4 +1,13 @@
 <?php
+class AUTHTOKEN {
+	public $response;
+
+	function get() {
+		$this->response = "ONEYUM_AUTHTOKEN";
+		return $response;
+	}
+}
+
 
 class Request {
 	public $response;
@@ -57,6 +66,33 @@ class Request {
 		}
 		return $this->response;
 	}
+}
+
+class AUTH {
+	public $token = array(
+	    "iss" => '',
+	    "aud" => '',
+	    "exp" => '',
+	    "nbf" => '',
+	    "iat" => '',
+	    "ide" => '',
+	    "dev" => ''
+	);
+
+	function set($origin,$ide) {
+		$this->token['iss'] = $origin;
+		$this->token['aud'] = $origin;
+		$this->token['ema'] = encode5t($ide);
+		$this->token['dev'] = getDeviceInfo();
+		$this->token['exp'] = new DateTime()+strtotime("2 days");
+		$this->token['iat'] = strtotime("now");
+		$this->token['nbf'] = new DateTime();
+		return $this->token;
+	}
+
+	// function check(data) {
+
+	// }
 }
 
 class Identity {

@@ -6,11 +6,25 @@
 // 'OneYum.controllers' is found in controllers.js
 angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants','locator'])
 
-.run(function($log,$rootScope,$ionicPlatform,$state,$cookies,RefreshService,Identification,location,reverseGeocoder) {
+.run(function($log,$rootScope,$ionicPlatform,$state,$cookies,RefreshService,Identification,location,reverseGeocoder,globalConfig,AuthService) {
   console.groupCollapsed('APP RUN');
   hello.init({
     // facebook: ''
   });
+
+  // Set global API variables based on page URL and 
+  var url = window.location.href;
+  console.log("URL: " + url);
+  if( url.indexOf( 'localhost' ) ) {
+    console.log(url.indexOf( 'localhost' ));
+    console.log({
+      DevAPI: globalConfig.localDevApiRoute,
+      LocalDevUplaod: globalConfig.localDevUploadRoute
+    });
+    $rootScope.apiRoute = globalConfig.localDevApiRoute;
+    $rootScope.uploadRoute = globalConfig.localDevUploadRoute;
+  }
+
   // Initialize user location variable for use later
   $rootScope.userLocation = '';
   
@@ -35,25 +49,52 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     console.log('Location detection denied');
   });
 
-  if (localStorage.getItem('oy')) {
-    console.groupCollapsed('Local Storage Check');
-    RefreshService.refresh(localStorage.getItem('oy'))
-    .then(function(resp){
-      console.log(resp);
-      console.log(resp === 'null');
-      if (resp === 'null') {
-        localStorage.removeItem('oy');
-        // $urlRouterProvider.otherwise('/welcome/home');
+  $rootScope.$on('$stateChangeStart', function ( event, toState ) {
+    console.groupCollapsed( 'Checking User Authentication' );
+    // console.log({'Event': event});
+    console.log({'toState': toState});
+    var isAuth = AuthService.isAuthorized();
+    console.log({'isAuth':isAuth});
+    if ( !isAuth ) {
+      console.log('No User Set');
+
+      if( globalConfig.authorizedRoutes.withoutUserAccount.indexOf( toState.name ) < 0 ) {
+        console.log('You\'re not supposed to be here.');
+        event.preventDefault();
         $state.go('welcome.home');
-      } else {
-        $state.go('account.stream',{id:Identification.getIdent().id});
-      };
-    });
+      }
+      
+    } else {
+      if( toState.name === 'welcome.home' ) {
+        console.log('Auth Exists');
+        Identification.setIdent(isAuth.Ident);
+        console.log('Welcome ' + Identification.getIdent().fname);
+        event.preventDefault();
+        $state.go('account.stream');
+      }
+    };
     console.groupEnd();
-  } else {
-    console.log('No Local Storage available');
-    $state.go('welcome.home');
-  };
+  });
+
+  // if (localStorage.getItem('oy')) {
+  //   console.groupCollapsed('Local Storage Check');
+  //   RefreshService.refresh(localStorage.getItem('oy'))
+  //   .then(function(resp){
+  //     console.log(resp);
+  //     console.log(resp === 'null');
+  //     if (resp === 'null') {
+  //       localStorage.removeItem('oy');
+  //       // $urlRouterProvider.otherwise('/welcome/home');
+  //       $state.go('welcome.home');
+  //     } else {
+  //       $state.go('account.stream',{id:Identification.getIdent().id});
+  //     };
+  //   });
+  //   console.groupEnd();
+  // } else {
+  //   console.log('No Local Storage available');
+  //   $state.go('welcome.home');
+  // };
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -286,7 +327,7 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     views: {
       'account-details': {
         templateUrl: 'templates/account-details.html',
-        controller: 'AccountCtrl'
+        controller: 'AccountDetailCtrl'
       }
     }
   })

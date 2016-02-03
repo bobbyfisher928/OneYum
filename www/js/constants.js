@@ -1,32 +1,32 @@
 angular.module('OneYum.constants', [])
 
 .constant('API', {
-	// login: 			'http://localhost/OneYum/server/index.php/login',
-	// username: 		'http://localhost/OneYum/server/index.php/checkusername',
-	// email: 			'http://localhost/OneYum/server/index.php/checkemail',
-	// register: 		'http://localhost/OneYum/server/index.php/register',
-	// validateSupKey: 	'http://localhost/OneYum/server/index.php/validatesupkey',
-	// supregister: 	'http://localhost/OneYum/server/index.php/supregister',
-	// meals: 			'http://localhost/OneYum/server/index.php/meals',
-	// location: 		'http://localhost/OneYum/server/index.php/location',
-	// household: 		'http://localhost/OneYum/server/index.php/household',
-	// members: 		'http://localhost/OneYum/server/index.php/members',
-	// refresh: 		'http://localhost/OneYum/server/index.php/refresh',
-	// emailContact: 		'http://localhost/OneYum/server/index.php/emailContact',
+	login: 			'http://localhost/OneYum/server/index.php/login',
+	username: 		'http://localhost/OneYum/server/index.php/checkusername',
+	email: 			'http://localhost/OneYum/server/index.php/checkemail',
+	register: 		'http://localhost/OneYum/server/index.php/register',
+	validateSupKey: 'http://localhost/OneYum/server/index.php/validatesupkey',
+	supregister: 	'http://localhost/OneYum/server/index.php/supregister',
+	meals: 			'http://localhost/OneYum/server/index.php/meals',
+	location: 		'http://localhost/OneYum/server/index.php/location',
+	household: 		'http://localhost/OneYum/server/index.php/household',
+	members: 		'http://localhost/OneYum/server/index.php/members',
+	refresh: 		'http://localhost/OneYum/server/index.php/refresh',
+	emailContact: 	'http://localhost/OneYum/server/index.php/emailContact',
 
 
-	login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
-	username: 		'http://www.oneyum.org/oneyum.org/server/index.php/checkusername',
-	email: 			'http://www.oneyum.org/oneyum.org/server/index.php/checkemail',
-	register: 		'http://www.oneyum.org/oneyum.org/server/index.php/register',
-	validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
-	supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
-	meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
-	location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
-	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household',
-	members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
-	refresh: 		'http://www.oneyum.org/oneyum.org/server/index.php/refresh',
-	emailContact:	'http://www.oneyum.org/oneyum.org/server/index.php/emailContact'
+	// login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
+	// username: 		'http://www.oneyum.org/oneyum.org/server/index.php/checkusername',
+	// email: 			'http://www.oneyum.org/oneyum.org/server/index.php/checkemail',
+	// register: 		'http://www.oneyum.org/oneyum.org/server/index.php/register',
+	// validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
+	// supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
+	// meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
+	// location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
+	// household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household',
+	// members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
+	// refresh: 		'http://www.oneyum.org/oneyum.org/server/index.php/refresh',
+	// emailContact:	'http://www.oneyum.org/oneyum.org/server/index.php/emailContact'
 })
 
 .constant('PopupFill', {
@@ -78,9 +78,32 @@ angular.module('OneYum.constants', [])
   notAuthorized: 'auth-not-authorized'
 })
 
+.constant('globalConfig', {
+	// hostedApiRoute: '',
+	localDevApiRoute: 'http://localhost/tipr-desktop/server/index.php',
+	localDevUploadRoute: 'http://localhost/tipr-desktop/server/uploads/',
+	authorizedRoutes: {
+		withoutUserAccount: [
+			'welcome.home',
+			'welcome.meals',
+			'welcome.suppliers',
+			'welcome.partners',
+			'welcome.support',
+			'welcome.careers',
+			'welcome.about',
+			'welcome.contact',
+			'welcome.media',
+			'register-business.step-1',
+			'frontend'
+		]
+	}
+})
+
 .constant('USER_ROLES', {
   all: '*',
   admin: 'admin',
   user: 'user',
-  busioness: 'business'
+  supplier: 'supplier',
+  partner: 'partner',
+  corporate: 'corporate'
 })

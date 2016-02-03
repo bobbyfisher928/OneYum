@@ -792,3 +792,20 @@ circle.pie4 {
     background-size: 50%;
     background-repeat: no-repeat;
 }
+
+.accountThumbnail {
+	height:80%;
+	width:80%;
+	border:5px solid white;
+	margin-top:10% !important;
+	margin-left:10% !important;
+	margin-right:10% !important;
+	border-radius:100%;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+	background-position: center;
+	background-size: cover;
+}
+
+.editButton {
+	font-size: 22px;
+}
