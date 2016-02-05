@@ -272,7 +272,7 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
   hello.on('auth.login', function(auth) {
     // Call user information, for the given network
     console.log(auth);
-    hello(auth.network).api('me',{scope:email, force:false})
+    hello(auth.network).api('me',{scope:'email', force:false})
     .then(function(r) {
       // Inject it into the container
       console.log(r);
