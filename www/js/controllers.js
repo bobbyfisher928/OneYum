@@ -181,13 +181,13 @@ angular.module('OneYum.controllers', [])
   // HelloJS Authentication Listening
   hello.on('auth.login', function(auth) {
     // Call user information, for the given network
-    // hello(auth.network).api('me')
-    // .then(function(r) {
-    //   // Inject it into the container
-    //   console.log(r);
-    // }, function(e) {
-    //   console.log(e);
-    // });
+    hello(auth.network).api('me')
+    .then(function(r) {
+      // Inject it into the container
+      console.log(r);
+    }, function(e) {
+      console.log(e);
+    });
   });
 
   // External Auth Engaged
@@ -199,7 +199,7 @@ angular.module('OneYum.controllers', [])
     if (system === 'facebook') {
       console.log('Facebook External Auth Called');
       $scope.externalAuth.show();
-      hello('facebook').login({scope:'email'})
+      hello('facebook').login()
       .then(function(json) {
         console.log(json);
       });
