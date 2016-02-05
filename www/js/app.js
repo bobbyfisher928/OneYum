@@ -268,20 +268,20 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     $rootScope.uploadRoute = globalConfig.localDevUploadRoute;
   }
 
-  // // // HelloJS Authentication Listening
-  // hello.on('auth.login', function(auth) {
-  //   // Call user information, for the given network
-  //   console.log(auth);
-  //   // hello(auth.network).api('me')
-  //   // .then(function(r) {
-  //   //   // Inject it into the container
-  //   //   console.log(r);
-  //   // }, function(e) {
-  //   //   console.log(e);
-  //   // });
-  // });
-  // 
-  // 
+  // // HelloJS Authentication Listening
+  hello.on('auth.login', function(auth) {
+    // Call user information, for the given network
+    console.log(auth);
+    hello(auth.network).api('me')
+    .then(function(r) {
+      // Inject it into the container
+      console.log(r);
+    }, function(e) {
+      console.log(e);
+    });
+  });
+  
+  
 
   console.log($rootScope.userLocation);
 
