@@ -199,7 +199,7 @@ angular.module('OneYum.controllers', [])
     if (system === 'facebook') {
       console.log('Facebook External Auth Called');
       $scope.externalAuth.show();
-      hello('facebook').login()
+      hello('facebook').login({scope:'email'})
       .then(function(json) {
         console.log(json);
       });
