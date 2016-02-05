@@ -26,7 +26,7 @@ angular.module('OneYum.factories', [])
 
 	var nolocal = [
 	{
-		
+
 	}]
 
 	return {
@@ -36,19 +36,19 @@ angular.module('OneYum.factories', [])
 
 .factory('Identification', function(){
   var ident = {
-  	avatar: "",
-	corp: "0",
-	email: "bobbyfisher@me.com",
-	fname: "Bobby",
-	id: "32",
-	lname: "Fisher",
-	part: "0",
-	perma: "53toZhduTYd7zge3Vg7nBJMV39FVVAsw",
-	start: "2015-12-17 10:00:35",
-	sup: "0",
-	verified: "0"
+ //  	avatar: "",
+	// corp: "0",
+	// email: "bobbyfisher@me.com",
+	// fname: "Bobby",
+	// id: "32",
+	// lname: "Fisher",
+	// part: "0",
+	// perma: "53toZhduTYd7zge3Vg7nBJMV39FVVAsw",
+	// start: "2015-12-17 10:00:35",
+	// sup: "0",
+	// verified: "0"
   };
-  var hhold = [];
+  
   var auth = {
     authorization: '',
     roles: ''
@@ -58,27 +58,40 @@ angular.module('OneYum.factories', [])
       ident = data;
       // auth.authorization = 
     },
-    setHHold: function(data) {
-    	// console.log(data);
-      	hhold = data;
-      	// console.log(hhold);
-      // auth.authorization = 
-    },
-    addHHold: function(data) {
-    	hhold[hhold.length] = data;
-    	return hhold;
-    },
     name: function() {
       return ident.fname + ' ' + ident.lname;
     },
     getIdent: function() {
     	return ident;
     },
-    getHHold: function() {
-    	// console.log(hhold);
-    	return hhold;
-    }
+	    
   }
+})
+
+.factory('HouseHold', function(){
+	var hhold;
+
+	return{
+			setHHold: function(data) {
+      	hhold = data;
+      	console.log(hhold);
+	    },
+	    addHHold: function(data) {
+	    	console.log(data);
+	    	hhold[hhold.length] = data;
+	    	return hhold;
+	    },
+	    getHHold: function(data) {
+	    	console.log(hhold);
+	    	return hhold;
+	    },
+	    removeHHold: function(data) {
+
+	    },
+	    getAll: function () {
+	    	return hhold;
+	    }
+	};
 })
 
 .factory('Locations', function(){

@@ -156,9 +156,8 @@ angular.module('OneYum.services', [])
 	}
 }])
 
-.service('HouseholdService', ['$q','$http','API','Identification','Locations', function($q,$http,API,Identification,Locations){
+.service('HouseholdService', ['$q','$http','API','Identification','HouseHold','Locations', function($q,$http,API,Identification,HouseHold,Locations){
 	var get = function() {
-		
 		var data = {};
 		data.id = Identification.getIdent().id;
 		var d = $q.defer();
@@ -170,9 +169,9 @@ angular.module('OneYum.services', [])
 		$http.post(API.household,request)
 		.success(function(response) {
 			console.groupCollapsed('HouseholdService Returned');
-			console.log(response.length);
+			console.log(response);
 			if (response.length) {
-				Identification.setHHold(response);
+				HouseHold.setHHold(response);
 				d.resolve(response);
 			} else {
 				d.reject(response);
@@ -238,7 +237,7 @@ angular.module('OneYum.services', [])
 		.success(function(response) {
 			console.log(response);
 
-			Identification.addHHold(response);
+			HouseHold.addHHold(response);
 			d.resolve(response);
 		})
 		.error(function(response) {

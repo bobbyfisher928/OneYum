@@ -6,6 +6,22 @@
 	color: white !important;
 }
 
+.text-facebook {
+	color: #3b5998 !important;
+}
+
+.text-twitter {
+  color: #55acee !important;
+}
+
+.text-pinterest {
+  color: #bd081c !important;
+}
+
+.text-instagram {
+  color: #3f729b !important;
+}
+
 .text {
 	font-family:'Bitter', serif !important;
 	margin: 0!important;
@@ -791,6 +807,20 @@ circle.pie4 {
     background-position: center;
     background-size: 50%;
     background-repeat: no-repeat;
+}
+
+/*Account Detail Page*/
+
+.logoutButton {
+	position: absolute;
+	top:-10px;
+	right:10px;
+	background-color: #184850 !important;
+	color: white !important;
+	border-radius: 0 0 10px 10px;
+	padding-left:10px !important;
+	padding-right:10px !important;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.4) !important;
 }
 
 .accountThumbnail {

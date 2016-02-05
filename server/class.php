@@ -167,7 +167,11 @@ class Identity {
 		$this->sql = "SELECT id,fname,lname,email,start,authorize,verified,perma,avatar,sup,part,corp FROM ident WHERE authorize = '$this->authorize';";
 		return $this->sql;
 	}
-
+	function getName($data) {
+		$this->id = $data;
+		$this->sql = "SELECT fname,lname FROM ident WHERE id = '$this->id';";
+		return $this->sql;
+	}
 }
 
 class Household {

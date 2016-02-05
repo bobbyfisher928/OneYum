@@ -216,14 +216,13 @@ $app->post('/household', function() use ( $app ) {
       $action->create((array)$request['info']);
       $insert = new Request;
       $request['info']->hid = $insert->insert($action->sql);
-      $response = $request['info'];
+      $response = (array) $request['info'];
       break;
     
     default:
       # code...
       break;
   }
-  // $response = $request;
   echo json_encode( $response );
 });
 

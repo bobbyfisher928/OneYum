@@ -118,6 +118,12 @@ angular.module('OneYum.controllers', [])
     $scope.loginmodal = modal;
   });
 
+  $ionicModal.fromTemplateUrl('templates/externalAuth.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.externalAuth = modal;
+  });
+
   $ionicModal.fromTemplateUrl('templates/register.html', {
     scope: $scope
   }).then(function(modal) {
@@ -172,6 +178,39 @@ angular.module('OneYum.controllers', [])
     $scope.closeRegister();
     $scope.supRegistermodal.show();
   }
+  // HelloJS Authentication Listening
+  hello.on('auth.login', function(auth) {
+    // Call user information, for the given network
+    // hello(auth.network).api('me')
+    // .then(function(r) {
+    //   // Inject it into the container
+    //   console.log(r);
+    // }, function(e) {
+    //   console.log(e);
+    // });
+  });
+
+  // External Auth Engaged
+  $scope.externalAuthGo = function(system) {
+    console.groupCollapsed("External Auth Started");
+    // $scope.closeLogin();
+    // $scope.closeRegister();
+    
+    if (system === 'facebook') {
+      console.log('Facebook External Auth Called');
+      $scope.externalAuth.show();
+      hello('facebook').login({scope:'email'})
+      .then(function(json) {
+        console.log(json);
+      });
+    };
+    console.groupEnd();
+  };
+
+  $scope.closeExternalAuth = function() {
+    $scope.externalAuth.hide();
+    // $scope.login();
+  }
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function(data) {
@@ -179,7 +218,6 @@ angular.module('OneYum.controllers', [])
     // 
     LoginService.login(data)
     .then(function(resp) {
-      console.log(resp);
       if (AuthService.isAuthorized()) {
         $scope.show();
         $timeout(function() {
@@ -395,11 +433,18 @@ angular.module('OneYum.controllers', [])
   
 })
 
-.controller('AccountDetailCtrl', ['$scope','Identification', function($scope,Identification){
+.controller('AccountDetailCtrl', ['$scope','Identification', 'AuthService','$state', function($scope,Identification,AuthService,$state){
   console.groupCollapsed("AccountCtrl Entered");
   $scope.Ident = Identification.getIdent();
   console.log($scope.Ident);
   console.groupEnd();
+
+  $scope.logout = function() {
+    AuthService.removeToken();
+    if (!AuthService.isAuthorized()) {
+      $state.go('welcome.home');
+    };
+  }
 }])
 
 .controller('MessageCtrl', ['$scope','Posts', function($scope,Posts){
@@ -416,10 +461,31 @@ angular.module('OneYum.controllers', [])
   })
 }])
 
-.controller('PlanCtrl', ['$scope','$stateParams','Plans','$ionicNavBarDelegate','$state','Identification','HouseholdService','MemberService','Members', function($scope,$stateParams,Plans,$ionicNavBarDelegate,$state,Identification,HouseholdService,MemberService,Members){
-  console.groupCollapsed('PlanCtrl Engaged');
+.controller('PlanCtrl', 
+  ['$scope',
+  '$stateParams',
+  'Plans',
+  '$ionicNavBarDelegate',
+  '$state',
+  'Identification',
+  'HouseholdService',
+  'MemberService',
+  'Members',
+  'HouseHold',
+  function($scope,
+    $stateParams,
+    Plans,
+    $ionicNavBarDelegate,
+    $state,
+    Identification,
+    HouseholdService,
+    MemberService,
+    Members,
+    HouseHold){
 
-  $scope.HHold = Identification.getHHold();
+  console.groupCollapsed('PlanCtrl Engaged');
+  HouseholdService.get();
+  $scope.HHold = HouseHold.getAll();
   $scope.Ident = Identification.getIdent();
   $scope.Members = Members.getAll();
   $scope.OpenPlans = Plans.getPlans();
@@ -428,6 +494,7 @@ angular.module('OneYum.controllers', [])
 
 
   $scope.goToHHManage = function() {
+    console.log('click');
     $state.go('account.plans-household',{id:$scope.Ident.id});
   }
 
@@ -527,12 +594,24 @@ angular.module('OneYum.controllers', [])
 .controller('AccountCtrl', function($scope, $stateParams) {
 })
 
-.controller('HouseholdCtrl', function($scope, $stateParams,$ionicNavBarDelegate,Identification,$state,Locations,HouseholdService,MemberService,Members) {
-
-  // HouseholdService.get()
-
+.controller('HouseholdCtrl', function(
+  $scope,
+  $stateParams,
+  $ionicNavBarDelegate,
+  Identification,
+  $state,
+  Locations,
+  HouseholdService,
+  MemberService,
+  Members,
+  HouseHold
+  ) {
+  console.groupCollapsed("HouseholdCtrl Entered");
+  console.log($stateParams);
+  HouseholdService.get();
+  $scope.addNew = false;
   $scope.self = Identification.getIdent();
-  $scope.hhold = Identification.getHHold();
+  $scope.hhold = HouseHold.getAll();
   $scope.members = Members.getAll();
   $scope.NewHH = {};
 
@@ -541,28 +620,30 @@ angular.module('OneYum.controllers', [])
 
   }
 
+
+
   $scope.addNewHH = function(data) {
     console.log(data);
     HouseholdService.add(data)
     .then(function(resp) {
       console.log(resp);
-      $scope.hhold = Identification.getHHold();
+      $scope.hhold = HouseHold.getAll();
       console.log(resp.hid);
-      MemberService.add({hid:resp.hid})
-      .then(function(resp) {
-        console.log(resp);
-        $scope.members = Members.getAll();
-      });
+      // MemberService.add({hid:resp.hid})
+      // .then(function(resp) {
+      //   console.log(resp);
+      //   $scope.members = Members.getAll();
+      // });
     },function(err) {
       console.log(err);
     })
   }
 
-  $scope.location = Locations.build();
-  $scope.Locations = Locations.get();
-  if ($scope.self.length && $scope.hhold.length) {
-    console.log($scope.self,$scope.hhold);
-  };
+  // $scope.location = Locations.build();
+  // $scope.Locations = Locations.get();
+  // if ($scope.self.length && $scope.hhold.length) {
+  //   console.log($scope.self,$scope.hhold);
+  // };
 
   $scope.goToHH = function() {
     $state.go('account.plans-household',{id:$scope.self.id});
@@ -570,9 +651,9 @@ angular.module('OneYum.controllers', [])
 
   $scope.newLocation = function(data) {
     var request = data;
-    request.hid = Identification.getHHold()[0].hid;
+    // request.hid = HouseHold.getHHold()[0].hid;
 
-    console.log(request,Identification.getHHold().length);
+    // console.log(request,HouseHold.getHHold().length);
     // LocationService.add(request)
     // .then(function(resp) {
     //   $scope.Locations = Locations.get();
@@ -589,17 +670,7 @@ angular.module('OneYum.controllers', [])
     $scope.location = '';
     $state.go('account.plans');
   }
-
-  $scope.$watch('Identification.getHHold()', function() {
-    $scope.hhold = Identification.getHHold();
-    console.log($scope.hhold);
-  })
-
-  $scope.$watch('Members.getAll()', function() {
-    $scope.members = Members.getAll();
-    console.log($scope.members);
-  })
-
+  console.groupEnd();
 
 })
 

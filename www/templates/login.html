@@ -21,6 +21,12 @@
         </label>
       </div>
     </form>
+    <div class="button-bar">
+      <a class="button button-clear text-facebook" ng-click="externalAuthGo('facebook')"><i class="icon ion-social-facebook"></i></a>
+      <a class="button button-clear text-twitter" ng-click="hello('twitter').login()"><i class="icon ion-social-twitter"></i></a>
+      <a class="button button-clear text-pinterest" ng-click="hello('pinterest').login()"><i class="icon ion-social-pinterest"></i></a>
+      <a class="button button-clear text-instagram" ng-click="hello('instagram').login()"><i class="icon ion-social-instagram"></i></a>
+    </div>
     <button class="text button button-full button-clear highlight" ng-click="register()"><b>Sign Up</b></button>
   </ion-content>
 </ion-modal-view>

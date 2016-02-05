@@ -1,73 +1,69 @@
-
 <ion-view>
-	
-  
   <ion-content class="activityBackground">
-  <button class="button button-clear stableheader" ng-click="goToPlans()"><i class="icon ion-chevron-left"></i><b class="padding-left">Back</b></button>
-    <!-- Manage Family Display -->
-    <div class="stream">
-			<div ng-show="hhold">
-				<div class="card list" ng-repeat="house in hhold | orderBy: '-hid'">
-			    <div class="item item-icon-left item-icon-right"> 
-			      <i class="icon ion-home highlight"></i>
-			      <h2 class="text highlight">{{house.name}}</h2>
+	  <button class="button button-clear stableheader" ng-click="goToPlans()"><i class="icon ion-chevron-left"></i><b class="padding-left">Back</b></button>
+    	<!-- Manage Family Display -->
+		<div ng-show="hhold">
+			<div class="card list" ng-repeat="house in hhold">
+		    <div class="item item-icon-left item-icon-right"> 
+		      <i class="icon ion-home highlight"></i>
+		      <h2 class="text highlight">{{house.name}}</h2>
+		      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    </div>
+		    <div class="card list"> 
+			    <div class="item item-icon-left item-icon-right">
+			    	<i class="icon ion-person-stalker highlight"></i>
+			      <h2 class="text highlight">{{house.name}}'s Members</h2>
+			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    	</div>
+		    	<div class="item item-icon-left item-icon-right" ng-repeat="member in members">
+			    	<i class="icon ion-person stableheader" style="font-size:22px;"></i>
+			      <h2 class="text stableheader">{{member.name}}</h2>
+			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    	</div>
+		    	<div class="item item-icon-left item-icon-right"  ng-click="" ui-sref="account.plans-household-member"> 
+			      <i class="icon ion-person-add highlight" style="font-size:22px;"></i>
+			      <h2 class="text highlight">Add a Member</h2>
+			      <i class="icon ion-plus highlight" style="font-size:22px;"></i>
 			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
 			    </div>
-			    <div class="card list"> 
-				    <div class="item item-icon-left item-icon-right">
-				    	<i class="icon ion-person-stalker highlight"></i>
-				      <h2 class="text highlight">{{house.name}}'s Members</h2>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-			    	</div>
-			    	<div class="item item-icon-left item-icon-right" ng-repeat="member in members">
-				    	<i class="icon ion-person stableheader" style="font-size:22px;"></i>
-				      <h2 class="text stableheader">{{member.name}}</h2>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-			    	</div>
-			    	<div class="item item-icon-left item-icon-right"  ng-click="" ui-sref="account.plans-household-member"> 
-				      <i class="icon ion-person-add highlight" style="font-size:22px;"></i>
-				      <h2 class="text highlight">Add a Member</h2>
-				      <i class="icon ion-plus highlight" style="font-size:22px;"></i>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-				    </div>
+		    </div>
+		    <div class="card list"> 
+			    <div class="item item-icon-left item-icon-right">
+			    	<i class="icon ion-location highlight"></i>
+			      <h2 class="text highlight">{{house.name}}'s Locations</h2>
+			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    	</div>
+		    	<div class="item item-icon-left item-icon-right" ng-repeat="Location in Locations">
+			    	<i class="icon ion-map stableheader" style="font-size:22px;"></i>
+			      <h2 class="text stableheader">{{Location.name}}</h2>
+			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
+		    	</div>
+		    	<div class="item item-icon-left item-icon-right" ng-click="" ui-sref="account.plans-household-location"> 
+			      <i class="icon ion-map highlight" style="font-size:22px;"></i>
+			      <h2 class="text highlight">Add a Location</h2>
+			      <i class="icon ion-plus highlight" style="font-size:22px;"></i>
+			      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
 			    </div>
-			    <div class="card list"> 
-				    <div class="item item-icon-left item-icon-right">
-				    	<i class="icon ion-location highlight"></i>
-				      <h2 class="text highlight">{{house.name}}'s Locations</h2>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-			    	</div>
-			    	<div class="item item-icon-left item-icon-right" ng-repeat="Location in Locations">
-				    	<i class="icon ion-map stableheader" style="font-size:22px;"></i>
-				      <h2 class="text stableheader">{{Location.name}}</h2>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-			    	</div>
-			    	<div class="item item-icon-left item-icon-right" ng-click="" ui-sref="account.plans-household-location"> 
-				      <i class="icon ion-map highlight" style="font-size:22px;"></i>
-				      <h2 class="text highlight">Add a Location</h2>
-				      <i class="icon ion-plus highlight" style="font-size:22px;"></i>
-				      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
-				    </div>
-			    </div>
-				</div>
+		    </div>
 			</div>
-			<div class="card list">
-		    <div class="item item-icon-left item-icon-right"  ng-click="add = !add"> 
+		</div>
+		<div class="card list">
+		    <div class="item item-icon-left item-icon-right"  ng-click="addNew = !addNew"> 
 		      <i class="icon ion-home highlight"></i>
 		      <h2 class="text highlight">Add a Household</h2>
 		      <i class="icon ion-plus highlight" style="font-size:22px;" ng-show="!add"></i>
 		      <!-- <ion-spinner icon="ripple" class="icon spinner-balanced"></ion-spinner> -->
 		    </div>
-		    <form name="newHH" class="item list no-padding" ng-show="add">
-					<label class="item item-input">
-						<input class="text stableheader" ng-model="NewHH.name" type="text" placeholder="Household Name">
-					</label>
-					<div class="item button-bar no-padding">
-						<button class="button button-clear" ng-click="cancelNewHH(); add = !add;">Cancel</button>
-						<button class="button button-clear highlight" ng-click="addNewHH(NewHH);add = !add;">Save</button>
-					</div>
-				</form>
-			</div>
+
+		    <form name="newHH" class="item list no-padding" ng-show="addNew">
+				<label class="item item-input">
+					<input class="text stableheader" ng-model="NewHH.name" type="text" placeholder="Household Name">
+				</label>
+				<div class="item button-bar no-padding">
+					<button class="button button-clear" ng-click="cancelNewHH(); addNew = !addNew;">Cancel</button>
+					<button class="button button-clear highlight" ng-click="addNewHH(NewHH);addNew = !addNew;">Save</button>
+				</div>
+			</form>
 		</div>
 
 </ion-view>

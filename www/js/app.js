@@ -5,113 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'OneYum.controllers' is found in controllers.js
 angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','ngHello','ngFileUpload','angular-jwt','ngTouch','chart.js','jett.ionic.filter.bar', 'srph.timestamp-filter', 'OneYum.controllers', 'OneYum.services', 'OneYum.factories', 'OneYum.constants','locator'])
-
-.run(function($log,$rootScope,$ionicPlatform,$state,$cookies,RefreshService,Identification,location,reverseGeocoder,globalConfig,AuthService) {
-  console.groupCollapsed('APP RUN');
-  hello.init({
-    // facebook: ''
-  });
-
-  // Set global API variables based on page URL and 
-  var url = window.location.href;
-  console.log("URL: " + url);
-  if( url.indexOf( 'localhost' ) ) {
-    console.log(url.indexOf( 'localhost' ));
-    console.log({
-      DevAPI: globalConfig.localDevApiRoute,
-      LocalDevUplaod: globalConfig.localDevUploadRoute
-    });
-    $rootScope.apiRoute = globalConfig.localDevApiRoute;
-    $rootScope.uploadRoute = globalConfig.localDevUploadRoute;
-  }
-
-  // Initialize user location variable for use later
-  $rootScope.userLocation = '';
-  
-  location.get( function() {
-    console.groupCollapsed('Location Services');
-    console.log('Location detection allowed');
-    console.log(location);
-    $rootScope.userLocation = location.current;
-    console.log('userLocation: ');
-    console.log($rootScope.userLocation);
-    location.ready( function() {
-      reverseGeocoder.geocode( $rootScope.userLocation ).then( function( results ) {
-        console.groupCollapsed("reverseGeocoder Engaged");
-        console.log('reverseGeocoder succeeded:');
-        console.log(results);
-        // $scope.locationOptions = results;
-        console.groupEnd();
-      }, $log.error);
-    });
-    console.groupEnd();
-  }, function() {
-    console.log('Location detection denied');
-  });
-
-  $rootScope.$on('$stateChangeStart', function ( event, toState ) {
-    console.groupCollapsed( 'Checking User Authentication' );
-    // console.log({'Event': event});
-    console.log({'toState': toState});
-    var isAuth = AuthService.isAuthorized();
-    console.log({'isAuth':isAuth});
-    if ( !isAuth ) {
-      console.log('No User Set');
-
-      if( globalConfig.authorizedRoutes.withoutUserAccount.indexOf( toState.name ) < 0 ) {
-        console.log('You\'re not supposed to be here.');
-        event.preventDefault();
-        $state.go('welcome.home');
-      }
-      
-    } else {
-      if( toState.name === 'welcome.home' ) {
-        console.log('Auth Exists');
-        Identification.setIdent(isAuth.Ident);
-        console.log('Welcome ' + Identification.getIdent().fname);
-        event.preventDefault();
-        $state.go('account.stream');
-      }
-    };
-    console.groupEnd();
-  });
-
-  // if (localStorage.getItem('oy')) {
-  //   console.groupCollapsed('Local Storage Check');
-  //   RefreshService.refresh(localStorage.getItem('oy'))
-  //   .then(function(resp){
-  //     console.log(resp);
-  //     console.log(resp === 'null');
-  //     if (resp === 'null') {
-  //       localStorage.removeItem('oy');
-  //       // $urlRouterProvider.otherwise('/welcome/home');
-  //       $state.go('welcome.home');
-  //     } else {
-  //       $state.go('account.stream',{id:Identification.getIdent().id});
-  //     };
-  //   });
-  //   console.groupEnd();
-  // } else {
-  //   console.log('No Local Storage available');
-  //   $state.go('welcome.home');
-  // };
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-      
-   console.groupEnd();   
-})
-
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   
   $httpProvider.defaults.withCredentials = true;
@@ -130,7 +23,7 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     views: {
       'menuContent': {
         templateUrl: 'templates/home.html',
-        controller: 'HomeCtrl'
+        controller: 'AppCtrl'
       }
     }
   })
@@ -189,15 +82,6 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
       }
     }
   })
-
-  // .state('welcome.contactform', {
-  //   url: '/contactform/:target',
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: 'templates/contactform.html'
-  //     }
-  //   }
-  // })
 
   .state('welcome.contactcall', {
     url: '/contactcall/:target',
@@ -263,7 +147,7 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
   })
 
   .state('account.plans-household', {
-    url: '/household/:id',
+    url: '/plans/household/:id',
     views: {
       'account-plans': {
         templateUrl: 'templates/account-household.html',
@@ -293,7 +177,7 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
   })
 
   .state('account.plans-create', {
-    url: '/create',
+    url: '/plans/create',
     views: {
       'account-plans': {
         templateUrl: 'templates/account-plans-create.html',
@@ -334,5 +218,110 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
 
   ;
   // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise('/account/plans');
+  $urlRouterProvider.otherwise('/welcome/home');
+})
+
+
+.run(function($log,$rootScope,$ionicPlatform,$state,$cookies,RefreshService,Identification,location,reverseGeocoder,globalConfig,AuthService) {
+  console.groupCollapsed('APP RUN');
+
+  // Initialize user location variable for use later
+  $rootScope.userLocation = '';
+  
+  location.get( function() {
+    console.groupCollapsed('Location Services');
+    console.log('Location detection allowed');
+    console.log(location);
+    $rootScope.userLocation = location.current;
+    console.log('userLocation: ');
+    console.log($rootScope.userLocation);
+    location.ready( function() {
+      reverseGeocoder.geocode( $rootScope.userLocation ).then( function( results ) {
+        console.groupCollapsed("reverseGeocoder Engaged");
+        console.log('reverseGeocoder succeeded:');
+        console.log(results);
+        // $scope.locationOptions = results;
+        console.groupEnd();
+      }, $log.error);
+    });
+    console.groupEnd();
+  }, function() {
+    console.log('Location detection denied');
+  });
+
+
+  hello.init({
+    // facebook: '965129180247542'//Test App ID
+    facebook: '964419160318544' // Full App ID
+  });
+
+  // Set global API variables based on page URL and 
+  var url = window.location.href;
+  console.log("URL: " + url);
+  if( url.indexOf( 'localhost' ) ) {
+    console.log(url.indexOf( 'localhost' ));
+    console.log({
+      DevAPI: globalConfig.localDevApiRoute,
+      LocalDevUplaod: globalConfig.localDevUploadRoute
+    });
+    $rootScope.apiRoute = globalConfig.localDevApiRoute;
+    $rootScope.uploadRoute = globalConfig.localDevUploadRoute;
+  }
+
+  // // // HelloJS Authentication Listening
+  // hello.on('auth.login', function(auth) {
+  //   // Call user information, for the given network
+  //   console.log(auth);
+  //   // hello(auth.network).api('me')
+  //   // .then(function(r) {
+  //   //   // Inject it into the container
+  //   //   console.log(r);
+  //   // }, function(e) {
+  //   //   console.log(e);
+  //   // });
+  // });
+  // 
+  // 
+
+  console.log($rootScope.userLocation);
+
+  $rootScope.$on('$stateChangeStart', function ( event, toState ) {
+    console.groupCollapsed( 'Checking User Authentication' );
+    console.log({'toState': toState});
+    var isAuth = AuthService.isAuthorized();
+    
+    if ( !isAuth ) {
+      console.log('No User Set');
+      if( globalConfig.authorizedRoutes.withoutUserAccount.indexOf( toState.name ) < 0 ) {
+        console.log('You\'re not supposed to be here.');
+        event.preventDefault();
+        $state.go('welcome.home');
+      } else {
+        if( toState.name === 'welcome.home' && isAuth ) {
+          console.log('Auth Exists');
+          Identification.setIdent(isAuth.Ident);
+          console.log('Welcome ' + Identification.getIdent().fname);
+          event.preventDefault();
+          $state.go('account.stream');
+        }
+      }
+    }
+    console.groupEnd();
+  });
+  
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
+
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+      
+  console.groupEnd();   
 });
