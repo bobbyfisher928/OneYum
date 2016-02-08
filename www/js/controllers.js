@@ -178,38 +178,154 @@ angular.module('OneYum.controllers', [])
     $scope.closeRegister();
     $scope.supRegistermodal.show();
   }
-  // HelloJS Authentication Listening
-  hello.on('auth.login', function(auth) {
-    // Call user information, for the given network
-    hello(auth.network).api('me')
-    .then(function(r) {
-      // Inject it into the container
-      console.log(r);
-    }, function(e) {
-      console.log(e);
-    });
-  });
 
+  $scope.Ident = {
+    name:'',
+    email:'',
+    avatar:'',
+  };
+  $scope.progress = 0;
   // External Auth Engaged
-  $scope.externalAuthGo = function(system) {
-    console.groupCollapsed("External Auth Started");
-    // $scope.closeLogin();
-    // $scope.closeRegister();
-    
-    if (system === 'facebook') {
-      console.log('Facebook External Auth Called');
-      $scope.externalAuth.show();
-      hello('facebook').login({scope:'email'})
-      .then(function(json) {
-        console.log(json);
-      });
+  // 
+  $scope.externalAuthLogin = function(network) {
+    $scope.closeLogin();
+    $scope.closeRegister();
+    var options = {
+      display: 'popup',
+      scope: 'email, friends, photos, publish',
+      force: false // for dev purposes only
     };
+    hello.login(network,options).then(function(auth) {
+      console.log(auth);
+      hello(network).api('/me').then( function(r) {
+        console.log(r);
+        var data = {};
+        data.name = r.name;
+        data.fname = r.first_name;
+        data.lname = r.last_name;
+        data.email = r.email;
+        data.avatar = r.picture;
+        console.log(data);
+        LoginService.login(data)
+        .then(function(resp) {
+          if (AuthService.isAuthorized()) {
+            $scope.show();
+            $timeout(function() {
+              $state.go('account.stream');
+              $scope.closeLogin();
+              $scope.hide();
+            }, 1000);
+          } else {
+            $scope.hide();
+            Popup.alert(PopupFill.communication.error);
+          };
+          
+        },function(err) {
+          if (err) {
+            RegisterService.register(data)
+            .then(function(response) {
+              $scope.progress = 50 + "%";
+              console.log(response);
+              if (response.id) {
+                $scope.progress = 100 + "%";
+                $scope.show();
+                Identification.setIdent(response);
+                $timeout(function() {
+                  $state.go('account.stream');
+                  $scope.closeLogin();
+                  $scope.hide();
+                }, 1000);
+              } 
+            }, function(err) {
+              if (err) {
+                Popup.alert(PopupFill.register.problem);
+                $scope.loginData = {};
+              };
+            });
+          };
+        });
+        // $scope.progress = 25 + "%";
+        // $scope.externalAuth.show();
+      }, function(err) {
+        console.log(err);
+      });
+    }, function(err) {
+      console.log(err);
+    });
+  }
+  $scope.externalAuthRegister = function(network) {
+    // console.log(network);
+    console.groupCollapsed("External Auth Started");
+    $scope.closeLogin();
+    $scope.closeRegister();
+    console.log('Facebook External Auth Called');
+    
+
+
+    var options = {
+      display: 'popup',
+      scope: 'email, friends, photos, publish',
+      force: false // for dev purposes only
+    };
+    
+    hello.login(network,options).then(function(auth) {
+      console.log(auth);
+      hello(network).api('/me').then( function(r) {
+        console.log(r);
+        $scope.Ident.name = r.name;
+        $scope.Ident.fname = r.first_name;
+        $scope.Ident.lname = r.last_name;
+        $scope.Ident.email = r.email;
+        $scope.Ident.avatar = r.picture;
+        console.log($scope.Ident);
+        $scope.progress = 25 + "%";
+        $scope.externalAuth.show();
+      }, function(err) {
+        console.log(err);
+      });
+    }, function(err) {
+      console.log(err);
+    });
     console.groupEnd();
   };
 
   $scope.closeExternalAuth = function() {
     $scope.externalAuth.hide();
     // $scope.login();
+  }
+
+  $scope.doExtRegister = function() {
+    $scope.progress = 33 + "%";
+    var data = {};
+    data.fname = $scope.Ident.fname;
+    data.lname = $scope.Ident.lname;
+    data.email = $scope.Ident.email;
+    data.avatar = $scope.Ident.avatar;
+    
+    console.log(data);
+    RegisterService.register(data)
+    .then(function(response) {
+      $scope.progress = 50 + "%";
+      console.log(response);
+      if (response.id) {
+        $scope.progress = 100 + "%";
+        $scope.show();
+        Identification.setIdent(response);
+        $timeout(function() {
+          $state.go('account.stream');
+          $scope.registerData = {};
+          $scope.closeExternalAuth();
+          $scope.hide();
+          console.log('click');
+          
+        }, 1000);
+      } 
+    }, function(err) {
+      if (err) {
+        Popup.alert(PopupFill.register.problem);
+        $scope.loginData = {};
+      };
+    });
   }
 
   // Perform the login action when the user submits the login form
@@ -260,12 +376,7 @@ angular.module('OneYum.controllers', [])
           console.log('click');
           
         }, 1000);
-      } else {
-        Popup.alert(PopupFill.login.invalidCred);
-        $scope.loginData = {};
-      };
-        
-      
+      }
     }, function(err) {
       if (err) {
         Popup.alert(PopupFill.register.problem);

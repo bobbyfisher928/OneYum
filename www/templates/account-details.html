@@ -3,18 +3,15 @@
   <ion-content class="activityBackground" >
 
     <!-- Refresher -->
-    <ion-refresher
+    <!-- <ion-refresher
       pulling-text=""
       on-refresh="doRefresh()">
-    </ion-refresher>
+    </ion-refresher> -->
     <button class="button button-clear text logoutButton" ng-click="logout()">Logout</button>
 
     <!-- Account Information Display -->
-    <div class="row">
-    	<div class="col col-50 col-offset-25">
-    		<div class="accountThumbnail" ng-if="Ident.avatar" style="background-image:url({{Ident.avatar}});"></div>
-    		<img class="accountThumbnail" ng-if="!Ident.avatar" src="./img/profile_headshot.jpg">
-    	</div>
+    <div class="row marginBottom40">
+    	
     	
     </div>
     <div class="card list">
@@ -23,6 +20,10 @@
     	</div>
     	<div class="row row-center">
     		<div class="col col-75">
+                <div class="col">
+                    <div class="accountThumbnail" ng-if="Ident.avatar" style="background-image:url({{Ident.avatar}});"></div>
+                    <img class="accountThumbnail" ng-if="!Ident.avatar" src="./img/profile_headshot.jpg">
+                </div>
 	    		<p class="text stableheader">{{Ident.fname}} {{Ident.lname}}</p>
 	    		<p class="text stableheader">{{Ident.email}}</p>
 				<p class="text stableheader">Manage password</p>

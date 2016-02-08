@@ -49,10 +49,18 @@ $app->post('/register', function() use ( $app ) {
   $user = $user[0];
   $user['fname'] = decode5t($user['fname']);
   $user['lname'] = decode5t($user['lname']);
-  $response = $user;
-  $app->setCookie('oy',$user['authorize'],'2 days','/','oneyum.org');
-  $_SESSION['oy'] = $user['authorize'];
-  echo json_encode( $response );
+
+  $auth = new AUTH;
+  $auth->set($_SERVER['HTTP_ORIGIN'],$request['email']);
+
+  $response['Ident'] = $user;
+  $response['Auth'] = $auth->token;
+
+  $tok = new AUTHTOKEN;
+  $tok->get();
+  
+  $jwt = JWT::encode($response,$tok->response);
+  echo json_encode( $jwt );
 });
 
 // Login
@@ -216,6 +224,9 @@ $app->post('/household', function() use ( $app ) {
       $action->create((array)$request['info']);
       $insert = new Request;
       $request['info']->hid = $insert->insert($action->sql);
+      $ident = new Identity;
+      $query = new Request;
+      $name = $query->
       $response = (array) $request['info'];
       break;
     

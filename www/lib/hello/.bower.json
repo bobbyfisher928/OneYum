@@ -32,6 +32,5 @@
   },
   "_source": "git://github.com/MrSwitch/hello.js.git",
   "_target": "~1.10.1",
-  "_originalSource": "hello",
-  "_direct": true
+  "_originalSource": "hello"
 }

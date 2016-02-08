@@ -250,10 +250,12 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
   });
 
 
-  hello.init({
-    // facebook: '965129180247542'//Test App ID
-    facebook: '964419160318544' // Full App ID
-  });
+  hello.init(
+  {
+    facebook: '965129180247542'//Test App ID
+    // facebook: '964419160318544' // Full App ID
+  }
+  );
 
   // Set global API variables based on page URL and 
   var url = window.location.href;
@@ -268,21 +270,6 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
     $rootScope.uploadRoute = globalConfig.localDevUploadRoute;
   }
 
-  // // HelloJS Authentication Listening
-  hello.on('auth.login', function(auth) {
-    // Call user information, for the given network
-    console.log(auth);
-    hello(auth.network).api('me',{scope:'email'})
-    .then(function(r) {
-      // Inject it into the container
-      console.log(r);
-    }, function(e) {
-      console.log(e);
-    });
-  });
-  
-  
-
   console.log($rootScope.userLocation);
 
   $rootScope.$on('$stateChangeStart', function ( event, toState ) {
@@ -296,15 +283,18 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
         console.log('You\'re not supposed to be here.');
         event.preventDefault();
         $state.go('welcome.home');
-      } else {
-        if( toState.name === 'welcome.home' && isAuth ) {
+      }
+    } else {
+        if( toState.name === 'welcome.home' ) {
           console.log('Auth Exists');
-          Identification.setIdent(isAuth.Ident);
+          Identification.setIdent(AuthService.isAuthorized().Ident);
+          console.log(isAuth);
           console.log('Welcome ' + Identification.getIdent().fname);
           event.preventDefault();
           $state.go('account.stream');
+        } else {
+          Identification.setIdent(AuthService.isAuthorized().Ident);
         }
-      }
     }
     console.groupEnd();
   });

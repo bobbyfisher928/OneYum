@@ -36,6 +36,30 @@
         </label>
       </div>
     </form>
+    <div class="list no-padding">
+        <label class="item item-text-wrap text-center">
+          <div class="button-bar">
+            <button class="button button-clear" style="overflow:visible;" ng-click="externalAuthRegister('facebook')">
+              <div class="text-facebook">
+                <i class="icon ion-social-facebook"></i>
+              </div>
+            </button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('twitter').login()">
+              <div class="text-twitter">
+                <i class="icon ion-social-twitter"></i>
+              </div>
+            </button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('pinterest').login()"><div class="text-pinterest"><i class="icon ion-social-pinterest"></i></div></button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('instagram').login()"><div class="text-instagram"><i class="icon ion-social-instagram"></i></div></button>
+          </div>
+          <span class="row no-padding">
+            <span class="col padding-top"></span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+          </span>
+        </label>
+      </div>
     <a class="text button button-block button-clear highlight" ng-click="supRegister()">Supplier Registration</a>
     <!-- <a class="text button button-block button-clear highlight">Partner Registration</a>
     <a class="text button button-block button-clear highlight">Corporate Registration</a> -->

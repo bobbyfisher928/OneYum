@@ -8,19 +8,79 @@
 
 .text-facebook {
 	color: #3b5998 !important;
+	border: 1px solid #3b5998 !important;
+	height: 50px !important;
+	width: 50px !important;
+	border-radius: 50% !important;
+	margin:auto;
+	padding: 2px;
 }
 
 .text-twitter {
-  color: #55acee !important;
+  	color: #55acee !important;
+  	border: 1px solid #55acee !important;
+  	height: 50px !important;
+	width: 50px !important;
+	border-radius: 50% !important;
+	margin:auto;
+	padding: 2px;
 }
 
 .text-pinterest {
-  color: #bd081c !important;
+  	color: #bd081c !important;
+  	border: 1px solid #bd081c !important;
+  	height: 50px !important;
+	width: 50px !important;
+	border-radius: 50% !important;
+	margin:auto;
+	padding: 2px;
 }
 
 .text-instagram {
-  color: #3f729b !important;
+  	color: #3f729b !important;
+  	border: 1px solid #3f729b !important;
+  	height: 50px !important;
+  	padding:2px 0 0 1px;
+	width: 50px !important;
+	border-radius: 50% !important;
+	margin:auto;
 }
+
+.socialSelected {
+	position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 12px;
+    /*min-width: 52px;*/
+    width:100%;
+    min-height: 47px;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*border-radius: 2px;*/
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    line-height: 42px;
+}
+
+.profileSocial{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 50px;
+    background-image: url('https://graph.facebook.com/10208657468622872/picture');
+    width: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    /*border: 3px solid white;*/
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+    margin-right:10px;
+}
+
 
 .text {
 	font-family:'Bitter', serif !important;
@@ -178,8 +238,8 @@
 	z-index: 1;
 	/*background-color: #d6d6d6;*/
 	background-image: url("../img/gray-linen_bg_tile.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+	
+	background-size: contain;
 	background-position: center;
 }
 
@@ -824,14 +884,11 @@ circle.pie4 {
 }
 
 .accountThumbnail {
-	height:80%;
-	width:80%;
-	border:5px solid white;
-	margin-top:10% !important;
-	margin-left:10% !important;
-	margin-right:10% !important;
+	height:50px;
+	width:50px;
+	border:1px solid white;
 	border-radius:100%;
-	box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+	box-shadow: 0 0 12px 1px rgba(0,0,0,0.4);
 	background-position: center;
 	background-size: cover;
 }
@@ -839,3 +896,10 @@ circle.pie4 {
 .editButton {
 	font-size: 22px;
 }
+
+.marginBottom40 {
+	padding-top:40px;
+}
+
+
+

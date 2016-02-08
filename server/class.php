@@ -120,12 +120,21 @@ class Identity {
 		$this->lastname = encode5t($data['lname']);
 		$this->email = $data['email'];
 		$this->salt = createSalt();
-		$this->secret = createHash($this->salt, $data['password']);
+		if ($data['password']) {
+			$this->secret = createHash($this->salt, $data['password']);
+		} else {
+			$this->secret = createHash($this->salt, $data['fname'].'_'.$data['lname'].'_'.substr($data['email'],0,4));
+		}
+		
 		$this->verified = false;
 		$this->authorize = getToken(32);
 		$this->req = getToken(32);
 		$this->perma = getToken(32);
-		$this->avatar = '';
+		if (!$data['avatar']) {
+			$this->avatar = '';
+		} else {
+			$this->avatar = $data['avatar'];
+		}
 		$this->sup = false;
 		$this->part = false;
 		$this->corp = false;
@@ -143,6 +152,9 @@ class Identity {
 	function loginCheck($data,$check) {
 		$this->salt = $data['salt'];
 		$this->secret = $data['secret'];
+		if (!$check['secret']) {
+			$check['secret'] = $check['fname'].'_'.$check['lname'].'_'.substr($check['email'],0,4);
+		}
 		if($this->secret === createHash($this->salt,$check['secret'])){
 			return true;
 		} else {

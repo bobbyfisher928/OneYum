@@ -1,32 +1,88 @@
 <ion-modal-view>
   <ion-header-bar align-title="center">
-    <h1 class="title text highlight text-center">Login</h1>
+    <h1 class="title text highlight text-center"></h1>
     <div class="buttons">
-      <button class="text button button-clear" ng-click="closeLogin()">Close</button>
+      <button class="text button button-clear highlight" ng-click="closeLogin()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form name="loginform" ng-submit="doLogin(loginData)" novalidate>
-      <div class="list">
-        <label class="item item-input">
-          <span class="text input-label">Email:</span>
-          <input type="email" ng-model="loginData.email" >
-        </label>
-        <label class="item item-input">
-          <span class="text input-label">Password:</span>
-          <input type="password" ng-model="loginData.secret" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
-        </label>
+    <div>
+      <form name="loginform" ng-submit="doLogin(loginData)" novalidate>
+        <div class="list">
+          <label class="item item-input">
+            <span class="text input-label">Email:</span>
+            <input type="email" ng-model="loginData.email" >
+          </label>
+          <label class="item item-input">
+            <span class="text input-label">Password:</span>
+            <input type="password" ng-model="loginData.secret" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+          </label>
+          <label class="item item-text-wrap text-center">
+            <button class="text button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
+          </label>
+        </div>
+      </form>
+      <div class="list no-padding">
         <label class="item item-text-wrap text-center">
-          <button class="text button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
+          <div class="button-bar">
+            <button class="button button-clear" style="overflow:visible;" ng-click="externalAuthLogin('facebook')">
+              <div class="text-facebook">
+                <i class="icon ion-social-facebook"></i>
+              </div>
+            </button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('twitter').login()">
+              <div class="text-twitter">
+                <i class="icon ion-social-twitter"></i>
+              </div>
+            </button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('pinterest').login()"><div class="text-pinterest"><i class="icon ion-social-pinterest"></i></div></button>
+            <button class="button button-clear disabled" style="overflow:visible;" ng-click="hello('instagram').login()"><div class="text-instagram"><i class="icon ion-social-instagram"></i></div></button>
+          </div>
+          <span class="row no-padding">
+            <span class="col padding-top"></span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+            <span class="col padding-top text disabled stableheader" style="font-size:10px;">Coming soon</span>
+          </span>
         </label>
       </div>
-    </form>
-    <div class="button-bar">
-      <a class="button button-clear text-facebook" ng-click="externalAuthGo('facebook')"><i class="icon ion-social-facebook"></i></a>
-      <a class="button button-clear text-twitter" ng-click="hello('twitter').login()"><i class="icon ion-social-twitter"></i></a>
-      <a class="button button-clear text-pinterest" ng-click="hello('pinterest').login()"><i class="icon ion-social-pinterest"></i></a>
-      <a class="button button-clear text-instagram" ng-click="hello('instagram').login()"><i class="icon ion-social-instagram"></i></a>
+      <!-- <div class="button-bar">
+        <a class="button button-clear text-facebook" ng-click="externalAuthGo('facebook')"><i class="icon ion-social-facebook"></i></a>
+        <a class="button button-clear text-twitter" ng-click="hello('twitter').login()"><i class="icon ion-social-twitter"></i></a>
+        <a class="button button-clear text-pinterest" ng-click="hello('pinterest').login()"><i class="icon ion-social-pinterest"></i></a>
+        <a class="button button-clear text-instagram" ng-click="hello('instagram').login()"><i class="icon ion-social-instagram"></i></a>
+      </div> -->
+      <button class="text button button-full button-clear highlight" ng-click="register()"><span class="stableheader text">New here? </span><b>Sign Up</b></button>
     </div>
-    <button class="text button button-full button-clear highlight" ng-click="register()"><b>Sign Up</b></button>
+
+    <!-- <div ng-if="tabletVert() || tabletHori() || desktop()">
+      <form name="loginform" ng-submit="doLogin(loginData)" novalidate>
+        <div class="card list">
+          <label class="item text highlight text-center">Email Login</label>
+          <label class="item item-input">
+            <span class="text input-label">Email:</span>
+            <input type="email" ng-model="loginData.email" >
+          </label>
+          <label class="item item-input">
+            <span class="text input-label">Password:</span>
+            <input type="password" ng-model="loginData.secret" ng-pattern="/(?=^.{8,30}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;&quot;:;'?/&gt;.&lt;,]).*$/" ng-minlength=8 ng-maxlength=30 required>
+          </label>
+          <label class="item item-text-wrap text-center">
+            <button class="text button button-block btn" ng-disabled="loginform.$invalid">Log in</button>
+          </label >
+          <label class="item text highlight text-center">Or Login with:</label>
+          <label class="item item-text-wrap text-center">
+            <div class="button-bar">
+              <a class="button button-clear " style="overflow:visible;" ng-click="externalAuthGo('facebook')"><div class="text-facebook"><i class="icon ion-social-facebook"></i></div></a>
+              <a class="button button-clear " style="overflow:visible;" ng-click="hello('twitter').login()" ng-disabled="true"><div class="text-twitter"><i class="icon ion-social-twitter"></i></div></a>
+              <a class="button button-clear " style="overflow:visible;" ng-click="hello('pinterest').login()" ng-disabled="true"><div class="text-pinterest"><i class="icon ion-social-pinterest"></i></div></a>
+              <a class="button button-clear " style="overflow:visible;" ng-click="hello('instagram').login()" ng-disabled="true"><div class="text-instagram"><i class="icon ion-social-instagram"></i></div></a>
+            </div>
+          </label>
+        </div>
+      </form>
+            
+      <button class="text button button-full button-clear highlight" ng-click="register()"><span class="stableheader text">New here? </span><b>Sign Up</b></button>
+    </div> -->
   </ion-content>
 </ion-modal-view>
