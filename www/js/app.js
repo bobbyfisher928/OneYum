@@ -252,8 +252,8 @@ angular.module('OneYum', ['ionic','ionic-datepicker', 'ngCookies','ui.router','n
 
   hello.init(
   {
-    facebook: '965129180247542'//Test App ID
-    // facebook: '964419160318544' // Full App ID
+    // facebook: '965129180247542'//Test App ID
+    facebook: '964419160318544' // Full App ID
   }
   );
 
