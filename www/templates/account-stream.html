@@ -22,7 +22,7 @@
       <div ng-repeat="Message in HMessages | orderBy: 'pid' as filtered_result track by Message.pid">
         <div class="card list">
           <div class="item item-avatar-left item-text-wrap">
-            <img src="../img/OneYumPie.png">
+            <img src="img/OneYumPie.png">
             <h2 class="text"><b class="text highlight">{{Message.title}} </b>by <b class="text highlight">{{Message.source}}</b></h2>
             <h4 class="text">{{Message.timestamp | date}}</h4>
           </div>
