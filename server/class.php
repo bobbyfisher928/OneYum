@@ -22,6 +22,7 @@ class Request {
 			throw new Exception("Request Class Error Insert 25", $e , 401);
 		}
 		return $this->response;
+	
 	}
 
 	function insertNR( $sql ) {

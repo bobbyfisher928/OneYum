@@ -224,10 +224,7 @@ angular.module('OneYum.controllers', [])
           if (err) {
             RegisterService.register(data)
             .then(function(response) {
-              $scope.progress = 50 + "%";
-              console.log(response);
               if (response.id) {
-                $scope.progress = 100 + "%";
                 $scope.show();
                 Identification.setIdent(response);
                 $timeout(function() {
@@ -602,6 +599,7 @@ angular.module('OneYum.controllers', [])
   $scope.OpenPlans = Plans.getPlans();
   $scope.PastPlans = Plans.getHistory();
   // console.log($scope.Plans);
+  console.log($scope.HHolds);
 
 
   $scope.goToHHManage = function() {
@@ -717,14 +715,24 @@ angular.module('OneYum.controllers', [])
   Members,
   HouseHold
   ) {
+
+
   console.groupCollapsed("HouseholdCtrl Entered");
   console.log($stateParams);
-  HouseholdService.get();
+  HouseholdService.get()
+  .then(function(resp) {
+    console.log(resp);
+    HouseHold.setHHold(resp);
+  }, function(err) {
+    console.log(err);
+  })
   $scope.addNew = false;
   $scope.self = Identification.getIdent();
   $scope.hhold = HouseHold.getAll();
   $scope.members = Members.getAll();
   $scope.NewHH = {};
+  console.log($scope.hhold);
+
 
   $scope.cancelNewHH = function () {
     $scope.NewHH = {};

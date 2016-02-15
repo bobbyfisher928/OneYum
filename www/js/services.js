@@ -170,7 +170,7 @@ angular.module('OneYum.services', [])
 			action: 'GET',
 			info: data,
 		};
-		// console.log(data);
+		
 		$http.post(API.household,request)
 		.success(function(response) {
 			console.groupCollapsed('HouseholdService Returned');
@@ -251,6 +251,8 @@ angular.module('OneYum.services', [])
 		})
 		return d.promise;
 	};
+
+	
 
 	return {
 		get: get,

@@ -15,18 +15,18 @@ angular.module('OneYum.constants', [])
 	// emailContact: 	'http://localhost/OneYum/server/index.php/emailContact',
 
 
-	login: 			'http://www.oneyum.org/oneyum.org/server/index.php/login',
-	username: 		'http://www.oneyum.org/oneyum.org/server/index.php/checkusername',
-	email: 			'http://www.oneyum.org/oneyum.org/server/index.php/checkemail',
-	register: 		'http://www.oneyum.org/oneyum.org/server/index.php/register',
-	validateSupKey: 'http://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
-	supregister: 	'http://www.oneyum.org/oneyum.org/server/index.php/supregister',
-	meals: 			'http://www.oneyum.org/oneyum.org/server/index.php/meals',
-	location: 		'http://www.oneyum.org/oneyum.org/server/index.php/location',
-	household: 		'http://www.oneyum.org/oneyum.org/server/index.php/household',
-	members: 		'http://www.oneyum.org/oneyum.org/server/index.php/members',
-	refresh: 		'http://www.oneyum.org/oneyum.org/server/index.php/refresh',
-	emailContact:	'http://www.oneyum.org/oneyum.org/server/index.php/emailContact'
+	login: 			'https://www.oneyum.org/oneyum.org/server/index.php/login',
+	username: 		'https://www.oneyum.org/oneyum.org/server/index.php/checkusername',
+	email: 			'https://www.oneyum.org/oneyum.org/server/index.php/checkemail',
+	register: 		'https://www.oneyum.org/oneyum.org/server/index.php/register',
+	validateSupKey: 'https://www.oneyum.org/oneyum.org/server/index.php/validatesupkey',
+	supregister: 	'https://www.oneyum.org/oneyum.org/server/index.php/supregister',
+	meals: 			'https://www.oneyum.org/oneyum.org/server/index.php/meals',
+	location: 		'https://www.oneyum.org/oneyum.org/server/index.php/location',
+	household: 		'https://www.oneyum.org/oneyum.org/server/index.php/household',
+	members: 		'https://www.oneyum.org/oneyum.org/server/index.php/members',
+	refresh: 		'https://www.oneyum.org/oneyum.org/server/index.php/refresh',
+	emailContact:	'https://www.oneyum.org/oneyum.org/server/index.php/emailContact'
 })
 
 .constant('PopupFill', {

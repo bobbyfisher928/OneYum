@@ -50,6 +50,7 @@ $app->post('/register', function() use ( $app ) {
   $user['fname'] = decode5t($user['fname']);
   $user['lname'] = decode5t($user['lname']);
 
+  
   $auth = new AUTH;
   $auth->set($_SERVER['HTTP_ORIGIN'],$request['email']);
 
@@ -221,12 +222,13 @@ $app->post('/household', function() use ( $app ) {
     
     case 'ADD':
       $action = new Household;
-      $action->create((array)$request['info']);
+      $action->create((array) $request['info']);
       $insert = new Request;
       $request['info']->hid = $insert->insert($action->sql);
+      // Now that I have HID, I need to add current user to member list of hhold, and then return the HoseHold with member list.
       $ident = new Identity;
       $query = new Request;
-      $name = $query->
+      $name = $query->query($ident->getname($request['info']['id'])->sql);
       $response = (array) $request['info'];
       break;
     
